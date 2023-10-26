@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="r_ramanlys.jrxml" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="93e918d3-a967-49b4-801e-57cc40eeda8e">
+	<property name="ireport.zoom" value="1.1269722013523664"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="p_iirno" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_unit" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[WITH PRODUCT_PART_MASTER AS (
+SELECT
+'FOR '||P.PROD_GROUP AS GROUP_NAME,
+P.CODE AS P_RM_CD,
+NULL AS PART_TYP, 0 RE_TEST
+FROM TERMS.PRODUCT p
+UNION
+SELECT
+'FOR '|| GM.GROUP_DESC AS GROUP_NAME,
+PM.PART_CODE AS P_RM_CD,
+PM.PART_TYP, Nvl(RE_TEST, 0) RE_TEST
+FROM TERMS.PART_MASTER PM
+LEFT JOIN TERMS.GROUP_MST GM ON GM.GROUP_CD = PM.GROUP_CODE
+)
+SELECT
+ROWNUM AS SR_NO1,
+ICPM.CHKPT_SEQ_NO AS SR_NO,
+NVL(ICPM.CHKPT_SL_NO, 0) CHK_SL1,
+IID.CHK_CD,
+IIH.IIR_ID,
+IIH.IIR_NO,
+IIH.UNIT_CD,
+NVL(UNT.UNIT_DESC, UNT.NAME) AS UNIT_NAME,
+UNT.LOGO_PATH,
+--Substr(UNT.ADDRESS, 1, Instr(UNT.ADDRESS, 'Licence')-2)
+case
+        when nvl(Instr(UNT.ADDRESS, 'Licence'),0)>0
+        then Substr(UNT.ADDRESS, 1, Instr(UNT.ADDRESS, 'Licence')-2)
+        else UNT.ADDRESS
+    end UNIT_ADDRESS,
+IIH.IIR_DT,
+Decode(PPM.RE_TEST, 0, Null, 'Retest Due Date '||Chr(10)|| To_char(IIH.IIR_DT+RE_TEST, 'DD-MON-YYYY'))  Re_test_Date,
+IIH.INSP_LEVEL,
+IIH.INSP_STAT,
+SCV.DESCRIPTION AS INSP_STAT_DESCRIPTION,
+IIH.BATCH_NO,
+IIH.QCD_NO,
+IIH.INSP_BY,
+(EMH_INSPBY.EMP_FIRST_NAME || ' ' || EMH_INSPBY.EMP_LAST_NAME) AS INSP_BY_NAME,
+IIH.VENDR_CD,
+VM.NAME||' / '|| IIH.VENDR_CD AS VENDOR_NAME,
+IIH.P_RM_CD,
+ISTOCK.ITEM_DESC||' / '||IIH.P_RM_CD ITEM_DESC ,
+IIH.SRV_NO,
+IIH.SRV_DT,
+ISTOCK.ISS_UOM,
+IIH.PO_NO,
+SH.PO_DT,
+IIH.LOT_SIZE,
+IIH.MANUFACTR_NAME,
+IIH.VEHICLE_NO,
+IIH.VEH_TYPE,
+NVL(SH.CHALLAN_NO, '-') CHALLAN_NO,
+NVL(TO_char(SH.CHALLAN_DT, 'DD/MM/RRRR'),'-') CHALLAN_DT,
+SH.INV_NO,
+SH.INV_DT,
+NVL2(SH.INV_NO, SH.INV_NO||' & '||TO_CHAR(NVL(SH.INV_DT, SH.CHALLAN_DT), 'DD/MM/RRRR')
+              , NVL(SH.CHALLAN_NO, '-')||' & '||NVL(TO_CHAR(SH.CHALLAN_DT, 'DD/MM/RRRR'),'-')) INV_CHAN_NO_DT,
+NVL(IIH.ACCEPTED_QTY,0) AS APPROVED_QTY,
+NVL(IIH.REJECT_QTY,0)||' '||(SELECT MEASUREMENT_UNIT FROM TERMS.PART_MASTER WHERE PART_CODE = IIH.P_RM_CD) AS REJECT_QTY,
+IIH.CONCLUSION,
+NVL(IIH.SAMP_SIZE,0) AS SAMP_QTY,
+IIH.AR_NO,
+IIH.APPROVED_BY,
+(EMH_APPROVEDBY.EMP_FIRST_NAME || ' ' || EMH_APPROVEDBY.EMP_LAST_NAME) AS APPROVED_BY_NAME,
+IIH.REMK,
+Decode(Nvl(PPM.PART_TYP,'XX')
+                   , 'PM', 'Product Complies / Does Not Comply according to IHS standard.'
+                   , Decode(SCV.DESCRIPTION
+                              , 'Accept00', 'Product Complies according to API/IHS/ASU/PSAF standard.'
+                              , 'Product Complies / Does Not Comply according to API/IHS/ASU/PSAF standard.')
+) Insp_Stat_Descr_NW,
+NVL(IID.BASE_LIMIT,0) AS BASE_LIMIT,
+NVL(IID.UPPER_LIMIT,0) AS UPPER_LIMIT,
+NVL(IID.LOWER_LIMIT,0) AS LOWER_LIMIT,
+IID.UOM_OF_LIMITS,
+UM.DESCRIPTION AS UOM_DESC,
+IID.MIN_VAL,
+IID.CHECK_METHOD_TYPE,
+--IID.CHK_DESC,
+Decode( IID.CHECK_METHOD_TYPE, 'HEAD', '', IID.CHK_DESC)  CHK_DESC,
+Decode( IID.CHECK_METHOD_TYPE, 'HEAD', IID.CHK_DESC, '')  CHK_DESC_HEAD,
+IID.CHK_STAT,
+DECODE(IID.CHK_STAT,'O','OK','NOT OK') AS CHK_STAT_DESC,
+--NVL( ICPM.REMARKS, IID.REMARKS) AS IID_REMARKS,
+--ICPM.REMARKS AS IID_REMARKS,
+--Decode( IID.CHECK_METHOD_TYPE, 'HEAD', '', ICPM.REMARKS) AS IID_REMARKS,
+Decode(CALCULATIVE_FLAG,'CC',IID.REMARKS, ICPM.REMARKS) AS IID_REMARKS,
+PPM.GROUP_NAME,
+'CERTIFICATE OF ANALYSIS '||Decode(Nvl(PPM.PART_TYP,'XX')
+                   , 'RM', PPM.GROUP_NAME
+                   , 'PM', PPM.GROUP_NAME
+                   , 'SF', Replace(Replace(PPM.GROUP_NAME, ' ', '-'), '-GOODS', ' PRODUCT')
+                   , '' ) as GROUP_TITLE_NAME,
+PPM.PART_TYP,
+IID.CALCULATIVE_FLAG,
+--decode(CALCULATIVE_FLAG,'NC',IID.REMARKS,'CC',IID.MIN_VAL)as OB_VALUE111
+
+Decode( IID.CHECK_METHOD_TYPE, 'HEAD', '',decode(CALCULATIVE_FLAG,'NC',IID.REMARKS,'CC',
+case when IID.MIN_VAL>0 and IID.MIN_VAL<1 then '0'||to_char(IID.MIN_VAL)
+else to_char(IID.MIN_VAL)
+end))as OB_VALUE_OLD,
+
+Decode( IID.CHECK_METHOD_TYPE, 'HEAD', ''
+        ,decode(CALCULATIVE_FLAG,'NC',IID.REMARKS
+                                ,'CC', case when IID.MIN_VAL>0 and IID.MIN_VAL<1 then '0'||to_char(IID.MIN_VAL)
+                                            WHEN ROUND(TO_NUMBER(MIN_VAL))=TO_NUMBER(MIN_VAL) THEN TO_CHAR(TO_NUMBER(IID.MIN_VAL))
+                                            else Decode(Sign(Instr(UPPER(ICPM.CHKPT_DESC), 'TIME', 1))
+                                                            , 1, Replace(to_char(IID.MIN_VAL, '09.00'), '.', ':')
+                                                            , to_char(IID.MIN_VAL))
+end))as OB_VALUE,
+
+Decode(Nvl(PPM.PART_TYP,'XX'), 'RM', 'Format No. DP/CQC/SYS/054-F02-00'
+                   , 'PM', 'Format No. DP/CQC/SYS/054-F04-00'
+                   , 'SF', 'Format No. DP/CQC/SYS/054-F07-00'
+                   , ' ' ) as Format_type
+
+FROM TERMS.INCOMING_INSP_HEADER IIH
+LEFT JOIN TERMS.INCOMING_INSP_DETAIL IID ON IIH.IIR_ID = IID.IIR_ID
+LEFT JOIN TERMS.UNIT UNT ON IIH.UNIT_CD = UNT.CODE
+LEFT JOIN TERMS.VENDOR_MASTER VM ON IIH.VENDR_CD = VM.VENDOR_CODE
+LEFT JOIN TERMS.ITEM_STOCK ISTOCK ON IIH.P_RM_CD = ISTOCK.ITEM_CD
+LEFT JOIN TERMS.ITEM_CONVERSION ICONV ON IIH.P_RM_CD = ICONV.ITEM_CODE
+LEFT JOIN TERMS.PROCESS PROC ON IIH.PROC_CD = PROC.PROC_CODE
+LEFT JOIN TERMS.SRV_HEADS SH ON IIH.SRV_NO = SH.SRV_NO
+LEFT JOIN TERMS.EMP_MASTER_HD EMH_INSPBY ON IIH.INSP_BY = EMH_INSPBY.EMP_NUMBER
+LEFT JOIN TERMS.EMP_MASTER_HD EMH_APPROVEDBY ON IIH.APPROVED_BY = EMH_APPROVEDBY.EMP_NUMBER
+LEFT JOIN TERMS.SEC_CONTROL_VALUES SCV ON IIH.INSP_STAT = SCV.CONTROL_CODE AND CONTROL_TYPE = 'INSP_STATE'
+LEFT JOIN PRODUCT_PART_MASTER PPM ON PPM.P_RM_CD = IIH.P_RM_CD
+LEFT JOIN TERMS.UNIT_OF_MEASUREMENTS UM ON IID.UOM_OF_LIMITS = UM.MEASURE_UNIT
+left JOIN TERMS.INCOMING_CHECK_PT ICPM
+on ICPM.item_code =  IIH.P_RM_CD and ICPM.CHECK_METHOD_TYPE = IID.CHECK_METHOD_TYPE
+and ICPM.item_code =  IID.P_RM_CD
+and ICPM.CHKPT_SEQ_NO = iid.chk_cd
+--and ICPM.item_code =  ICONV.ITEM_CODE
+--and ICPM.item_code =  ISTOCK.ITEM_CD
+WHERE IIH.IIR_NO =$P{p_iirno}  AND IIH.UNIT_CD =$P{p_unit}
+--ORDER BY to_number(ICPM.CHKPT_SEQ_NO), LENGTH(IID.CHK_CD),IID.CHK_CD
+ORDER BY to_number(substr(NVL(ICPM.CHKPT_SL_NO, 0),1,3)),ICPM.CHKPT_SEQ_NO]]>
+	</queryString>
+	<field name="SR_NO1" class="java.math.BigDecimal"/>
+	<field name="SR_NO" class="java.lang.String"/>
+	<field name="CHK_SL1" class="java.lang.String"/>
+	<field name="CHK_CD" class="java.lang.String"/>
+	<field name="IIR_ID" class="java.math.BigDecimal"/>
+	<field name="IIR_NO" class="java.lang.String"/>
+	<field name="UNIT_CD" class="java.lang.String"/>
+	<field name="UNIT_NAME" class="java.lang.String"/>
+	<field name="LOGO_PATH" class="java.lang.String"/>
+	<field name="UNIT_ADDRESS" class="java.lang.String"/>
+	<field name="IIR_DT" class="java.sql.Timestamp"/>
+	<field name="RE_TEST_DATE" class="java.lang.String"/>
+	<field name="INSP_LEVEL" class="java.lang.String"/>
+	<field name="INSP_STAT" class="java.lang.String"/>
+	<field name="INSP_STAT_DESCRIPTION" class="java.lang.String"/>
+	<field name="BATCH_NO" class="java.lang.String"/>
+	<field name="QCD_NO" class="java.lang.String"/>
+	<field name="INSP_BY" class="java.lang.String"/>
+	<field name="INSP_BY_NAME" class="java.lang.String"/>
+	<field name="VENDR_CD" class="java.lang.String"/>
+	<field name="VENDOR_NAME" class="java.lang.String"/>
+	<field name="P_RM_CD" class="java.lang.String"/>
+	<field name="ITEM_DESC" class="java.lang.String"/>
+	<field name="SRV_NO" class="java.lang.String"/>
+	<field name="SRV_DT" class="java.sql.Timestamp"/>
+	<field name="ISS_UOM" class="java.lang.String"/>
+	<field name="PO_NO" class="java.lang.String"/>
+	<field name="PO_DT" class="java.sql.Timestamp"/>
+	<field name="LOT_SIZE" class="java.math.BigDecimal"/>
+	<field name="MANUFACTR_NAME" class="java.lang.String"/>
+	<field name="VEHICLE_NO" class="java.lang.String"/>
+	<field name="VEH_TYPE" class="java.lang.String"/>
+	<field name="CHALLAN_NO" class="java.lang.String"/>
+	<field name="CHALLAN_DT" class="java.lang.String"/>
+	<field name="INV_NO" class="java.lang.String"/>
+	<field name="INV_DT" class="java.sql.Timestamp"/>
+	<field name="INV_CHAN_NO_DT" class="java.lang.String"/>
+	<field name="APPROVED_QTY" class="java.math.BigDecimal"/>
+	<field name="REJECT_QTY" class="java.lang.String"/>
+	<field name="CONCLUSION" class="java.lang.String"/>
+	<field name="SAMP_QTY" class="java.math.BigDecimal"/>
+	<field name="AR_NO" class="java.lang.String"/>
+	<field name="APPROVED_BY" class="java.lang.String"/>
+	<field name="APPROVED_BY_NAME" class="java.lang.String"/>
+	<field name="REMK" class="java.lang.String"/>
+	<field name="INSP_STAT_DESCR_NW" class="java.lang.String"/>
+	<field name="BASE_LIMIT" class="java.math.BigDecimal"/>
+	<field name="UPPER_LIMIT" class="java.math.BigDecimal"/>
+	<field name="LOWER_LIMIT" class="java.math.BigDecimal"/>
+	<field name="UOM_OF_LIMITS" class="java.lang.String"/>
+	<field name="UOM_DESC" class="java.lang.String"/>
+	<field name="MIN_VAL" class="java.math.BigDecimal"/>
+	<field name="CHECK_METHOD_TYPE" class="java.lang.String"/>
+	<field name="CHK_DESC" class="java.lang.String"/>
+	<field name="CHK_DESC_HEAD" class="java.lang.String"/>
+	<field name="CHK_STAT" class="java.lang.String"/>
+	<field name="CHK_STAT_DESC" class="java.lang.String"/>
+	<field name="IID_REMARKS" class="java.lang.String"/>
+	<field name="GROUP_NAME" class="java.lang.String"/>
+	<field name="GROUP_TITLE_NAME" class="java.lang.String"/>
+	<field name="PART_TYP" class="java.lang.String"/>
+	<field name="CALCULATIVE_FLAG" class="java.lang.String"/>
+	<field name="OB_VALUE_OLD" class="java.lang.String"/>
+	<field name="OB_VALUE" class="java.lang.String"/>
+	<field name="FORMAT_TYPE" class="java.lang.String"/>
+	<background>
+		<band height="802" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-1" y="0" width="556" height="785" uuid="680e4bec-d942-4316-b6c5-7bc5e75fcacc"/>
+			</rectangle>
+		</band>
+	</background>
+	<title>
+		<band height="81" splitType="Stretch">
+			<textField>
+				<reportElement x="112" y="0" width="443" height="20" uuid="711d0ed2-35e6-4f1f-aa24-3cd87ebdfc12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UNIT_NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="112" y="57" width="443" height="24" uuid="78e7a30f-4e93-4186-8003-5c7847a0e70d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{GROUP_TITLE_NAME}]]></textFieldExpression>
+			</textField>
+			<image onErrorType="Blank">
+				<reportElement x="0" y="0" width="112" height="81" uuid="d35b47af-f478-46e4-a3f8-ffb4dd3637b9"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<imageExpression><![CDATA[$F{LOGO_PATH}]]></imageExpression>
+			</image>
+			<textField isBlankWhenNull="true">
+				<reportElement x="112" y="20" width="443" height="37" uuid="f98027e0-8ff8-4d80-b9bc-7fb250270107"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UNIT_ADDRESS}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="138" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="554" height="1" uuid="32fb1f58-2ba9-4630-a319-adf512813e4e"/>
+			</line>
+			<staticText>
+				<reportElement x="2" y="1" width="78" height="22" uuid="5db0ea79-ec15-43f8-9879-7f7cf7ae100f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true" isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[Material Name / Code:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="23" width="78" height="27" uuid="9f00e399-67b1-4a8d-9c53-09df0e56514c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Supplier Name / Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="50" width="78" height="21" uuid="d56ea9b0-60e7-4eb6-b450-fcc955c7577f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MRN. No.& Date :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="69" width="78" height="17" uuid="8fb04efd-5dc4-43fb-bca0-202abdf5c72b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PO No. & Date :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="83" y="69" width="62" height="17" uuid="d9c6d38b-8d09-4f38-928e-db8f38b73e0f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PO_NO}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="161" y="69" width="75" height="17" uuid="26e0ba89-d9f5-4ab4-aa28-3eda45ddd050"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PO_DT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="82" y="50" width="63" height="19" uuid="5faa8c7b-c84b-4918-bc39-4ebc6d200e5f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SRV_NO}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="161" y="50" width="75" height="19" uuid="adf3d669-f4b2-46f6-ba8f-6e9d2ac2a5a8"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SRV_DT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="262" y="2" width="83" height="20" uuid="33e31452-f9c9-4733-8351-0593988e8146"/>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ A.R. NO :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="262" y="47" width="83" height="21" uuid="7fcee7ea-0a35-40ff-be7b-acb6d8bba57e"/>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sample Quantity :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="262" y="69" width="83" height="20" uuid="7ccf6909-8e57-477e-9f95-ecdd36c609be"/>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date of Analysis :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="426" y="47" width="64" height="22" uuid="54a7633e-d4b0-4e74-ac38-19905e38b824"/>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Approved  Qty :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="262" y="89" width="83" height="20" uuid="b41cc04f-c76f-4396-8866-dbb1acdff7a8"/>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rejected Quantity :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="262" y="109" width="83" height="20" uuid="fc013948-34f9-43d6-be9a-1035283030cd"/>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date of Release :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="343" y="3" width="90" height="18" uuid="aee652bc-3dde-4e8e-819d-87c79ea2fa47"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AR_NO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="389" y="25" width="162" height="15" uuid="135596e9-9cc5-428a-a103-40572d77d6a6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{INV_CHAN_NO_DT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="343" y="47" width="83" height="21" uuid="698d1482-b328-4204-92f6-52b88b839faa"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SAMP_QTY}+" "+$F{ISS_UOM}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="343" y="69" width="87" height="19" uuid="115caf9c-9b11-45db-8b7b-9c96058d92ee"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SRV_DT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="488" y="47" width="63" height="21" uuid="d66cb872-bde7-46a3-811c-52b5576abc78"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{APPROVED_QTY}+" "+$F{ISS_UOM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="343" y="89" width="87" height="20" uuid="f81269fd-57d4-4f92-bbd6-9acad05e43a7"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{REJECT_QTY}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="343" y="109" width="87" height="18" uuid="49c3dce6-8a2d-4cd4-b844-d58bc1444849"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{IIR_DT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="85" y="1" width="173" height="22" uuid="a8e625f3-0a93-4012-bfd8-db1384e8c654"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ITEM_DESC}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="86" y="24" width="173" height="26" uuid="9cc6bcf9-4dad-4661-86fb-d170b93d0e34"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{VENDOR_NAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="262" y="26" width="127" height="14" uuid="d8283df8-a2d4-47cd-8cfe-be149bac93f5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Invoice / Challan No. & Date :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="85" width="66" height="19" uuid="7b596aa0-26e0-4f75-9903-48252845acb5">
+					<printWhenExpression><![CDATA[($F{PART_TYP}=='RM')]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Botanical Name :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="122" width="64" height="15" uuid="7b7447c3-89c4-4abb-9c24-207cf4513858">
+					<printWhenExpression><![CDATA[($F{PART_TYP}=='RM')]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Part Used :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="103" width="64" height="19" uuid="6a2b6914-573b-4d14-96bc-8af5f113d4de">
+					<printWhenExpression><![CDATA[($F{PART_TYP}=='RM')]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Family :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="84" y="86" width="68" height="19" uuid="f3f7d7f0-ed64-45ac-8515-9e23bb9428a8">
+					<printWhenExpression><![CDATA[$F{PART_TYP} == 'RM']]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["N.A"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="86" y="122" width="62" height="16" uuid="d6db3164-fbe0-4a51-ae59-e74128df79a1">
+					<printWhenExpression><![CDATA[($F{PART_TYP}=='RM')]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["N.A"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="85" y="103" width="60" height="19" uuid="bd5ce39e-31e1-449e-a194-8b3b803219d3">
+					<printWhenExpression><![CDATA[($F{PART_TYP}=='RM')]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["N.A"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="259" y="0" width="1" height="138" uuid="afb033fb-085f-4707-b433-dee6cde4004e"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="456" y="74" width="83" height="51" uuid="cdbad85d-baa8-4e0f-9819-27198d24e1b1">
+					<printWhenExpression><![CDATA[new Boolean (false)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RE_TEST_DATE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="145" y="50" width="16" height="19" uuid="fe8f8128-4a2b-43e0-8ba5-6ec4caf353bd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["&"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="146" y="69" width="15" height="17" uuid="1f2e2455-4158-45c7-9921-0d6fff4f6dc1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["&"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="1" width="28" height="36" uuid="f6a4becf-493f-438e-bb07-a8ad4bfc20d7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr. No.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="0" width="555" height="1" uuid="0d1c05e0-4d29-4440-a1e3-fc156257b67b"/>
+			</line>
+			<line>
+				<reportElement x="29" y="1" width="1" height="35" uuid="32326fba-440b-47fb-9531-a8b5cb869cab"/>
+			</line>
+			<line>
+				<reportElement x="236" y="1" width="1" height="36" uuid="30a118f6-1f26-48a7-bff0-4ec9bd89112c"/>
+			</line>
+			<staticText>
+				<reportElement x="237" y="1" width="34" height="35" uuid="1d7d7fb5-cf28-4b4a-854d-93b09c65dd2b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Unit]]></text>
+			</staticText>
+			<line>
+				<reportElement x="272" y="1" width="1" height="35" uuid="2fe4ef20-10f0-4053-bd16-48f186cf8776"/>
+			</line>
+			<staticText>
+				<reportElement x="274" y="1" width="142" height="36" uuid="ca7e887e-e2dc-400f-9f2f-26c4b9cbc954"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Standard Specification]]></text>
+			</staticText>
+			<line>
+				<reportElement x="251" y="0" width="199" height="1" uuid="dfe79839-f15c-40af-9b44-cc333b673e86">
+					<printWhenExpression><![CDATA[new Boolean(false)]]></printWhenExpression>
+				</reportElement>
+			</line>
+			<line>
+				<reportElement x="416" y="1" width="1" height="35" uuid="6048a04d-7c52-4ad9-b6b6-2b134b438919"/>
+			</line>
+			<staticText>
+				<reportElement x="417" y="1" width="137" height="34" uuid="89b7757d-58ef-483e-8467-70e4a8316f36"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Observed Value]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="36" width="555" height="1" uuid="5869e253-7740-42c8-b749-ad953205fba2"/>
+			</line>
+			<staticText>
+				<reportElement x="29" y="2" width="206" height="35" uuid="0c2a2590-b123-473d-aaa4-5866127e7446"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Parameters]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="0" width="28" height="20" uuid="daad4e79-f6ab-453a-9b46-65c1c209ef7f"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CHK_SL1}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="236" y="0" width="34" height="20" uuid="886de5cc-2a80-4585-bcbf-ea8bdf0116aa"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UOM_DESC}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" x="272" y="0" width="1" height="20" uuid="2870474a-f9bc-4a0d-ad0b-8e72108ebc39"/>
+			</line>
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" x="236" y="0" width="1" height="20" uuid="8c6e4ed2-5d7a-4128-a7a5-808420c99fcd"/>
+			</line>
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" x="416" y="0" width="1" height="20" uuid="d634cba1-a10b-4316-9301-af6f9c97ddf8"/>
+			</line>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="20" width="555" height="1" uuid="aa184e67-1ecd-44bd-a8ac-bba71dd6550b"/>
+			</line>
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" x="29" y="0" width="1" height="20" uuid="0b0779fb-5dfc-451d-848e-2ae10747e02e"/>
+			</line>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="430" y="0" width="123" height="20" uuid="1c2b8b5d-96a7-4218-9ed9-0afad66d988e"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{OB_VALUE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="49" y="0" width="185" height="19" uuid="b44a849b-78a4-48c5-83a5-e18dbc98f8b1"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CHK_DESC}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="274" y="0" width="142" height="19" uuid="07bfa629-73ee-425e-aecd-8eea2e937bb7"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{IID_REMARKS}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="33" y="1" width="190" height="19" uuid="04d86ce0-66a0-4fc0-819a-9c4b5d0909ad"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CHK_DESC_HEAD}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="120" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="36" width="187" height="67" uuid="a9c4d249-6963-4dcb-b93c-b47be76bf972"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  Analyzed By :
+
+
+
+  Sign/Date
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="187" y="36" width="188" height="67" uuid="74e5c3e4-9ca8-4611-945f-50c06e638b58"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  Checked By :
+
+
+
+  Sign/Date
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="375" y="36" width="181" height="67" uuid="1d33c1fe-7c89-4a36-a504-d6f1f78c9585"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  Approved By :
+
+
+
+  Sign/Date
+]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="49" y="10" width="502" height="20" uuid="73e80998-99fc-46bf-9f6a-5985e9283f32"/>
+				<textElement>
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{INSP_STAT_DESCR_NW}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="10" width="44" height="15" uuid="c85b9166-fe8c-4bc6-886e-f5fe03c10140"/>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Remarks :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="3" y="104" width="322" height="16" uuid="d76c3875-df56-48d9-9ce3-8898ded9f26a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FORMAT_TYPE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="433" y="104" width="80" height="16" uuid="6acae33e-d933-40be-b363-54bf99e6a5c5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="514" y="104" width="40" height="16" uuid="4833a49f-db65-4ff6-a053-5246273e9d45"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

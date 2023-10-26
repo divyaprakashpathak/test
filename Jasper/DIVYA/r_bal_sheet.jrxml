@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="r_bal_sheet" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b3ce1e5c-0578-4e46-9c43-33f5f6021175">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="p_sid" class="java.lang.String"/>
+	<parameter name="p_unit" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_fr_dt" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_to_dt" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[Select SCHEDULE,SUB_HEADING,SL_NO,CURR_BAL,UNIT_CODE,GROUP_DESC,(Select Name from unit where code=$P{p_unit})Unit_Name,TRUNC(TO_DATE(TO_CHAR($P{p_fr_dt}), 'RRRR-MM-DD')) FR_DT,TRUNC(TO_DATE(TO_CHAR($P{p_to_dt}), 'RRRR-MM-DD')) TO_DT,Lpad(GROUP_DESC,LENGTH(SUB_HEADING)+LENGTH(GROUP_DESC),' ') GR
+from BAL_SHEET_TABLE_TEMP WHERE UNIT_code =$P{p_unit}
+AND SESSION_ID=$P{p_sid}
+Order By main_HEADING,sl_no]]>
+	</queryString>
+	<field name="SCHEDULE" class="java.lang.String"/>
+	<field name="SUB_HEADING" class="java.lang.String"/>
+	<field name="SL_NO" class="java.lang.String"/>
+	<field name="CURR_BAL" class="java.math.BigDecimal"/>
+	<field name="UNIT_CODE" class="java.lang.String"/>
+	<field name="GROUP_DESC" class="java.lang.String"/>
+	<field name="UNIT_NAME" class="java.lang.String"/>
+	<field name="FR_DT" class="java.sql.Timestamp"/>
+	<field name="TO_DT" class="java.sql.Timestamp"/>
+	<field name="GR" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="23">
+			<staticText>
+				<reportElement x="0" y="0" width="550" height="20" uuid="8ae58d75-cb95-4747-adcd-9f39a1a908f1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BALANCE SHEET  REPORT]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="77" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="360" height="20" uuid="a8f5d5cd-22d8-41a2-860a-d958462db362"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UNIT_NAME}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="355" y="0" width="193" height="20" uuid="f0d1ca89-b4a6-4875-9c70-371608d12b39"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="30" width="144" height="20" uuid="89dfdeb3-3e8e-47dd-8f03-9a2dd6fba623"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Balance Sheet as on]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="144" y="30" width="96" height="20" uuid="053c4b08-33c2-4ab8-89c1-2ba700ed1c4e"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TO_DT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="428" y="19" width="80" height="20" uuid="0d9d8650-f82f-42a4-ba26-2d865ce6d600"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="508" y="19" width="40" height="20" uuid="b2080dfe-2aed-44e6-ab4e-f9487b8bb782"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="60" y="0" width="55" height="20" uuid="001fd5c2-e54c-4a92-9c69-13f98495f028"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOTE No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="123" y="0" width="259" height="20" uuid="536edb77-6752-4140-800e-5b731d154678"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Particulars]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="386" y="0" width="65" height="20" uuid="64de6369-4577-41c1-abcf-da6b0d7b1fc7"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amt (INR)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="0" width="55" height="20" uuid="39b08183-9598-4431-85dc-23e80b9b42d8"/>
+				<box leftPadding="2"/>
+				<textElement>
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sr. No]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="53" height="20" uuid="4ac25ae1-a89d-4a69-bd45-b8efb6366f52"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SL_NO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="122" y="0" width="262" height="20" uuid="d5d92f45-1672-4869-a11c-9bc5f899f61a"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{GR}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;(###0.00)" isBlankWhenNull="true">
+				<reportElement x="386" y="0" width="97" height="20" uuid="e74c68b4-424e-4651-9f0e-8d318b65f402"/>
+				<box rightPadding="2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CURR_BAL}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="802" height="1" uuid="cd575132-f7a0-415e-8719-37ce53b95361"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="60" y="-1" width="53" height="20" uuid="dd55b719-9719-48bb-855f-3502bf354c2a"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SCHEDULE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="38" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="19" width="802" height="1" uuid="7240b2a5-70ab-46b1-9a8c-8ab9e6dbcdf0"/>
+			</line>
+			<line>
+				<reportElement x="0" y="0" width="802" height="1" uuid="764d3b5f-c86e-410e-b1af-e6ca4efa1d4c"/>
+			</line>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="r_cheque_prn" language="groovy" pageWidth="576" pageHeight="216" orientation="Landscape" columnWidth="576" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="a1be59c7-3a58-4d79-94f6-d17908a57edb">
+	<property name="ireport.zoom" value="1.3310000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="p_ch_no" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_unit" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_bank_code" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\mohit\\Prnav Sir\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select PAID_TO favour_of,A.CONTROL_AMOUNT doc_amount,
+A.CURRENCY_CODE,CHEQUE_DRAFT_DT cheque_date,
+A.CHEQUE_DRAFT_NO cheque_no,A.control_code,
+(
+substr(INITCAP(TERMS.AMOUNT_TO_WORD(A.CONTROL_AMOUNT,'INR')),3,length(TERMS.AMOUNT_TO_WORD(A.CONTROL_AMOUNT,'INR')))
+)INWORD,
+LPAD(CONTROL_AMOUNT,15,'*') AMT,
+V.BENEF_NAME BENI_NAME
+-- Praful Singh Negi On 03-10-2023
+--(select BENEF_NAME from vendor_bank_detail where VEN_Cd in (select sub_code from gen_led_fin_tvouch where --FIN_TVOUCH_VOU_NO=vou_no and sub_code is not null)) BENI_NAME
+from terms.fin_tvouch A
+left join terms.gen_led_fin_tvouch B on A.vou_no=B.FIN_TVOUCH_VOU_NO
+left join terms.vendor_bank_detail V on B.sub_code=V.VEN_Cd
+WHERE VOU_NO=FIN_TVOUCH_VOU_NO
+AND CONTROL_CODE=GNRL_LED_GL_CD
+AND A.CHEQUE_DRAFT_NO=$P{p_ch_no}
+AND UNIT_CODE =$P{p_unit}
+AND control_code =$P{p_bank_code}]]>
+	</queryString>
+	<field name="FAVOUR_OF" class="java.lang.String"/>
+	<field name="DOC_AMOUNT" class="java.math.BigDecimal"/>
+	<field name="CURRENCY_CODE" class="java.lang.String"/>
+	<field name="CHEQUE_DATE" class="java.sql.Timestamp"/>
+	<field name="CHEQUE_NO" class="java.lang.String"/>
+	<field name="CONTROL_CODE" class="java.lang.String"/>
+	<field name="INWORD" class="java.lang.String"/>
+	<field name="AMT" class="java.lang.String"/>
+	<field name="BENI_NAME" class="java.lang.String"/>
+	<pageHeader>
+		<band height="195" splitType="Stretch">
+			<textField>
+				<reportElement x="132" y="62" width="395" height="21" uuid="c3d73cdf-4c0c-4a3f-9035-c90e0100cdea"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{INWORD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="100" y="39" width="404" height="18" uuid="c6470b0b-7517-48ac-8219-cfef21ab7d82"/>
+				<textElement>
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{FAVOUR_OF}==null)?$F{BENI_NAME}:$F{FAVOUR_OF}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MM-yyyy">
+				<reportElement x="432" y="2" width="141" height="20" uuid="04a2d9c7-bb1a-4c35-8335-4d2b99cb9829"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CHEQUE_DATE}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="372" y="81" width="143" height="23" uuid="9254c036-205a-4730-9a14-8ec3c96f3d29"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DOC_AMOUNT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="322" y="3" width="100" height="11" uuid="5a2f0306-00e2-4990-8079-51fcf3af9e7e"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[A/c Payee's Only]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0.00">
+				<reportElement x="251" y="122" width="237" height="23" uuid="ea4e6a3d-260a-4263-92ee-c23a7b9a13e4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["NOT EXCEEDING Rs."+$F{DOC_AMOUNT}+" /-"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+</jasperReport>

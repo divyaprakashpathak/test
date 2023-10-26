@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Incoming_Inspection" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f8413983-dfec-4150-a9d7-41fcbe45f4c2">
+	<property name="ireport.zoom" value="1.5000000000000495"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="222"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="p_pdar_no" class="java.lang.String"/>
+	<parameter name="p_unit" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[WITH PRODUCT_PART_MASTER AS (
+SELECT DISTINCT gm.group_desc GROUP_NAME, PM.PART_CODE AS PROD_CD, null SAMP_QTY
+FROM TERMS.PART_MASTER PM
+LEFT JOIN TERMS.GROUP_MST GM ON GM.GROUP_CD = PM.GROUP_CODE
+UNION
+SELECT gm.MEANING,PD.CODE as PROD_CD,SAMP_QTY
+FROM TERMS.PRODUCT PD
+LEFT JOIN TERMS.SEC_CONTROL_VALUES GM ON PD.PROD_GROUP = GM.CONTROL_CODE AND GM.CONTROL_TYPE = 'PRODUCT_GROUP')
+SELECT
+'UK.AY-274/2013' AS MFG_LIC_NO,
+PDCS.PDAR_ID,
+ROWNUM AS SR_NO1,
+PPM.SAMP_QTY,
+Nvl(PDCP.CHKPT_SL_NO, Rownum) AS SR_NO,
+PDCS.CHK_CD,
+U.ADDRESS AS UNIT_ADDRESS,
+U.LOGO_PATH AS UNIT_LOGO_PATH,
+NVL(U.UNIT_DESC, U.NAME) AS UNIT_NAME,
+PDH.ACCEPT_QTY,
+PDH.AR_NO,
+PDH.BATCH_CODE,
+PDH.CHECK_BY,
+(EMP.EMP_FIRST_NAME || ' ' || EMP.EMP_LAST_NAME) AS CHECK_BY_NAME,
+PDH.APPROVED,
+(EMP.EMP_FIRST_NAME || ' ' || EMP.EMP_LAST_NAME) AS APPROVED_BY_NAME,
+PDH.CONCLUSION,
+PDH.REJECT_QTY,
+PDH.QCD_NO,
+PDH.PROD_CD,
+PDH.REMARKS AS PDH_REMARKS,
+PDH.PROD_REVNO,
+case when PPM.SAMP_QTY is null then PDH.SAMP_SIZE else PPM.SAMP_QTY end SAMP_SIZE,
+Nvl( JCH.JC_DT, PDH.JOB_CARD_DATE) JOB_CARD_DATE,
+Nvl( JCH.JC_NO, PDH.JOB_CARD_NO) JOB_CARD_NO,
+PDH.JOB_CARD_QTY,
+PDH.LOT_QUANTITY AS PDH_BATCH_QTY,
+PDH.PACKING_SLIP_NO,
+TO_CHAR(PDH.PDAR_DT, 'DD-MON-YY')PDAR_DT,
+PDH.PDAR_VLDT,
+PDH.PDAR_NO,
+NVL(PPM.SAMP_QTY, 0) || ' ' ||ISTOCK.ISS_UOM SAMPQTYUOM,
+NVL(PDH.ACCEPT_QTY , 0) || ' ' ||ISTOCK.ISS_UOM ACCEPTUOM,
+PDH.NO_BOX,
+PDH.DISP_ENTRY_NO,
+PDH.PDAR_STAT,
+--PDCP.CHKPT_DESC,
+decode(NVL(PDCS.INSP_TOOL, 'NA'), 'HEAD', '', PDCP.CHKPT_DESC) CHKPT_DESC,
+decode(NVL(PDCS.INSP_TOOL, 'NA'), 'HEAD', PDCP.CHKPT_DESC,'') CHKPT_DESC_HD,
+PDCP.CHKPT_SHORT_DESC,
+PDCS.INSP_TOOL,
+PDCP.BASE_LIMIT,
+PDCP.UP_LIMIT,
+PDCP.LOW_LIMIT,
+PDCP.UOM_OF_LIMITS,
+um.MEASURE_UNIT QC_UOM,
+um.DESCRIPTION UM_DISC,
+PDCS.UPER_LIMIT,
+PDCS.MIN_OBS_VAL,
+PDCS.MAX_OBS_VAL,
+
+Trim(Decode(Nvl(PDCS.CALCULATIVE_FLAG, 'NN'), 'NC', PDCS.REMARKS, 'CC', To_char(PDCS.MIN_OBS_VAL, '9999990D099'), To_char(PDCS.MIN_OBS_VAL, '9999990D099') ||' '||PDCS.REMARKS)) OBS_VAL_OLD,
+
+Trim(Decode(Nvl(PDCP.CHKPT_HEAD, 'NN'), 'NC', PDCS.REMARKS
+                                            , 'CC', Decode(Sign(Instr(UPPER(PDCP.CHKPT_DESC), 'TIME', 1))
+                                                           ,1,Trim(Replace(to_char(PDCS.MIN_OBS_VAL),'.',':'))
+                                                            ,case when round(PDCS.MIN_OBS_VAL)=PDCS.MIN_OBS_VAL
+                                                                  then To_char(PDCS.MIN_OBS_VAL)
+                                                                  else Trim(To_char(PDCS.MIN_OBS_VAL)) end)
+                                            , To_char(PDCS.MIN_OBS_VAL) ||' '||PDCS.REMARKS)) OBS_VAL,
+
+case
+    when PDCS.MIN_OBS_VAL is null then 'nill'
+    when PDCS.MIN_OBS_VAL<1    then 'less'
+    else 'more'
+end flg,
+
+
+--Trim(Decode(Nvl(PDCP.CHKPT_HEAD, 'NN'), 'NC', PDCS.REMARKS
+--                                            , 'CC', Decode(Sign(Instr(UPPER(PDCP.CHKPT_DESC), 'TIME', 1))
+--                                                            , 1, Trim(Replace(to_char(PDCS.MIN_OBS_VAL, '99909.00'), --'.', ':'))
+--                                                            , Trim(To_char(PDCS.MIN_OBS_VAL, '9999990D099')))
+--                                            , To_char(PDCS.MIN_OBS_VAL, '999999D99') ||' '||PDCS.REMARKS)) OBS_VAL,
+
+
+PDCS.OK_PCS,
+PDCS.CALCULATIVE_FLAG,
+--PDCS.TOT_CHKD AS PDCS_BATCH_QTY,
+JCH.JOBCARD_QTY AS PDCS_BATCH_QTY,
+DECODE(PDCS.CHK_STAT,'O','Ok','Not Ok') AS PDCS_STATUS,
+PDCS.REMARKS AS PDCS_REMARKS,
+case when PDCP.REMARKS is null then PDCP.LOW_LIMIT||'-' ||PDCP. UP_LIMIT else PDCP.REMARKS end pdcp_remarks,
+ISTOCK.ITEM_DESC,
+ISTOCK.ISS_UOM,
+to_char(NVL(JCH.MFG_DT, APS.MFG_DT), 'MON. /RRRR') MFG_DT,
+to_char(NVL(JCH.EXP_DT, APS.EXP_DT), 'MON. /RRRR') EXP_DT,
+PPM.GROUP_NAME,
+PDH.REMARKS as head_remark,
+' Note :1) The result related only to the item tested.
+           2) The Report shall not be reproduced except in full without approval of the laboratory.
+           3) This is an electronically generated report signature is not required.' as before_format_no ,
+'Format No. PNCPL/QC/117/F/COA/02' as Format_typ
+, ' Product Complies / Does Not Comply As Per Specification.' Fix_Remarks,
+'**End of Report**' as under_fix_remarks
+, TO_CHAR(PDH.LAST_UPDATE_DATE,'DD-MON-YY')  REL_DT,
+CM.CHK_METHOD TEST_METHOD,
+(SELECT to_Char(SAMPLE_COLLECT_DATE,'DD/MM/YYYY') FROM TERMS.SAMPLING_SAMPLE WHERE UNIT_CD=PDH.UNIT_CD AND BATCH_NO=PDH.BATCH_CODE AND ROWNUM=1)SAMPLE_COLLECTION_DT
+FROM TERMS.PRE_D_HEADER PDH
+LEFT JOIN TERMS.PRE_D_CHKPTS_STAT PDCS ON PDCS.PDAR_ID = PDH.PDAR_ID AND PDCS.UNIT_CD = PDH.UNIT_CD
+LEFT JOIN TERMS.UNIT U ON U.CODE = PDH.UNIT_CD
+LEFT JOIN TERMS.ITEM_STOCK ISTOCK ON ISTOCK.ITEM_CD = PDH.PROD_CD
+LEFT JOIN TERMS.EMP_MASTER_HD EMP ON EMP.EMP_NUMBER = PDH.CHECK_BY
+LEFT JOIN TERMS.EMP_MASTER_HD EMP1 ON EMP1.EMP_NUMBER = PDH.APPROVED
+LEFT JOIN TERMS.PRODUCT_PART_MASTER PPM ON PPM.PROD_CD = PDH.PROD_CD
+LEFT JOIN TERMS.PRE_DESP_CHECK_PTS PDCP ON PDCP.PRODUCT_CODE  = PDCS.PART_CODE
+
+            AND PDCP.CHECK_METHOD_TYPE = PDCS.INSP_TOOL
+            AND PDCP.CHKPT_SEQ_NO = PDCS.CHK_CD
+ LEFT JOIN TERMS.CHECK_METHOD CM ON CM.CHK_CD = PDCP.CHECK_METHOD_TYPE
+LEFT JOIN TERMS.ASSY_PRODN_SLIP APS ON
+APS.ASS_PRODN_SLIP = PDH.PACKING_SLIP_NO
+--APS.BATCH_NO = PDH.BATCH_CODE
+            AND APS.PRODUCT_CODE = PDH.PROD_CD
+            AND APS.UNIT_CD = PDH.UNIT_CD
+LEFT JOIN TERMS.JC_HEAD JCH
+            ON Jch.JC_No = APS.JOB_CARD_NO
+LEFT JOIN TERMS.UNIT_OF_MEASUREMENTS um
+  on UM.MEASURE_UNIT = PDCP.UOM_OF_LIMITS
+--  LEFT JOIN TERMS.CHECK_METHOD CM ON CM.CHK_CD = PDCP.CHECK_METHOD_TYPE
+WHERE PDH.PDAR_NO =$P{p_pdar_no}
+AND PDH.UNIT_CD =$P{p_unit}
+and nvl(PDCP.CHK_PT_STATUS,1 ) !='I'
+ORDER BY tO_NUMBER(Nvl(PDCP.CHKPT_SL_NO, Rownum)), PDCS.CHK_CD ASC
+--ORDER BY PDCP.CHKPT_SL_NO--,PDCS.CHK_CD ASC]]>
+	</queryString>
+	<field name="MFG_LIC_NO" class="java.lang.String"/>
+	<field name="PDAR_ID" class="java.math.BigDecimal"/>
+	<field name="SR_NO1" class="java.math.BigDecimal"/>
+	<field name="SAMP_QTY" class="java.math.BigDecimal"/>
+	<field name="SR_NO" class="java.lang.String"/>
+	<field name="CHK_CD" class="java.math.BigDecimal"/>
+	<field name="UNIT_ADDRESS" class="java.lang.String"/>
+	<field name="UNIT_LOGO_PATH" class="java.lang.String"/>
+	<field name="UNIT_NAME" class="java.lang.String"/>
+	<field name="ACCEPT_QTY" class="java.math.BigDecimal"/>
+	<field name="AR_NO" class="java.lang.String"/>
+	<field name="BATCH_CODE" class="java.lang.String"/>
+	<field name="CHECK_BY" class="java.lang.String"/>
+	<field name="CHECK_BY_NAME" class="java.lang.String"/>
+	<field name="APPROVED" class="java.lang.String"/>
+	<field name="APPROVED_BY_NAME" class="java.lang.String"/>
+	<field name="CONCLUSION" class="java.lang.String"/>
+	<field name="REJECT_QTY" class="java.math.BigDecimal"/>
+	<field name="QCD_NO" class="java.lang.String"/>
+	<field name="PROD_CD" class="java.lang.String"/>
+	<field name="PDH_REMARKS" class="java.lang.String"/>
+	<field name="PROD_REVNO" class="java.math.BigDecimal"/>
+	<field name="SAMP_SIZE" class="java.math.BigDecimal"/>
+	<field name="JOB_CARD_DATE" class="java.sql.Timestamp"/>
+	<field name="JOB_CARD_NO" class="java.lang.String"/>
+	<field name="JOB_CARD_QTY" class="java.math.BigDecimal"/>
+	<field name="PDH_BATCH_QTY" class="java.math.BigDecimal"/>
+	<field name="PACKING_SLIP_NO" class="java.lang.String"/>
+	<field name="PDAR_DT" class="java.lang.String"/>
+	<field name="PDAR_VLDT" class="java.sql.Timestamp"/>
+	<field name="PDAR_NO" class="java.lang.String"/>
+	<field name="SAMPQTYUOM" class="java.lang.String"/>
+	<field name="ACCEPTUOM" class="java.lang.String"/>
+	<field name="NO_BOX" class="java.math.BigDecimal"/>
+	<field name="DISP_ENTRY_NO" class="java.lang.String"/>
+	<field name="PDAR_STAT" class="java.lang.String"/>
+	<field name="CHKPT_DESC" class="java.lang.String"/>
+	<field name="CHKPT_DESC_HD" class="java.lang.String"/>
+	<field name="CHKPT_SHORT_DESC" class="java.lang.String"/>
+	<field name="INSP_TOOL" class="java.lang.String"/>
+	<field name="BASE_LIMIT" class="java.math.BigDecimal"/>
+	<field name="UP_LIMIT" class="java.math.BigDecimal"/>
+	<field name="LOW_LIMIT" class="java.math.BigDecimal"/>
+	<field name="UOM_OF_LIMITS" class="java.lang.String"/>
+	<field name="QC_UOM" class="java.lang.String"/>
+	<field name="UM_DISC" class="java.lang.String"/>
+	<field name="UPER_LIMIT" class="java.math.BigDecimal"/>
+	<field name="MIN_OBS_VAL" class="java.math.BigDecimal"/>
+	<field name="MAX_OBS_VAL" class="java.math.BigDecimal"/>
+	<field name="OBS_VAL_OLD" class="java.lang.String"/>
+	<field name="OBS_VAL" class="java.lang.String"/>
+	<field name="FLG" class="java.lang.String"/>
+	<field name="OK_PCS" class="java.math.BigDecimal"/>
+	<field name="CALCULATIVE_FLAG" class="java.lang.String"/>
+	<field name="PDCS_BATCH_QTY" class="java.math.BigDecimal"/>
+	<field name="PDCS_STATUS" class="java.lang.String"/>
+	<field name="PDCS_REMARKS" class="java.lang.String"/>
+	<field name="PDCP_REMARKS" class="java.lang.String"/>
+	<field name="ITEM_DESC" class="java.lang.String"/>
+	<field name="ISS_UOM" class="java.lang.String"/>
+	<field name="MFG_DT" class="java.lang.String"/>
+	<field name="EXP_DT" class="java.lang.String"/>
+	<field name="GROUP_NAME" class="java.lang.String"/>
+	<field name="HEAD_REMARK" class="java.lang.String"/>
+	<field name="BEFORE_FORMAT_NO" class="java.lang.String"/>
+	<field name="FORMAT_TYP" class="java.lang.String"/>
+	<field name="FIX_REMARKS" class="java.lang.String"/>
+	<field name="UNDER_FIX_REMARKS" class="java.lang.String"/>
+	<field name="REL_DT" class="java.lang.String"/>
+	<field name="TEST_METHOD" class="java.lang.String"/>
+	<field name="SAMPLE_COLLECTION_DT" class="java.lang.String"/>
+	<group name="group_by_PDAR_ID" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{PDAR_ID}]]></groupExpression>
+		<groupHeader>
+			<band height="181">
+				<line>
+					<reportElement x="277" y="0" width="1" height="156" isRemoveLineWhenBlank="true" uuid="f7a85218-0376-47a3-89f0-a38c6e30317f"/>
+				</line>
+				<staticText>
+					<reportElement x="0" y="79" width="70" height="15" uuid="15d22d7c-90df-4977-9ccc-1bc952f7fa4f"/>
+					<box leftPadding="2"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Batch Number]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="98" width="70" height="15" uuid="8a040094-d775-4f6b-acf9-11c3838412db"/>
+					<box leftPadding="2"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Batch Size	]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="116" width="70" height="17" uuid="003b051c-44fc-4a49-8ce6-8283b1162806"/>
+					<box leftPadding="2"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sample Quantity]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="4" width="70" height="19" uuid="cae501df-218a-4777-b0bb-027be18d6d90"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Product Name]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="73" y="1" width="2" height="30" uuid="1198755c-4912-4094-ab92-c75fadeb9ff1"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="73" y="79" width="2" height="15" uuid="c33fdfe4-a91b-4a06-8cbf-7f65c37bea49"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="73" y="98" width="2" height="13" uuid="36c9677c-345e-447f-a95c-ba1fdc795043"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="73" y="116" width="2" height="17" uuid="92544f89-d669-445d-bcdf-3903142a94ca"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField pattern="dd/MM/yy" isBlankWhenNull="true">
+					<reportElement x="181" y="98" width="87" height="15" uuid="50635f1f-7ca4-4a4f-bd7c-ef5d0788c513">
+						<printWhenExpression><![CDATA[new Boolean (false)]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ISS_UOM}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="289" y="52" width="75" height="13" uuid="83381b14-005f-4790-a013-5e04507c9a8f"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[AR No.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="289" y="76" width="75" height="14" uuid="8ca5cf90-ac00-40de-8a38-bf5e3b1c209c"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Date Of Mfg.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="289" y="97" width="75" height="15" uuid="7f0397ce-a6c2-4184-b250-431c979c3827"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Date Of Exp.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="289" y="120" width="75" height="13" uuid="446de6ed-1a36-4d1a-b6e1-cb735560068e"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Date Of Analysis]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="289" y="139" width="75" height="13" uuid="dc2a473f-b48e-460f-be52-f750c7990359"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Released Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="369" y="28" width="2" height="15" uuid="746e7031-c91f-4754-8adf-a85c875dbef3"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="369" y="53" width="2" height="13" uuid="1fa61837-01c6-4d25-8824-ad40851f6ba9"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="369" y="77" width="2" height="13" uuid="bd8c9de4-35c2-4d4d-a53f-ade8e9377d86"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="369" y="99" width="2" height="15" uuid="176ba1c3-02e0-4e47-9219-bd2e678dff19"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="369" y="122" width="2" height="19" uuid="2e0e9d77-3ba5-4a0d-974a-161efe6a09b2"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField pattern="MM/yyyy" isBlankWhenNull="true">
+					<reportElement x="375" y="98" width="170" height="13" uuid="b0396031-647e-4ec4-a31b-156e03a8a94f"/>
+					<box leftPadding="5"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{EXP_DT}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="375" y="76" width="170" height="13" uuid="c258c93d-f632-4a3f-9bb1-1602071a0c71"/>
+					<box leftPadding="5"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{MFG_DT}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="0" y="155" width="555" height="1" uuid="d3032b48-eaa6-4c02-9f51-246e9c97631a"/>
+				</line>
+				<staticText>
+					<reportElement x="0" y="155" width="30" height="26" uuid="e5d8d20e-7c09-455c-943d-e2420ee5d8d5"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sr. No.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="30" y="155" width="138" height="26" uuid="9354e060-8635-4bb3-b945-1b320f7c0377"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Parameters]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="180" width="555" height="1" uuid="765ebaa2-ace0-404d-a08d-c68f1cc9608a"/>
+				</line>
+				<staticText>
+					<reportElement x="168" y="155" width="49" height="26" uuid="581d7c6f-494a-4f6b-ac3c-c85116ce6d94"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<text><![CDATA[UNIT]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="465" y="155" width="90" height="26" uuid="3f932e06-05f3-463e-a711-4eac20a2eef1"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Observed Values]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="334" y="155" width="131" height="26" uuid="cf5c3ead-1e43-4cc9-9766-9ce0eb01f5e3"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Standard Specification]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="289" y="4" width="75" height="13" uuid="ea0d4937-c904-405a-b7a8-a0633dd06ddf"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Product Code]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="375" y="4" width="170" height="13" uuid="d9f71b84-d41c-4041-9fb9-a2b7685e95ff"/>
+					<box leftPadding="5"/>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{PROD_CD}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="369" y="2" width="2" height="18" uuid="5bbdd1b8-3af6-4c37-9e58-84dd0e7b59b9"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="110" y="89" width="2" height="0" uuid="c63fe783-23c2-4828-b454-42e30ce0e428"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement x="375" y="121" width="170" height="13" uuid="20eb5140-89b6-48ac-9647-b817253052ac"/>
+					<textElement>
+						<font size="8"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{PDAR_DT}]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement x="375" y="139" width="170" height="13" uuid="296ebe69-81de-48f9-ba4f-579ee67a6599"/>
+					<textElement>
+						<font size="8"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{REL_DT}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="137" width="70" height="13" uuid="62f7f4eb-6e78-4822-8f66-4223d48c047d">
+						<printWhenExpression><![CDATA[new Boolean(false)]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<text><![CDATA[Sample Receipt Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="73" y="135" width="2" height="15" uuid="1fe29af5-b8eb-450e-a864-9f6c02809404">
+						<printWhenExpression><![CDATA[new Boolean(false)]]></printWhenExpression>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="288" y="27" width="76" height="17" uuid="8d35874b-1f2b-4322-a245-91d6e6de9196"/>
+					<textElement>
+						<font size="8" isBold="true"/>
+						<paragraph leftIndent="3"/>
+					</textElement>
+					<text><![CDATA[Inspection No.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="369" y="138" width="2" height="19" uuid="26151838-19d1-4853-ac2d-6c0c0c178813"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="375" y="27" width="170" height="16" uuid="9a7c7178-7060-43de-9716-cd25b2550ba8"/>
+					<textElement>
+						<font size="8" isBold="true"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{PDAR_NO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="1" y="55" width="69" height="20" uuid="9071d1c5-14a8-4e88-9367-c3f0d808d37c"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Release Qty]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="73" y="55" width="2" height="20" uuid="a290776c-f141-4976-b56b-4ecccdbbe357"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="78" y="55" width="190" height="20" uuid="88e8e68c-8281-4bce-b9b8-b01c4608e1a5"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ACCEPTUOM}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="78" y="4" width="190" height="40" uuid="6737c973-563a-4732-a1d3-a7bb2156e863"/>
+					<textElement>
+						<font size="8" isBold="true"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ITEM_DESC}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="217" y="155" width="117" height="26" uuid="8cbcbcaa-0ccb-46e0-b5bb-421dfd53f816"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Test Method]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="78" y="79" width="190" height="15" uuid="dca0f3b1-43cf-406e-a10f-c47abaf4d700"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{BATCH_CODE}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="78" y="99" width="85" height="12" uuid="eb64e6f4-2100-4c03-9062-300ef7a5c437"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{PDCS_BATCH_QTY} + " " + $F{ISS_UOM}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="78" y="116" width="190" height="17" uuid="2afde894-5868-4b41-8dd3-7dc4faf727f7"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8"/>
+						<paragraph leftIndent="2"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{SAMPQTYUOM}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="375" y="52" width="170" height="13" uuid="50154906-c136-4886-8627-29bd3d58918e"/>
+					<box leftPadding="5"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{AR_NO}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band height="802">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="782" uuid="6bfd9922-a09f-42b9-8ecf-2b573dc366f0"/>
+			</rectangle>
+		</band>
+	</background>
+	<pageHeader>
+		<band height="88">
+			<textField isBlankWhenNull="true">
+				<reportElement x="89" y="60" width="464" height="24" uuid="a80ebe8b-5375-4b30-8bd4-b85f8a61213c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CERTIFICATE OF ANALYSIS"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="87" width="554" height="1" uuid="d19bb377-7ac1-419a-b8d4-27f682c62c14"/>
+			</line>
+			<textField isBlankWhenNull="true">
+				<reportElement x="89" y="29" width="466" height="28" uuid="fc0174c0-ccc6-44b6-b336-d380e520a377"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UNIT_ADDRESS}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="89" y="1" width="466" height="25" uuid="affafd78-65f1-4227-8df0-9da64828e19b"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UNIT_NAME}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle" onErrorType="Blank">
+				<reportElement x="2" y="0" width="86" height="88" uuid="90176821-ed79-47ad-aa9c-f7c157c2e0d9"/>
+				<box>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<imageExpression><![CDATA[$F{UNIT_LOGO_PATH}]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="30" height="21" uuid="058988a8-5d69-4d12-94a9-1f9c29db7825"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SR_NO}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="334" y="0" width="131" height="21" uuid="c0d3c29f-a5fe-4438-8fd8-d183cc1e6510"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PDCP_REMARKS}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="465" y="0" width="90" height="21" uuid="1a26bb18-38ef-4002-b47b-319d4bf57962"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{FLG}=='nill')?$F{OBS_VAL}:$F{OBS_VAL}&&($F{FLG}=='less')?$F{MIN_OBS_VAL}:$F{OBS_VAL}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" x="168" y="0" width="49" height="21" uuid="e10d216b-3594-44c5-be5c-3ddbb633c847"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UM_DISC}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="30" y="0" width="138" height="21" forecolor="#000000" backcolor="#FFFFFF" uuid="d7f3fd19-766e-47e7-9d19-eb87b29fc9fe"/>
+				<box bottomPadding="0" rightPadding="1">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="7" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single" leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CHKPT_DESC}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="217" y="0" width="117" height="21" isPrintWhenDetailOverflows="true" uuid="495e4650-ae00-43e7-9174-44a6ee4f05f5"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TEST_METHOD}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="30" y="0" width="138" height="21" forecolor="#000000" backcolor="#FFFFFF" uuid="c5084c55-c3ae-48e7-a64e-3ab1a165b79a"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font fontName="SansSerif" size="7" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CHKPT_DESC_HD}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="208">
+			<staticText>
+				<reportElement x="0" y="95" width="58" height="20" uuid="f5960939-5c1d-426f-9931-45fe67012163"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Remarks :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="-1" y="128" width="554" height="42" uuid="a476862a-7ce3-4177-a0c3-53ef0105c265"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BEFORE_FORMAT_NO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="172" width="281" height="16" uuid="668264ed-d389-45ee-9d1f-9bc4db01ad42"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FORMAT_TYP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="413" y="172" width="80" height="16" uuid="bec68f66-2a05-4ec7-a911-b985f8b1ecf5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="493" y="172" width="40" height="16" uuid="b72c644c-b090-4712-9ddd-56b384436ea1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" x="59" y="95" width="494" height="33" uuid="6325add1-e9ff-4a39-bba6-4e9d8d7a2ec2"/>
+				<textFieldExpression><![CDATA[$F{PDH_REMARKS}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<lastPageFooter>
+		<band height="24">
+			<textField>
+				<reportElement x="0" y="6" width="554" height="18" uuid="d9aed555-9069-4efb-aef7-40e1c36a4b42"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UNDER_FIX_REMARKS}]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+</jasperReport>

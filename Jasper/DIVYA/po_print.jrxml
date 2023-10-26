@@ -1,0 +1,2167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="po_print" pageWidth="750" pageHeight="1000" whenNoDataType="BlankPage" columnWidth="710" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e7e650d-36b2-4158-8a31-6c3fad44baae">
+	<property name="ireport.zoom" value="0.7697371773460694"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 6">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 6_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 6_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 6_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 7">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 7_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 7_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 7_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 8">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 8_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 8_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 8_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 9">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 9_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 9_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 9_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 10">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 10_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 10_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 10_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 11">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 11_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 11_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 11_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 12">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 12_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 12_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 12_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 13">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 13_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 13_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 13_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 14">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 14_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 14_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 14_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 15">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 15_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 15_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 15_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 16">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 16_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 16_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 16_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 17">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 17_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 17_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 17_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 18">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 18_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 18_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 18_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 19">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 19_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 19_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 19_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 20">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 20_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 20_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 20_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 21">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 21_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 21_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 21_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 22">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 22_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 22_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 22_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 23">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 23_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 23_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 23_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 24">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 24_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 24_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 24_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 25">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 25_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 25_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 25_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="New Dataset 1" uuid="0a490fc2-1c2e-45fb-8be5-a03171df948b">
+		<parameter name="p_no" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_unit" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT NVL(FREIGHT,0)+NVL(INS_AMT,0)+(NVL((SELECT SUM(NVL(MATERIAL_RATE,0))*SUM(NVL(QTY,0))+SUM(NVL(GST_AMT,0))+SUM(NVL(SGST_AMT,0))+SUM(NVL(CGST_AMT,0))
+FROM terms.PO_DETAIL
+ WHERE PO_HEAD_PO_NO=PO_NO AND PO_HEAD_AMD_NO=AMD_NO AND UNIT_CD=UNIT_CD),0)) MATER FROM PO_HEAD
+ WHERE PO_NO=$P{p_no}
+and AMD_NO=(select max(amd_no) from po_head a where a.po_no=$P{p_no})
+and UNIT_CD=$P{p_unit}]]>
+		</queryString>
+		<field name="MATER" class="java.math.BigDecimal">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<subDataset name="New Dataset 2" uuid="45047c79-248e-4f15-af85-3430b3f6cf62">
+		<parameter name="p_no" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_unit" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT(NVL((SELECT SUM(NVL(CGST_AMT,0))
+FROM terms.PO_DETAIL
+WHERE PO_HEAD_PO_NO=PO_NO AND PO_HEAD_AMD_NO=AMD_NO AND UNIT_CD=UNIT_CD),0))CGST FROM PO_HEAD
+WHERE PO_NO=$P{p_no}
+and AMD_NO=(select max(amd_no) from po_head a where a.po_no=$P{p_no})
+and UNIT_CD=$P{p_unit}]]>
+		</queryString>
+		<field name="CGST" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="New Dataset 3" uuid="b29d9363-2285-4eab-baca-0325529de87d">
+		<parameter name="p_no" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_unit" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT(NVL((SELECT SUM(NVL(SGST_AMT,0))
+FROM terms.PO_DETAIL
+ WHERE PO_HEAD_PO_NO=PO_NO AND PO_HEAD_AMD_NO=AMD_NO AND UNIT_CD=UNIT_CD),0))SGST FROM PO_HEAD
+WHERE PO_NO=$P{p_no}
+and AMD_NO=(select max(amd_no) from po_head a where a.po_no=$P{p_no})
+and UNIT_CD=$P{p_unit}]]>
+		</queryString>
+		<field name="SGST" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="New Dataset 4" uuid="dc048082-3720-4eeb-87c8-ae1915984934">
+		<parameter name="p_no" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_unit" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT(NVL((SELECT SUM(NVL(GST_AMT,0))
+  FROM terms.PO_DETAIL
+ WHERE PO_HEAD_PO_NO=PO_NO AND PO_HEAD_AMD_NO=AMD_NO AND UNIT_CD=UNIT_CD),0))IGST FROM PO_HEAD
+WHERE PO_NO=$P{p_no}
+and AMD_NO=(select max(amd_no) from po_head a where a.po_no=$P{p_no})
+and UNIT_CD=$P{p_unit}]]>
+		</queryString>
+		<field name="IGST" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="NET_VALUE_ITEM" uuid="e228b3c0-ad70-4dce-88da-f4eebbb74d65">
+		<parameter name="p_no" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_id" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_item" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT nvl(((SUM(NVL(QTY,0))*SUM(NVL(MATERIAL_RATE,0))))-SUM(NVL(DISCOUNT_AMT,0)),0) TOTAL
+FROM terms.PO_DETAIL WHERE PO_HEAD_PO_NO like nvl($P{p_no},'%')
+and PIOS_ITEM_CD like nvl($P{p_item},'%')
+AND PO_ID=$P{p_id}
+GROUP BY PIOS_ITEM_CD]]>
+		</queryString>
+		<field name="TOTAL" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="Net_gross_value" uuid="1694333f-3db1-42be-bebc-a62ec8716f2f">
+		<parameter name="p_no" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_id" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT SUM(NVL(TOTAL,0)) TOTAL FROM (SELECT nvl(((SUM(NVL(QTY,0))*SUM(NVL(MATERIAL_RATE,0))))-SUM(NVL(DISCOUNT_AMT,0)),0) TOTAL
+FROM terms.PO_DETAIL WHERE PO_HEAD_PO_NO like nvl($P{p_no},'%')
+AND PO_ID=$P{p_id}
+GROUP BY PIOS_ITEM_CD)]]>
+		</queryString>
+		<field name="TOTAL" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="F-NET" uuid="ffc0e976-f4d5-46de-b705-4ca3fd2fa465">
+		<parameter name="p_no" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_id" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[select(sum(AMOUNT))total from terms.PO_CALC where PO_NO=$P{p_no} and PO_ID=$P{p_id}]]>
+		</queryString>
+		<field name="TOTAL" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="AMT_TO_WRD" uuid="6ee44bdb-c01e-4e7a-8fb2-7cc55ec1d299">
+		<parameter name="p_no" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_id" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="CURR_TYPE" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="P_FRIEGHT" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT INITCAP( Terms.AMOUNT_TO_WORD((SELECT (SUM(AMOUNT) + NVL($P{P_FRIEGHT},0)) GRSS_AMT FROM terms.PO_CALC
+where PO_NO =$P{p_no} and AMD_NO=$P{p_id}), $P{CURR_TYPE})) AMT_WRD FROM DUAL]]>
+		</queryString>
+		<field name="AMT_WRD" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="SGST" uuid="217f6346-3115-419f-adfa-d799c4d17d31">
+		<parameter name="p_no" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_id" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT SUM(NVL(SGST_AMT,0)) SGST FROM terms.PO_DETAIL where
+ PO_HEAD_PO_NO=$P{p_no} AND PO_ID=$P{p_id}]]>
+		</queryString>
+		<field name="SGST" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="CGST" uuid="a301d3ff-18e0-4c9e-aae4-0c0ac809dc71">
+		<parameter name="p_no" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_id" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT SUM(NVL(CGST_AMT,0)) CSGT FROM terms.PO_DETAIL where
+PO_HEAD_PO_NO=$P{p_no} AND PO_ID=$P{p_id}]]>
+		</queryString>
+		<field name="CSGT" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="IGST" uuid="9dfe5cb9-c643-4ce3-b234-416008026192">
+		<parameter name="p_no" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_id" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT SUM(NVL(GST_AMT,0)) GST FROM terms.PO_DETAIL
+ where
+PO_HEAD_PO_NO=$P{p_no} AND PO_ID=$P{p_id}]]>
+		</queryString>
+		<field name="GST" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="GstWords" uuid="665c6110-1834-4f35-9554-5a5de964f353">
+		<parameter name="PO_NO" class="java.lang.String"/>
+		<parameter name="AMD_NO" class="java.math.BigDecimal">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="CURR_TYPE" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT INITCAP( Terms.AMOUNT_TO_WORD((select ROUND((sum(nvl(SGST_AMT,0)+nvl(CGST_AMT,0)+nvl(GST_AMT,0))),2) from terms.PO_DETAIL where PO_HEAD_PO_NO = $P{PO_NO} and po_head_amd_no =$P{AMD_NO} ),$P{CURR_TYPE})) GST_AMT_WRD
+FROM DUAL]]>
+		</queryString>
+		<field name="GST_AMT_WRD" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="payTerm" uuid="dad90636-f9bb-4e24-86e0-2c4e517f5a11">
+		<parameter name="PO_NO" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="AMD_NO" class="java.math.BigDecimal">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[select P.PAY_TERM
+
+from terms.MULTI_PAY_TERM C,
+    terms. PAYMENT_TERM P
+
+where C.PO_NO  = $P{PO_NO}
+  AND C.AMD_NO = $P{AMD_NO}
+  AND C.PAY_CD = P.SNO]]>
+		</queryString>
+		<field name="PAY_TERM" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="TNC" uuid="47cd58dd-8f69-41f1-9f48-e58d23a7accf">
+		<parameter name="PO_NO" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="AMD_NO" class="java.math.BigDecimal">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[Select Rownum S_no, Trim(Replace(Replace(B.SUBJECT, chr(10), ' '), chr(13), ' '))   SUBJECT, B.CANCEL_TER,B.others
+From
+(select SUBJECT,CANCEL_TER,A.OTHERS
+from terms.Annex_PO_MST A
+Where NVL(CANCEL_TER, 'N')= 'N'
+and po_no  = $P{PO_NO}
+and   amd_no = $P{AMD_NO}
+order by S_no)b]]>
+		</queryString>
+		<field name="S_NO" class="java.math.BigDecimal"/>
+		<field name="SUBJECT" class="java.lang.String"/>
+		<field name="CANCEL_TER" class="java.lang.String"/>
+		<field name="OTHERS" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="address" uuid="e2bf4525-67dd-4e60-9a4f-47617d037621">
+		<parameter name="ven_cd" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[select ADDRESS1||' '||ADDRESS2||' '||ADDRESS3 ADDRESS from terms.VENDOR_REGD_ADDRESS where vendor_code=$P{ven_cd}]]>
+		</queryString>
+		<field name="ADDRESS" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="PO_NO" uuid="403c05d3-db4b-4666-b0c6-84ef78ac0145">
+		<parameter name="p_no" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[select  IND_NO
+from terms.po_detail_temp,TERMS.PO_DETAIL PD
+where PO_NO=$P{p_no}
+and ITEM_CD=PD.PIOS_ITEM_CD]]>
+		</queryString>
+		<field name="IND_NO" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="p_no" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_unit" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[WITH UNIT_TEMP AS (select LOGO_PATH from terms.unit where rownum = 1 order by code)
+SELECT rownum sr,
+        CANC_FLAG,
+       PIOS_ITEM_CD,
+       PD.DISCOUNT_PERCENT,
+       PH.JO_PO,
+       Decode(PH.JO_PO,'J','JOBWORK ORDER','PURCHASE ORDER')as PO_TYPE,
+       pios_pois_no,
+       (select  LISTAGG(IND_NO,',') within group(order by IND_NO)
+       from terms.po_detail_temp
+       where PO_NO=PD.PO_HEAD_PO_NO
+       and ITEM_CD=PD.PIOS_ITEM_CD
+       and AMD_NO= ph.AMD_NO ) IND_NO,
+       NAME,
+       Address,
+       po_status,
+       PH.UNIT_CD,
+       PH.APPR_BY,
+       city_code,
+       case when email is null then ' ' else  'E-mail : '||email end email, -----1------
+       ven_cd,
+       (select distinct pan_no from terms.vendor_master where vendor_code=ven_cd) pan_no,
+       (select distinct name from terms.vendor_master where vendor_code=ven_cd) ven_name,
+       PRICE_BASIS_REMARK,
+       PH.REMARKS HEAD_REMARK,
+       UNLOAD_ADDRESS,
+       PD.ED_DATE,
+       (select distinct GST_REG_NO from terms.vendor_master where vendor_code=ven_cd) ven_gst_no,
+       (select distinct EMP_FIRST_NAME||' '||EMP_LAST_NAME from terms.emp_master where emp_number=PREP_BY) contact_name,
+       (select distinct COMPANY_EMAIL from terms.emp_master where emp_number=PREP_BY) contact_Email,
+       VMAIL,
+       (select ADDRESS1||ADDRESS3||ADDRESS3 name from TERMS.VENDOR_REGD_ADDRESS where vendor_code=ven_cd) address1,
+       PO_HEAD_PO_NO,
+       (select ITEM_DESC FROM TERMS.ITEM_STOCK WHERE ITEM_CD=PD.PIOS_ITEM_CD
+       union
+        select ITEM_DESC from TERMS.inv_ser_bill_view where ITEM_CD =PD.PIOS_ITEM_CD ) DESCS,
+       PO_HSN_CODE,
+       QTY,
+       UOM,
+       MATERIAL_RATE,
+       DISCOUNT_AMT,
+       discount_percent,
+
+       CGST_PER,
+       SGST_PER,
+       pD.REMARKS,
+       GST_AMT,
+       GOODS_VALUE,
+       (SELECT DESCRIPTION FROM  TERMS.SEC_CONTROL_VALUES WHERE CONTROL_CODE=PO_TYPE AND CONTROL_TYPE='PO_TYPE')HEADING,
+       decode(FREIGHT,0, null,FREIGHT)FREIGHT,
+       decode(INS_AMT,0,null,INS_AMT)INS_AMT,
+       SGST_AMT,
+       CGST_AMT,
+       (MATERIAL_RATE*QTY)BASIC,
+       (SELECT distinct GST_REG_NO FROM TERMS.UNIT WHERE CODE=UNIT_CD)GST,
+       (select DISTINCT STATE_GST_CODE from TERMS.VENDOR_REGD_ADDRESS where vendor_code=ven_cd)STATECODE,
+       (SELECT DISTINCT PHONES FROM TERMS.VENDOR_REGD_ADDRESS WHERE VENDOR_CODE=VEN_CD) PHONES,
+       (select DISTINCT lower(telex) from TERMS.VENDOR_REGD_ADDRESS where vendor_code=ven_cd) e_mail,
+       (select DISTINCT state from TERMS.VENDOR_REGD_ADDRESS where vendor_code=ven_cd)  StateName,
+       (select DISTINCT city from TERMS.VENDOR_REGD_ADDRESS where vendor_code=ven_cd)  CityNam,
+       (SELECT DISTINCT PIN_CODE FROM TERMS.VENDOR_REGD_ADDRESS WHERE vendor_code = ven_cd) VENDOR_PIN,
+        ITEM_SPECF,
+       (select PERMANENT_MOB  from terms.emp_master where emp_number=PREP_BY)PHN,
+       (select PERMANENT_PHONE  from TERMS.EMP_MASTER where EMP_NUMBER = PREP_BY)emp_phone,
+       PH.PO_DT,
+       GST_PERCENT,
+      -- NAME,
+       pd.po_id,
+      ((nvl(GST_AMT,0)+nvl(SGST_AMT,0)+nvl(CGST_AMT,0))*nvl(FREIGHT,1))/100 fright_amt,
+      ph.amd_no,
+      ph.amd_dt,
+      decode(ut.SBU_CODE, 101, 'Y', 'N') SBU_FLG,
+      SUM(NVL((((NVL(QTY,0))*(NVL(MATERIAL_RATE,0))))-(NVL(DISCOUNT_AMT,0)),0)) OVER (ORDER BY PD.PO_HEAD_PO_NO)
+      +sum(nvl(GST_AMT,0))OVER (ORDER BY PD.PO_HEAD_PO_NO)
+      +sum(nvl(SGST_AMT,0))OVER (ORDER BY PD.PO_HEAD_PO_NO)
+      +sum(nvl(CGST_AMT,0))OVER (ORDER BY PD.PO_HEAD_PO_NO)
+      +(((sum(nvl(GST_AMT,0))OVER (ORDER BY PD.PO_HEAD_PO_NO)
+      +sum(nvl(SGST_AMT,0))OVER (ORDER BY PD.PO_HEAD_PO_NO)
+      +sum(nvl(CGST_AMT,0))OVER (ORDER BY PD.PO_HEAD_PO_NO))*nvl(FREIGHT,0))/100)+nvl(INS_AMT,0) NET_AMT,
+      (SELECT ENAME FROM TERMS.EMP_VIEW WHERE ENO = PH.CHCK_BY and unit = PH.UNIT_CD) VERIFIED_NM,
+      (select ENAME from TERMS.EMP_VIEW where ENO = PH.FREZ_BY and unit = PH.UNIT_CD) APPR_NM,
+       CASE WHEN UT.CIN IS NULL THEN ' ' ELSE 'CIN No : '||UT.CIN END CIN, ------2----------
+      (SELECT LOGO_PATH FROM TERMS.UNIT_TEMP) LOGO_PATH,
+      (SELECT DESCRIPTION FROM TERMS.SEC_CONTROL_VALUES A WHERE PH.DEL_TERM = A.CONTROL_CODE AND A.APPLICATION_CODE = 'MTL') DEL_TERMS,
+      PH.CUR_CD,
+ (SELECT EMP_FIRST_NAME||' '||EMP_LAST_NAME FROM  TERMS.EMP_MASTER WHERE  EMP_NUMBER=ph.PREP_BY) prepared_by,
+                (SELECT EMP_FIRST_NAME||' '||EMP_LAST_NAME FROM  terms.EMP_MASTER WHERE  EMP_NUMBER =ph.APPR_BY ) authorised_by,
+(SELECT EMP_FIRST_NAME||' '||EMP_LAST_NAME FROM  terms.EMP_MASTER WHERE  EMP_NUMBER =PH.CHCK_BY )VERIFIED_by,
+     INITCAP( TERMS.AMOUNT_TO_WORD((round(SUM(NVL((((NVL(QTY,0))*(NVL(MATERIAL_RATE,0))))-(NVL(DISCOUNT_AMT,0)),0)) OVER (ORDER BY PD.PO_HEAD_PO_NO),2)
+       +sum(nvl(GST_AMT,0))OVER (ORDER BY PD.PO_HEAD_PO_NO)
+      + ROUND(sum(nvl(SGST_AMT,0))OVER (ORDER BY PD.PO_HEAD_PO_NO),2)
+      + ROUND(sum(nvl(CGST_AMT,0))OVER (ORDER BY PD.PO_HEAD_PO_NO),2)
+      +(((sum(nvl(GST_AMT,0))OVER (ORDER BY PD.PO_HEAD_PO_NO)
+      + ROUND (sum(nvl(SGST_AMT,0))OVER (ORDER BY PD.PO_HEAD_PO_NO),2)
+      + ROUND(sum(nvl(CGST_AMT,0))OVER (ORDER BY PD.PO_HEAD_PO_NO),2))*nvl(FREIGHT,0))/100)+nvl(INS_AMT,0)), PH.CUR_CD)) amt_wrd,
+
+case when nvl(Instr(UT.ADDRESS, 'Licence'),0)>0
+     then Substr(UT.ADDRESS, 1, Instr(UT.ADDRESS, 'Licence')-2)
+     else UT.ADDRESS
+end unit_ADDRESS,
+case when nvl(Instr(UT.ADDRESS, 'Licence'),0)>0
+     then --Substr(UT.ADDRESS, 1, Instr(UT.ADDRESS, 'Licence')-2)
+     Substr(UT.ADDRESS, Instr(UT.ADDRESS, 'Licence'),length(UT.ADDRESS))
+     else ' '
+end UNIT_ADD
+
+
+FROM TERMS.PO_DETAIL PD,
+     TERMS.PO_HEAD PH,
+     TERMS.UNIT UT
+
+WHERE PD.PO_HEAD_PO_NO = PH.PO_NO
+  and ph.AMD_NO        = pd.PO_HEAD_AMD_NO
+  AND PH.UNIT_CD       = CODE
+  AND PH.AMD_NO        = (SELECT MAX(AMD_NO) FROM TERMS.PO_HEAD A WHERE A.PO_NO=PH.PO_NO)
+  AND PD.PO_HEAD_PO_NO = $P{p_no}
+  and UNIT_CD          = $P{p_unit}]]>
+	</queryString>
+	<field name="SR" class="java.math.BigDecimal"/>
+	<field name="CANC_FLAG" class="java.lang.String"/>
+	<field name="PIOS_ITEM_CD" class="java.lang.String"/>
+	<field name="DISCOUNT_PERCENT" class="java.math.BigDecimal"/>
+	<field name="JO_PO" class="java.lang.String"/>
+	<field name="PO_TYPE" class="java.lang.String"/>
+	<field name="PIOS_POIS_NO" class="java.lang.String"/>
+	<field name="IND_NO" class="java.lang.String"/>
+	<field name="NAME" class="java.lang.String"/>
+	<field name="ADDRESS" class="java.lang.String"/>
+	<field name="PO_STATUS" class="java.lang.String"/>
+	<field name="UNIT_CD" class="java.lang.String"/>
+	<field name="APPR_BY" class="java.lang.String"/>
+	<field name="CITY_CODE" class="java.lang.String"/>
+	<field name="EMAIL" class="java.lang.String"/>
+	<field name="VEN_CD" class="java.lang.String"/>
+	<field name="PAN_NO" class="java.lang.String"/>
+	<field name="VEN_NAME" class="java.lang.String"/>
+	<field name="PRICE_BASIS_REMARK" class="java.lang.String"/>
+	<field name="HEAD_REMARK" class="java.lang.String"/>
+	<field name="UNLOAD_ADDRESS" class="java.lang.String"/>
+	<field name="ED_DATE" class="java.sql.Timestamp"/>
+	<field name="VEN_GST_NO" class="java.lang.String"/>
+	<field name="CONTACT_NAME" class="java.lang.String"/>
+	<field name="CONTACT_EMAIL" class="java.lang.String"/>
+	<field name="VMAIL" class="java.lang.String"/>
+	<field name="ADDRESS1" class="java.lang.String"/>
+	<field name="PO_HEAD_PO_NO" class="java.lang.String"/>
+	<field name="DESCS" class="java.lang.String"/>
+	<field name="PO_HSN_CODE" class="java.lang.String"/>
+	<field name="QTY" class="java.math.BigDecimal"/>
+	<field name="UOM" class="java.lang.String"/>
+	<field name="MATERIAL_RATE" class="java.math.BigDecimal"/>
+	<field name="DISCOUNT_AMT" class="java.math.BigDecimal"/>
+	<field name="CGST_PER" class="java.math.BigDecimal"/>
+	<field name="SGST_PER" class="java.math.BigDecimal"/>
+	<field name="REMARKS" class="java.lang.String"/>
+	<field name="GST_AMT" class="java.math.BigDecimal"/>
+	<field name="GOODS_VALUE" class="java.math.BigDecimal"/>
+	<field name="HEADING" class="java.lang.String"/>
+	<field name="FREIGHT" class="java.lang.String"/>
+	<field name="INS_AMT" class="java.lang.String"/>
+	<field name="SGST_AMT" class="java.math.BigDecimal"/>
+	<field name="CGST_AMT" class="java.math.BigDecimal"/>
+	<field name="BASIC" class="java.math.BigDecimal"/>
+	<field name="GST" class="java.lang.String"/>
+	<field name="STATECODE" class="java.lang.String"/>
+	<field name="PHONES" class="java.lang.String"/>
+	<field name="E_MAIL" class="java.lang.String"/>
+	<field name="STATENAME" class="java.lang.String"/>
+	<field name="CITYNAM" class="java.lang.String"/>
+	<field name="VENDOR_PIN" class="java.lang.String"/>
+	<field name="ITEM_SPECF" class="java.lang.String"/>
+	<field name="PHN" class="java.lang.String"/>
+	<field name="EMP_PHONE" class="java.lang.String"/>
+	<field name="PO_DT" class="java.sql.Timestamp"/>
+	<field name="GST_PERCENT" class="java.math.BigDecimal"/>
+	<field name="PO_ID" class="java.math.BigDecimal"/>
+	<field name="FRIGHT_AMT" class="java.math.BigDecimal"/>
+	<field name="AMD_NO" class="java.math.BigDecimal"/>
+	<field name="AMD_DT" class="java.sql.Timestamp"/>
+	<field name="SBU_FLG" class="java.lang.String"/>
+	<field name="NET_AMT" class="java.math.BigDecimal"/>
+	<field name="VERIFIED_NM" class="java.lang.String"/>
+	<field name="APPR_NM" class="java.lang.String"/>
+	<field name="CIN" class="java.lang.String"/>
+	<field name="LOGO_PATH" class="java.lang.String"/>
+	<field name="DEL_TERMS" class="java.lang.String"/>
+	<field name="CUR_CD" class="java.lang.String"/>
+	<field name="PREPARED_BY" class="java.lang.String"/>
+	<field name="AUTHORISED_BY" class="java.lang.String"/>
+	<field name="VERIFIED_BY" class="java.lang.String"/>
+	<field name="AMT_WRD" class="java.lang.String"/>
+	<field name="UNIT_ADDRESS" class="java.lang.String"/>
+	<field name="UNIT_ADD" class="java.lang.String"/>
+	<variable name="BASIC" class="java.lang.String" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{GOODS_VALUE}]]></variableExpression>
+	</variable>
+	<variable name="ALL" class="java.lang.String" calculation="Sum">
+		<variableExpression><![CDATA[$F{GOODS_VALUE}]]></variableExpression>
+	</variable>
+	<variable name="GOODS_VALUE_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{GOODS_VALUE}]]></variableExpression>
+	</variable>
+	<variable name="gross_" class="java.lang.Number" resetType="Column" calculation="Sum"/>
+	<variable name="variable1" class="java.lang.String"/>
+	<group name="fg" isReprintHeaderOnEachPage="true" keepTogether="true">
+		<groupExpression><![CDATA[1]]></groupExpression>
+		<groupHeader>
+			<band height="114" splitType="Stretch">
+				<staticText>
+					<reportElement x="6" y="0" width="123" height="20" uuid="34ab5dd9-88df-42ff-aeaa-58805c4e8de9"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Contact Details :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="225" y="3" width="103" height="20" uuid="a80ed589-632f-481c-bbd1-9d196f769ac4"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Vendor Details :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="328" y="3" width="37" height="20" uuid="55fd5767-8730-47c6-97af-5b6ad913049b"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Code : ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="430" y="3" width="42" height="20" uuid="d7fa0458-3a58-4cc8-8ffa-4d5cd983c84e"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[GSTIN :]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="367" y="3" width="62" height="20" uuid="78bcab11-0f03-42f5-98ca-5071d62bf12d"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{VEN_CD}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="472" y="3" width="116" height="20" uuid="189eb98e-f7d7-4f03-adb1-f7d18e42d881"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{VEN_GST_NO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="225" y="45" width="56" height="18" uuid="c6ba234d-69d7-40d5-b36e-8624e54d55f4"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Address]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="6" y="41" width="90" height="19" uuid="5c10c1c0-1de4-4c60-ab36-7a9e1c6bf651"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Email Id :]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="6" y="61" width="216" height="18" uuid="7c2ece39-d044-46dc-a9a6-bdeb38c921cb"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CONTACT_EMAIL}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="6" y="21" width="208" height="20" uuid="77c3a911-e74e-491b-8329-5f271aad6006"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CONTACT_NAME}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="6" y="80" width="90" height="18" uuid="8b1332a7-7abc-4dcb-87bd-6472dd500613"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Contact No. : ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="285" y="25" width="415" height="20" uuid="b249305f-b1ab-4efc-abea-cf9bb659b469"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{VEN_NAME}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="6" y="96" width="208" height="18" uuid="b19108ac-c1a9-473c-9403-52995596faa7"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{PHN}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="492" y="78" width="48" height="18" uuid="28a52f95-3533-4bb8-a504-ecec5495af12"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Phone No]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="550" y="78" width="157" height="18" uuid="2f375938-b833-457d-b4e5-3f1c8c4fd45b"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{PHONES}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="225" y="96" width="56" height="18" uuid="87fa9a08-5b2c-4036-b8ed-4e0331023807"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[State Code]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="285" y="96" width="45" height="18" uuid="a9ed5f9b-b8cf-43fc-856a-dd4146b6d50f"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9"/>
+						<paragraph leftIndent="1"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{STATECODE}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="225" y="25" width="56" height="20" uuid="13c6d437-2b2f-4d1c-a953-1a1d16236df1"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Name]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="492" y="96" width="48" height="18" uuid="bf6470cf-a74c-47ca-8c76-52a1b157a6a4"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[E-Mail]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="550" y="96" width="157" height="18" uuid="2f1685e1-ec6d-47e0-bb57-512a6b9e9fe4"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{E_MAIL}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="335" y="96" width="30" height="18" uuid="086c92f7-35f4-4f3c-a3ed-685c08826184"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[State]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="370" y="96" width="109" height="18" uuid="2c831747-217a-48a0-a811-cfbc097c4fb6"/>
+					<box leftPadding="2"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{STATENAME}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="335" y="78" width="30" height="18" uuid="5866abb8-6e8d-49f1-a410-2518db6937dd"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[City]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="370" y="78" width="109" height="18" uuid="11715ed1-97c7-484d-9fe9-1295c605732d"/>
+					<box leftPadding="2"/>
+					<textElement verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{CITYNAM}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="588" y="3" width="52" height="20" uuid="29cb3039-a859-43c7-9f64-520c367cee6e"/>
+					<textElement verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[PAN No. :]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="639" y="3" width="70" height="20" uuid="6d594516-3d59-47f9-87b3-d5b1caf2d559"/>
+					<textElement verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{PAN_NO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="225" y="78" width="56" height="18" uuid="b8ff70b8-b611-4f6e-a5e3-dd59639a4079"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Pincode]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="285" y="78" width="45" height="18" uuid="210860c0-cc5c-4eaa-a448-242b738b78bf"/>
+					<box leftPadding="2"/>
+					<textElement verticalAlignment="Middle">
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{VENDOR_PIN}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="222" y="0" width="1" height="114" uuid="b11920d4-0e3f-452b-8501-e3518fe0a485"/>
+				</line>
+				<componentElement>
+					<reportElement key="table 25" positionType="Float" stretchType="RelativeToTallestObject" x="285" y="45" width="415" height="18" isPrintInFirstWholeBand="true" uuid="7301cb04-bdc2-41f4-a0e1-90eae25eae24"/>
+					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<datasetRun subDataset="address" uuid="577f9e18-2d88-478d-a3a2-1164063e5cc6">
+							<datasetParameter name="ven_cd">
+								<datasetParameterExpression><![CDATA[$F{VEN_CD}]]></datasetParameterExpression>
+							</datasetParameter>
+							<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						</datasetRun>
+						<jr:column width="385" uuid="0dfdd7bb-577b-4862-9516-27ddcd45a29f">
+							<jr:detailCell height="18" rowSpan="1">
+								<textField>
+									<reportElement x="0" y="0" width="385" height="18" isPrintInFirstWholeBand="true" uuid="56f2431f-1cf3-4f90-a6d7-b4f0178ad7a4"/>
+									<textElement verticalAlignment="Middle">
+										<font size="9"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{ADDRESS}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:table>
+				</componentElement>
+				<staticText>
+					<reportElement x="281" y="78" width="2" height="18" uuid="6d73c0ee-b991-4e0e-b57d-f9b8f58fd73a"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="281" y="96" width="2" height="18" uuid="adf98773-007a-4b7f-a0ec-7fd56c59657e"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="281" y="25" width="2" height="20" uuid="b96094fa-2549-4d48-9332-1ca2b71e9cff"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="281" y="45" width="2" height="18" uuid="b7c1cb3f-0c45-43bf-9ef9-319f9f34f508"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="366" y="78" width="2" height="18" uuid="079ec14f-4a5f-40b0-8791-9af743062dcf"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="366" y="96" width="2" height="18" uuid="01b544ee-dbd0-42f9-a35e-648ab9315799"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="541" y="78" width="2" height="18" uuid="cd58995b-44bd-4bea-a515-583b62812e65"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="541" y="96" width="2" height="18" uuid="13e46463-3562-4a6b-ac2c-b01883f39c61"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="64">
+				<staticText>
+					<reportElement x="543" y="33" width="72" height="16" uuid="91a288a0-9acb-4749-b84f-3884a3389376"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[SGST/UTGST     ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="543" y="17" width="72" height="16" uuid="19790eab-a79f-4c67-8870-4edf86d83cfa"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[IGST                     ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="543" y="48" width="72" height="16" uuid="cb452321-f9ef-44a7-ba89-d55567e72dad"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[CGST                   ]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement key="table 19" style="table 19" x="614" y="48" width="90" height="16" uuid="e8bddc3f-605b-4682-b19e-bdb0b565b412"/>
+					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<datasetRun subDataset="CGST" uuid="c42ed370-37b1-45e9-8502-af3971642ec9">
+							<datasetParameter name="p_no">
+								<datasetParameterExpression><![CDATA[$P{p_no}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="p_id">
+								<datasetParameterExpression><![CDATA[$F{PO_ID}]]></datasetParameterExpression>
+							</datasetParameter>
+							<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						</datasetRun>
+						<jr:column width="90" uuid="99b43e48-fc18-40f2-94ad-cd603d9a3dd4">
+							<jr:detailCell style="table 19_TD" height="20">
+								<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="90" height="20" uuid="1643d4fe-8fb2-474c-be80-8bc3cec428c0"/>
+									<textElement textAlignment="Right" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{CSGT}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:table>
+				</componentElement>
+				<componentElement>
+					<reportElement key="table 20" style="table 20" x="614" y="33" width="90" height="16" uuid="d5b87b5d-9228-468a-b5cf-a57475ecd6cb"/>
+					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<datasetRun subDataset="SGST" uuid="3f09530b-c0f5-4ac9-ae2e-823a7bb1ae87">
+							<datasetParameter name="p_no">
+								<datasetParameterExpression><![CDATA[$P{p_no}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="p_id">
+								<datasetParameterExpression><![CDATA[$F{PO_ID}]]></datasetParameterExpression>
+							</datasetParameter>
+							<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						</datasetRun>
+						<jr:column width="90" uuid="0bd144b2-4e32-419b-93ab-c142bae11731">
+							<jr:detailCell style="table 20_TD" height="20">
+								<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="90" height="20" uuid="8e9a4a3a-0109-47dc-9eba-73800cfe0b34"/>
+									<textElement textAlignment="Right" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{SGST}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:table>
+				</componentElement>
+				<componentElement>
+					<reportElement key="table 22" style="table 22" x="614" y="17" width="90" height="16" uuid="611cd622-da56-461c-8932-2363feab2559"/>
+					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<datasetRun subDataset="IGST" uuid="5125c101-f989-4a9f-8056-e5e21ca404bd">
+							<datasetParameter name="p_no">
+								<datasetParameterExpression><![CDATA[$P{p_no}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="p_id">
+								<datasetParameterExpression><![CDATA[$F{PO_ID}]]></datasetParameterExpression>
+							</datasetParameter>
+							<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						</datasetRun>
+						<jr:column width="90" uuid="eeb328b7-34ad-43b9-a2be-05f35d3193ea">
+							<jr:detailCell style="table 22_TD" height="16" rowSpan="1">
+								<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="90" height="16" uuid="721ec30c-da26-4940-af7c-67d68ace43d0"/>
+									<textElement textAlignment="Right" verticalAlignment="Middle"/>
+									<textFieldExpression><![CDATA[$F{GST}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:table>
+				</componentElement>
+				<staticText>
+					<reportElement x="543" y="2" width="72" height="16" uuid="0f1a5fbf-97a5-4ec2-bcc2-4e1b9435ddc1"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Gross Value       ]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement key="table 13" style="table 13" x="614" y="2" width="90" height="16" uuid="3ec03312-0249-4f33-b10a-287934468d00"/>
+					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<datasetRun subDataset="Net_gross_value" uuid="c07945ce-c78b-46b5-b6b8-81a642bcebce">
+							<datasetParameter name="p_no">
+								<datasetParameterExpression><![CDATA[$P{p_no}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="p_id">
+								<datasetParameterExpression><![CDATA[$F{PO_ID}]]></datasetParameterExpression>
+							</datasetParameter>
+							<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						</datasetRun>
+						<jr:column width="90" uuid="00b51cde-4562-4d71-88ec-f29ad5a91b66">
+							<jr:detailCell style="table 13_TD" height="15">
+								<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="90" height="15" uuid="0b5164d6-4ffa-4296-935d-4f1e40264e45"/>
+									<textElement textAlignment="Right" verticalAlignment="Middle">
+										<font fontName="SansSerif" size="10"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:table>
+				</componentElement>
+				<line>
+					<reportElement x="0" y="0" width="710" height="1" uuid="f76f4b29-0a7d-47a8-be3a-c764231c1426"/>
+				</line>
+				<staticText>
+					<reportElement x="1" y="33" width="130" height="20" uuid="8e4c921f-7f65-4ee8-ad4c-228b8bd94bb3"/>
+					<box leftPadding="3"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[GST Amount in words :]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement key="table 24" style="table 24" x="136" y="32" width="400" height="32" uuid="518fc684-91ea-4509-9c74-fcce519a1c64"/>
+					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<datasetRun subDataset="GstWords" uuid="b095789f-73a2-49e8-9e9e-aa121c7490e8">
+							<datasetParameter name="PO_NO">
+								<datasetParameterExpression><![CDATA[$F{PO_HEAD_PO_NO}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="AMD_NO">
+								<datasetParameterExpression><![CDATA[$F{AMD_NO}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="CURR_TYPE">
+								<datasetParameterExpression><![CDATA[$F{CUR_CD}]]></datasetParameterExpression>
+							</datasetParameter>
+							<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						</datasetRun>
+						<jr:column width="400" uuid="211fa8ce-d2de-4dea-8b62-0d96887df636">
+							<jr:detailCell style="table 24_TD" height="32" rowSpan="1">
+								<textField isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="400" height="32" uuid="c5316e5b-3f09-4265-a416-82fd0e932dda"/>
+									<textElement verticalAlignment="Top">
+										<font isBold="false"/>
+									</textElement>
+									<textFieldExpression><![CDATA[$F{GST_AMT_WRD}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:table>
+				</componentElement>
+			</band>
+			<band height="32">
+				<printWhenExpression><![CDATA[$F{FREIGHT} != null || $F{INS_AMT} != null]]></printWhenExpression>
+				<textField isBlankWhenNull="true">
+					<reportElement x="543" y="0" width="72" height="16" uuid="e94738c5-30f5-4c9a-9cb5-642521ff8502"/>
+					<textElement verticalAlignment="Middle" markup="none">
+						<font fontName="SansSerif" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{FREIGHT} != null ? "Freight "+$F{FREIGHT}+" % " : "")]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="543" y="16" width="72" height="16" uuid="eac2d1b5-c984-4b62-be86-2f5f8c8ae6c9"/>
+					<textElement verticalAlignment="Middle" markup="none">
+						<font fontName="SansSerif" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{INS_AMT} != null ? "Insurance" : "")]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement x="614" y="0" width="90" height="16" uuid="5b7a6319-0638-4414-b1b2-be0f596d72db"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{FREIGHT} != null ? $F{FRIGHT_AMT} : "")]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement x="614" y="16" width="90" height="16" uuid="b3a82c23-5712-4262-84cd-3fd3d681dc7b"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{INS_AMT} != null ? $F{INS_AMT} :"")]]></textFieldExpression>
+				</textField>
+			</band>
+			<band height="53">
+				<staticText>
+					<reportElement x="543" y="1" width="72" height="19" uuid="cbb848ea-bc75-4515-bfc7-96efb995b93c"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Net Value              ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="1" width="130" height="19" uuid="994d3de5-928e-45a1-8cf1-92222aa4f47d"/>
+					<box leftPadding="3"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Total Amount in words :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="22" width="129" height="16" isRemoveLineWhenBlank="true" uuid="f2cd2269-a5a2-49d4-936b-06d0bad0c88e"/>
+					<box leftPadding="3"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Delivery Terms :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="38" width="129" height="15" isRemoveLineWhenBlank="true" uuid="c0f9e624-ab61-48d4-a2c9-f2a4336c9825"/>
+					<box leftPadding="3"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Payment Terms :]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement key="table 24" style="table 24" x="135" y="38" width="565" height="15" isRemoveLineWhenBlank="true" uuid="1e0730c8-a45e-43b6-9cee-8d6a636b2c95"/>
+					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<datasetRun subDataset="payTerm" uuid="188f878a-61c1-45a6-bd75-af012cd37880">
+							<datasetParameter name="PO_NO">
+								<datasetParameterExpression><![CDATA[$P{p_no}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="AMD_NO">
+								<datasetParameterExpression><![CDATA[$F{AMD_NO}]]></datasetParameterExpression>
+							</datasetParameter>
+							<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						</datasetRun>
+						<jr:column width="538" uuid="7e7f53ee-eb81-4dd6-9122-d5082493c0e1">
+							<jr:detailCell style="table 24_TD" height="16" rowSpan="1">
+								<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+									<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="538" height="15" uuid="a814e571-7d30-4246-bd9b-d819dcef6470"/>
+									<box leftPadding="0">
+										<leftPen lineWidth="0.0"/>
+										<rightPen lineWidth="0.0"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font fontName="Arial" size="8"/>
+										<paragraph lineSpacing="Single"/>
+									</textElement>
+									<textFieldExpression><![CDATA[($F{PAY_TERM} != null ? $F{PAY_TERM}: " ")]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:table>
+				</componentElement>
+				<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+					<reportElement isPrintRepeatedValues="false" x="614" y="0" width="90" height="16" uuid="a57c7fa4-d3c0-4377-9c3e-ab79f91d42f3"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{NET_AMT}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="135" y="22" width="565" height="16" isRemoveLineWhenBlank="true" uuid="37f450ad-6c30-4310-aa32-eec572f0d79e"/>
+					<box leftPadding="2"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{DEL_TERMS}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="135" y="1" width="400" height="20" uuid="a6e718b1-5507-4bba-93b5-5613f9a587a4"/>
+					<textElement verticalAlignment="Middle">
+						<font size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{AMT_WRD}]]></textFieldExpression>
+				</textField>
+			</band>
+			<band height="15">
+				<componentElement>
+					<reportElement key="table 24" style="table 24" stretchType="RelativeToTallestObject" mode="Opaque" x="135" y="0" width="565" height="15" isRemoveLineWhenBlank="true" uuid="0a2421b4-ec43-49ff-9a0e-0d7c076658ea"/>
+					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<datasetRun subDataset="TNC" uuid="ad40bfc2-551c-4a9c-83c3-20209e2baecd">
+							<datasetParameter name="PO_NO">
+								<datasetParameterExpression><![CDATA[$P{p_no}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="AMD_NO">
+								<datasetParameterExpression><![CDATA[$F{AMD_NO}]]></datasetParameterExpression>
+							</datasetParameter>
+							<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						</datasetRun>
+						<jr:column width="532" uuid="843c530c-8c2d-408e-b74a-4f1979ef1e31">
+							<jr:detailCell style="table 24_TD" height="15" rowSpan="1">
+								<textField isStretchWithOverflow="true" evaluationTime="Auto" isBlankWhenNull="true">
+									<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="532" height="15" isPrintWhenDetailOverflows="true" uuid="c81c5af2-2a85-4d66-9be1-89d2a31c9e69">
+										<printWhenExpression><![CDATA[new Boolean (($F{CANCEL_TER}== null)|| ($F{CANCEL_TER}.equals( "N" )))]]></printWhenExpression>
+									</reportElement>
+									<box leftPadding="0">
+										<leftPen lineWidth="0.0"/>
+										<rightPen lineWidth="0.0"/>
+									</box>
+									<textElement verticalAlignment="Middle">
+										<font fontName="Arial" size="8"/>
+										<paragraph lineSpacing="Single"/>
+									</textElement>
+									<textFieldExpression><![CDATA[($F{SUBJECT} != null ? ($F{S_NO}) + "." + $F{SUBJECT}: " ") +"      "+($F{OTHERS} != null ?$F{OTHERS}:"")]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:table>
+				</componentElement>
+				<staticText>
+					<reportElement x="0" y="0" width="129" height="15" isRemoveLineWhenBlank="true" uuid="a557c8ec-b032-4051-bd9c-c7e82c3f12b0"/>
+					<box leftPadding="3"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Terms & Conditions :]]></text>
+				</staticText>
+			</band>
+			<band height="15">
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement positionType="Float" x="106" y="0" width="604" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="0ba7ab40-6987-4b62-999e-2884cf69994d"/>
+					<box leftPadding="3">
+						<leftPen lineWidth="0.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="9" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{HEAD_REMARK} != null ? $F{HEAD_REMARK}: " ")]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="106" height="15" isRemoveLineWhenBlank="true" uuid="627e9fd2-0669-4654-8126-571f7c1e75cc"/>
+					<box leftPadding="3">
+						<leftPen lineWidth="1.0"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Remarks :]]></text>
+				</staticText>
+			</band>
+			<band height="24">
+				<staticText>
+					<reportElement positionType="FixRelativeToBottom" x="0" y="0" width="710" height="24" isRemoveLineWhenBlank="true" uuid="18e3b0b6-e4df-4270-a852-f3ea6069c90b"/>
+					<box leftPadding="3">
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement verticalAlignment="Middle" markup="none">
+						<font fontName="SansSerif" size="9"/>
+					</textElement>
+					<text><![CDATA[All Disputes Subject to Haridwar Jurisdiction only.
+E&OE ]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="DETAIL" isReprintHeaderOnEachPage="true" keepTogether="true">
+		<groupHeader>
+			<band height="26" splitType="Stretch">
+				<staticText>
+					<reportElement x="499" y="1" width="59" height="25" uuid="5a89091d-531b-4475-a6e0-1ff01fe92597"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Discount
+%]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="99" y="1" width="200" height="25" uuid="71b6e58e-f5da-4cbb-9376-959c5f434a83"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Description]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="397" y="1" width="46" height="25" uuid="b60fb589-5d10-4d9e-a2cf-d7b1f5d35691"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[UOM]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="299" y="1" width="51" height="25" uuid="94fbf7db-73d8-4342-97fb-efb93b440544"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[HSN]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="20" y="1" width="78" height="25" uuid="a0ca9f92-7cc3-438c-b7f1-a8bc66f6083c"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Material Code]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="350" y="1" width="48" height="25" uuid="73c02d53-5351-4958-9ead-dab4aaf9fd5c"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Quantity]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="629" y="1" width="81" height="25" uuid="02f2be8e-6ba2-422d-8605-b98d677fdd44"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Net Amount " +"\n"+ $F{CUR_CD}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="558" y="1" width="71" height="25" uuid="22ac75cd-fab8-4493-8c9d-2e82a829070b"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Discount
+Amount]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="442" y="1" width="57" height="25" uuid="84b6706a-2453-49a0-a1ba-3a4796bfdd53"/>
+					<textElement textAlignment="Center" verticalAlignment="Top" markup="none">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Unit Price " +"\n"+ $F{CUR_CD}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="1" width="20" height="25" uuid="bab1030e-8238-4470-b891-a2dd8161e825"/>
+					<box leftPadding="3"/>
+					<textElement verticalAlignment="Top">
+						<font fontName="SansSerif" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sr. No.]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="0" width="710" height="1" uuid="e11adb1b-ea4e-4ae2-82bf-a52bd2b10b17"/>
+				</line>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band height="960">
+			<frame>
+				<reportElement x="0" y="0" width="710" height="960" uuid="fb125bc6-e75e-42d8-bedf-311a192d17d9"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<staticText>
+					<reportElement mode="Opaque" x="2" y="275" width="707" height="143" isPrintWhenDetailOverflows="true" forecolor="#E6E6E9" backcolor="#FFFFFF" uuid="64055516-039f-4911-8d2f-514fc59e96df">
+						<printWhenExpression><![CDATA[new Boolean ($F{APPR_BY}== null)]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font size="88"/>
+					</textElement>
+					<text><![CDATA[DRAFT]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="2" y="285" width="707" height="143" isPrintWhenDetailOverflows="true" forecolor="#E6E6E9" backcolor="#FFFFFF" uuid="01d0c418-6bfd-4fd1-8d92-afc0e4a0eecc">
+						<printWhenExpression><![CDATA[new Boolean ($F{CANC_FLAG}.equalsIgnoreCase("Y"))]]></printWhenExpression>
+					</reportElement>
+					<textElement textAlignment="Center">
+						<font size="88"/>
+					</textElement>
+					<text><![CDATA[CANCEL]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</background>
+	<pageHeader>
+		<band height="158">
+			<staticText>
+				<reportElement x="2" y="114" width="53" height="20" uuid="cafac5ab-5c86-44be-bf83-95e4fd3c63e8"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PO No. : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="54" y="116" width="155" height="20" uuid="cea8ede9-45fc-4546-a8d2-1ab945c709dc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PO_HEAD_PO_NO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="136" width="53" height="19" uuid="62a2b7d4-afa3-4419-b99e-a4274a0175ba"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GSTIN : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="561" y="136" width="79" height="20" uuid="b53bd93b-1a1d-4e8e-b4b0-8ca3a7f52838"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Release Date : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="56" y="136" width="153" height="19" uuid="06fc10d4-5dfd-4588-a38f-632dcf202c31"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{GST}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="608" y="136" width="100" height="20" uuid="a239a701-b384-4573-84ca-c67f45482797"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PO_DT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="0" width="624" height="22" uuid="124f80f5-3966-43ff-9e3d-8d3f5d6f46fe"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="36" width="629" height="34" uuid="eac1e970-1743-40f5-954f-d5e463da468b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UNIT_ADDRESS}+"\n"+$F{UNIT_ADD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="255" y="91" width="251" height="27" uuid="f50040d5-c41a-44d8-9360-4050251f18ba"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PO_TYPE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="78" y="72" width="631" height="20" uuid="06a04c29-205b-4cfe-9e94-0032d6ef2f08">
+					<printWhenExpression><![CDATA[new Boolean($F{EMAIL}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EMAIL}+"   "+$F{CIN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="22" width="631" height="14" uuid="6479febc-aca3-4b01-b335-4dde69cc8a46">
+					<printWhenExpression><![CDATA[$F{SBU_FLG}.equals("Y")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="SansSerif" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(formerly known as Patanjali Bio Research Institute Private Limited)"]]></textFieldExpression>
+			</textField>
+			<image onErrorType="Blank">
+				<reportElement isPrintRepeatedValues="false" x="3" y="2" width="75" height="70" isPrintInFirstWholeBand="true" uuid="1ea9e94c-1917-4f8e-ac07-fcae1544b64b"/>
+				<imageExpression><![CDATA[$F{LOGO_PATH}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="613" y="91" width="61" height="17" uuid="46c0b190-cee5-4d28-b2d5-088336f3401b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="673" y="91" width="35" height="17" uuid="3a5fed6a-8fa9-4cec-979a-0d9cbed55b0e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="366" y="116" width="155" height="20" uuid="b78fe3f7-a6f1-46a4-9450-732c4c0efe38"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AMD_NO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="281" y="116" width="85" height="20" uuid="7323e50b-b719-4927-acdb-35c653bc4576"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amnd No.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="90" width="710" height="1" uuid="1432c0e8-eef6-40a5-adc7-957083dd32b0"/>
+			</line>
+			<line>
+				<reportElement x="1" y="114" width="710" height="3" uuid="86e97a01-f287-4809-a35a-d2aa1dbc0e4e"/>
+			</line>
+			<staticText>
+				<reportElement x="281" y="136" width="85" height="20" uuid="fe5031c5-3e42-4dd2-9d15-f8f91de47e10"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amnd Date]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="366" y="136" width="155" height="20" uuid="d9084acc-981e-48ba-86b3-dd63533ac9ef"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AMD_DT}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="0" width="710" height="158" uuid="453eec3f-a2c6-4533-9702-7cb584ccbb00"/>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="66" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="0" width="78" height="20" uuid="8ab8f8dd-86c4-4bfa-957d-a84793d32bbf"/>
+				<box leftPadding="3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PIOS_ITEM_CD}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="299" y="1" width="51" height="19" uuid="4da07176-5a25-4e5c-bb8f-606e35d72185"/>
+				<box leftPadding="0" rightPadding="3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PO_HSN_CODE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="1" width="48" height="20" uuid="3e844fa2-70e1-4a29-a1de-9518955fad23"/>
+				<box leftPadding="0" rightPadding="3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{QTY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="397" y="0" width="46" height="20" uuid="defc84f2-2fbf-4e03-9857-007c99b1f49c"/>
+				<box leftPadding="3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UOM}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="442" y="1" width="57" height="20" uuid="4e9d648c-8e3e-4342-ac10-64c006633d33"/>
+				<box leftPadding="3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MATERIAL_RATE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="558" y="1" width="71" height="20" uuid="dd205a56-4cb2-4c6d-b6bb-83eb7735f253"/>
+				<box leftPadding="0" rightPadding="3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DISCOUNT_AMT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="421" y="39" width="60" height="13" uuid="daa6b5d4-9c82-4bfd-abb9-1a4017bca8b6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Delivery Date :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="39" width="94" height="15" uuid="40ac8dc8-3400-459c-b8eb-c05d82818bae">
+					<printWhenExpression><![CDATA[new Boolean($F{UNLOAD_ADDRESS} !=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Unloading Point : ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" x="99" y="1" width="200" height="19" uuid="49bf6f3d-46bc-4d3c-9d1f-f6312e591d78"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESCS}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Transparent" x="608" y="23" width="40" height="13" uuid="1b392714-9480-45cc-98b9-d05fc6115d01"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8" isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["IGST : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="486" y="23" width="30" height="13" uuid="73743977-1e73-4add-9767-bbf3157046c6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{CGST_PER} == null ? "0" : $F{CGST_PER})+ " %"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="648" y="23" width="30" height="13" uuid="ed865309-670a-4315-8832-7f82c5f3ffbc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{GST_PERCENT} == null ? "0" : $F{GST_PERCENT}) + " %"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="568" y="23" width="30" height="13" uuid="7fed3c35-64b6-4b8c-98be-5319ff0411de"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{SGST_PER} == null ? "0" : $F{SGST_PER}) + " %"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="528" y="23" width="40" height="13" uuid="e46ad9a7-36c4-481a-ad3f-551fbe052b0c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["SGST : "]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="446" y="23" width="40" height="13" uuid="163f1e9d-28c8-4946-ab98-07ae2cf0ff2b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CGST : "]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement key="table 12" style="table 12" x="629" y="1" width="81" height="20" uuid="6e7cd766-a79b-4112-985b-695840a19bf1"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="NET_VALUE_ITEM" uuid="377403f1-c7a4-4d73-8807-2bd31923cba4">
+						<datasetParameter name="p_no">
+							<datasetParameterExpression><![CDATA[$P{p_no}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="p_id">
+							<datasetParameterExpression><![CDATA[$F{PO_ID}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="p_item">
+							<datasetParameterExpression><![CDATA[$F{PIOS_ITEM_CD}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="78" uuid="5f88937d-456c-4287-a7e8-4a24afbcad95">
+						<jr:detailCell style="table 12_TD" height="20" rowSpan="1">
+							<textField pattern="#,##0.00;-#,##0.00" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="78" height="20" uuid="62d07d29-d22e-479f-9033-8f23a60ee426"/>
+								<textElement textAlignment="Right" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="27" y="53" width="75" height="12" isRemoveLineWhenBlank="true" uuid="319deeca-4a41-4944-b679-1c44441d36ee">
+					<printWhenExpression><![CDATA[new Boolean($F{REMARKS}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Remarks : ]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="103" y="39" width="319" height="15" uuid="b500c264-4a27-464b-a6fa-69653e29e376"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UNLOAD_ADDRESS}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="477" y="39" width="66" height="13" uuid="63561d36-cf65-4c89-842c-d3d0aedbc6c9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ED_DATE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="102" y="54" width="602" height="12" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="cd48a151-18bb-4446-8f1a-8ffbf637e482">
+					<printWhenExpression><![CDATA[new Boolean($F{REMARKS}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{REMARKS}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="710" height="1" uuid="64e380b2-c78f-4f41-b80b-e71b21f7994a"/>
+			</line>
+			<staticText>
+				<reportElement x="542" y="39" width="41" height="13" uuid="71cc74be-3a30-4f59-ba01-eb6351066dc0"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Indent No. : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="0" width="20" height="20" uuid="b1bf145f-676d-4fc4-8b35-bcb6f1d37b9c"/>
+				<box leftPadding="3"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SR}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="585" y="39" width="124" height="13" isPrintWhenDetailOverflows="true" uuid="25d830c3-4118-49bc-b650-70c64570cb1a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{IND_NO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="498" y="1" width="60" height="19" uuid="15cbc5c6-fe27-41c9-9907-7ffc561acde5"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DISCOUNT_PERCENT}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="17">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="106" y="0" width="578" height="15" isRemoveLineWhenBlank="true" isPrintWhenDetailOverflows="true" uuid="b89a18e3-69f9-4977-9eea-f68f1b79e1a5">
+					<printWhenExpression><![CDATA[new Boolean($F{ITEM_SPECF}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ITEM_SPECF}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="27" y="0" width="75" height="15" isRemoveLineWhenBlank="true" uuid="05fee02b-1da5-47b5-8e11-abe135af3d12">
+					<printWhenExpression><![CDATA[new Boolean($F{ITEM_SPECF}!=null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Specifications ]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<summary>
+		<band height="33">
+			<staticText>
+				<reportElement x="6" y="15" width="170" height="16" uuid="2a4a73af-4398-4301-acd2-af466e918445"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Prepared By]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="15" width="162" height="16" uuid="ecb8ce28-aa8e-4ffe-b4ff-451141e792a8"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Verified By]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="556" y="15" width="147" height="16" uuid="5d643717-a465-44c0-acf1-b2ea7c505a38"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Authorised Signatory]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

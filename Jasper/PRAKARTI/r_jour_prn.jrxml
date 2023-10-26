@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="r_jour_prn" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b16e4c57-37e3-47c0-b244-76f99a712b96">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="4"/>
+	<parameter name="p_vou_fr" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_vou_to" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_voutp" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_to_dt" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_fr_dt" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_unit" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+   NAME
+ , VD.FIN_TVOUCH_UNIT_CODE
+ , VD.FIN_TVOUCH_VOU_TYPE
+ , VD.FIN_TVOUCH_VOU_NO
+ , VD.FIN_TVOUCH_VOU_DATE
+ , VD.SUB_CODE
+ , VD.AMOUNT
+ , VD.GNRL_LED_GL_CD
+ , COST_CENTR_CD,DECODE(VH.VOU_TYPE,'J','Journal Voucher','R','Contra Voucher','S','Sale Voucher','P','Purchase Voucher','B','Bank Voucher','C','Cash Voucher')Vou_desc
+ , DECODE(DR_CR_FLAG,'D','DEBIT','C','CREDIT') Flag1
+ , INITCAP(GL_DESC) GL_DESC
+ , INITCAP(VD.NARRATION) NARRATION1
+ , INITCAP(VH.NARRATION) NARRATION2
+ , FC_AMOUNT
+ , PREPARED_BY
+ , CASE WHEN (SELECT ENAME FROM TERMS.EMP_VIEW WHERE ENO = PREPARED_BY) IS NULL
+        THEN (SELECT ENAME FROM TERMS.EMP_VIEW WHERE ENO =(SELECT VERIFIED_BY FROM TERMS.BILL WHERE VOU_NO= VD.FIN_TVOUCH_VOU_NO))
+        ELSE (SELECT ENAME FROM TERMS.EMP_VIEW WHERE ENO = PREPARED_BY)
+   END PREPARED_NM
+ , FIN_MAUTH_AUTH_CODE
+ , (SELECT ENAME FROM TERMS.EMP_VIEW WHERE ENO = FIN_MAUTH_AUTH_CODE) AUTH_NM
+ , VERIFIED_BY
+ , CASE WHEN (SELECT ENAME FROM TERMS.EMP_VIEW WHERE ENO = VERIFIED_BY) IS NULL
+        THEN (SELECT ENAME FROM TERMS.EMP_VIEW WHERE ENO =(SELECT VERIFIED_BY FROM TERMS.BILL WHERE VOU_NO= VD.FIN_TVOUCH_VOU_NO))
+        ELSE (SELECT ENAME FROM TERMS.EMP_VIEW WHERE ENO = VERIFIED_BY)
+   END VERIFIED_NM
+ , VOU_DATE
+ , INITCAP(TERMS.AMOUNT_TO_WORD((SELECT Floor(SUM(DECODE(DR_CR_FLAG,'D',Amount))*100)/100 FROM TERMS.GEN_LED_FIN_TVOUCH WHERE FIN_TVOUCH_VOU_NO=VD.FIN_TVOUCH_VOU_NO and FIN_TVOUCH_VOU_DATE=VD.FIN_TVOUCH_VOU_DATE AND FIN_TVOUCH_VOU_TYPE=VD.FIN_TVOUCH_VOU_TYPE AND FIN_TVOUCH_UNIT_CODE=VD.FIN_TVOUCH_UNIT_CODE)  ,VH.CURRENCY_CODE)) INWORD
+ , (select Name from TERMS.Sub_led where code = sub_code and unit = VD.FIN_TVOUCH_UNIT_CODE)Name1
+ FROM
+    TERMS.GEN_LED_FIN_TVOUCH VD
+  , TERMS.FIN_TVOUCH VH
+  , TERMS.GEN_LED
+  , TERMS.UNIT
+WHERE UNIT.CODE = VD.FIN_TVOUCH_UNIT_CODE
+AND VH.VOU_NO = VD.FIN_TVOUCH_VOU_NO
+AND VH.VOU_DATE = VD.FIN_TVOUCH_VOU_DATE
+AND VH.VOU_TYPE = VD.FIN_TVOUCH_VOU_TYPE
+AND VH.UNIT_CODE = VD.FIN_TVOUCH_UNIT_CODE
+AND VD.GNRL_LED_GL_CD=GL_CD AND GEN_LED.UNIT_CODE = UNIT.CODE
+AND VD.FIN_TVOUCH_VOU_NO   between $P{p_vou_fr} and $P{p_vou_to}
+AND TRUNC(VD.FIN_TVOUCH_VOU_DATE) BETWEEN TRUNC(TO_DATE(TO_CHAR($P{p_fr_dt}), 'RRRR-MM-DD'))
+AND TRUNC(TO_DATE(TO_CHAR($P{p_to_dt}), 'RRRR-MM-DD'))
+AND VD.FIN_TVOUCH_UNIT_CODE = $P{p_unit} AND VH.VOU_TYPE =$P{p_voutp}
+ORDER BY VD.FIN_TVOUCH_VOU_NO,VD.DR_CR_FLAG desc,VD.seq_no asc]]>
+	</queryString>
+	<field name="NAME" class="java.lang.String"/>
+	<field name="FIN_TVOUCH_UNIT_CODE" class="java.lang.String"/>
+	<field name="FIN_TVOUCH_VOU_TYPE" class="java.lang.String"/>
+	<field name="FIN_TVOUCH_VOU_NO" class="java.lang.String"/>
+	<field name="FIN_TVOUCH_VOU_DATE" class="java.sql.Timestamp"/>
+	<field name="SUB_CODE" class="java.lang.String"/>
+	<field name="AMOUNT" class="java.math.BigDecimal"/>
+	<field name="GNRL_LED_GL_CD" class="java.lang.String"/>
+	<field name="COST_CENTR_CD" class="java.lang.String"/>
+	<field name="VOU_DESC" class="java.lang.String"/>
+	<field name="FLAG1" class="java.lang.String"/>
+	<field name="GL_DESC" class="java.lang.String"/>
+	<field name="NARRATION1" class="java.lang.String"/>
+	<field name="NARRATION2" class="java.lang.String"/>
+	<field name="FC_AMOUNT" class="java.math.BigDecimal"/>
+	<field name="PREPARED_BY" class="java.lang.String"/>
+	<field name="PREPARED_NM" class="java.lang.String"/>
+	<field name="FIN_MAUTH_AUTH_CODE" class="java.lang.String"/>
+	<field name="AUTH_NM" class="java.lang.String"/>
+	<field name="VERIFIED_BY" class="java.lang.String"/>
+	<field name="VERIFIED_NM" class="java.lang.String"/>
+	<field name="VOU_DATE" class="java.sql.Timestamp"/>
+	<field name="INWORD" class="java.lang.String"/>
+	<field name="NAME1" class="java.lang.String"/>
+	<variable name="sum_dr_cr" class="java.lang.Double" resetType="Group" resetGroup="DRCR" calculation="Sum">
+		<variableExpression><![CDATA[$F{AMOUNT}]]></variableExpression>
+	</variable>
+	<group name="VouNo" keepTogether="true">
+		<groupExpression><![CDATA[$F{FIN_TVOUCH_VOU_NO}]]></groupExpression>
+		<groupHeader>
+			<band height="86">
+				<rectangle>
+					<reportElement x="0" y="0" width="555" height="86" uuid="50c89b92-2759-4638-8908-16ae122a1598"/>
+				</rectangle>
+				<textField>
+					<reportElement x="25" y="44" width="54" height="15" uuid="fc32e2bd-955c-4971-91d9-59f433c3d4bb"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{FIN_TVOUCH_UNIT_CODE}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="132" y="43" width="45" height="15" uuid="4926385d-0342-40d9-8d59-5df53c94c1b0"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[Voucher No]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="178" y="44" width="127" height="15" uuid="be6fbca3-45a0-4734-9570-6962389ea917"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{FIN_TVOUCH_VOU_NO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="1" y="44" width="24" height="15" uuid="e1bbab86-ef5d-4c20-82c1-ed9132d2d109"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Unit :]]></text>
+				</staticText>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement x="484" y="43" width="67" height="15" uuid="7a53399c-4fcf-4611-8556-23577ab532c7"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{FIN_TVOUCH_VOU_DATE}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="448" y="43" width="36" height="15" uuid="13ec9438-a685-4e9e-b153-d439e1e653ea"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[Date]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="5" y="66" width="42" height="20" uuid="343710e7-399c-48ef-a53d-4e5c78ad9274"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[A/c Code]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="504" y="66" width="33" height="20" uuid="851131de-43a1-47c4-bd5f-423efbc4585d"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Amount]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="265" y="66" width="78" height="20" uuid="83c430a9-12bd-4571-b2ec-4b6724cafb15"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Name]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="58" y="66" width="139" height="20" uuid="7132a890-a412-485e-a4ca-f8b1dbb45d8c"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Description]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="197" y="66" width="55" height="20" uuid="9cfc6ea0-16be-4ddb-808d-a4158b7012ac"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sub Code]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="1" y="28" width="131" height="15" uuid="a618f0cd-4277-444d-9062-4320f738ffe0"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{VOU_DESC}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="1" y="8" width="356" height="15" uuid="ecccfaf8-ad74-4f9d-9b1a-44c288f23a9e"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{NAME}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="0" y="59" width="555" height="1" uuid="e39af4cb-bbd0-46a1-b3d0-fe0fbe8adc20"/>
+				</line>
+				<staticText>
+					<reportElement x="197" y="27" width="37" height="15" uuid="7e08242b-ac86-425a-98f5-d02513063ca2">
+						<printWhenExpression><![CDATA[$F{FIN_MAUTH_AUTH_CODE}==null]]></printWhenExpression>
+					</reportElement>
+					<box leftPadding="2"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[App. No.]]></text>
+				</staticText>
+				<line>
+					<reportElement x="233" y="35" width="61" height="1" uuid="9cbdf741-118d-411a-ae84-ba31425388de">
+						<printWhenExpression><![CDATA[$F{FIN_MAUTH_AUTH_CODE}==null]]></printWhenExpression>
+					</reportElement>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="115">
+				<rectangle>
+					<reportElement x="0" y="0" width="554" height="115" uuid="5569c777-f653-4a55-9de0-74815d2c0ed1"/>
+				</rectangle>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement isPrintRepeatedValues="false" x="47" y="27" width="467" height="20" uuid="22c82867-40f7-4ef3-a78e-af8555c5e0c1"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{NARRATION2}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="46" y="4" width="468" height="20" uuid="be3e732b-8e13-4999-b9fc-4e59e7735087"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{INWORD}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="6" y="27" width="41" height="20" uuid="318b00cd-c265-4ad1-a253-89c9c72def97"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Narration :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="5" y="4" width="41" height="20" uuid="f9a9d76f-e292-42d2-9c31-7ab096c7904a"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[In Word   :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="197" y="90" width="52" height="20" uuid="46eca4a3-af8d-436a-a563-fc53019a963d"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Verified By:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="90" width="58" height="20" uuid="f413f575-cfc8-4270-8952-5c726ce599fe"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Prepared By :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="387" y="90" width="65" height="20" uuid="20c568a6-6077-4e8c-880d-6e2675e5b1bd"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Authorised By :]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement x="58" y="90" width="100" height="20" uuid="81eac2a5-2ef8-4c0a-92e9-841607bf8675"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{PREPARED_NM}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="452" y="90" width="100" height="20" uuid="ac37439a-a8d5-49d8-b3ed-4c0e6e9be8e5"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{AUTH_NM}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement x="248" y="90" width="100" height="20" uuid="1eeaba56-f4c3-4415-b67c-657940dd01dd"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{VERIFIED_NM}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="DRCR">
+		<groupExpression><![CDATA[$F{FLAG1}]]></groupExpression>
+		<groupHeader>
+			<band height="21">
+				<textField>
+					<reportElement x="2" y="2" width="56" height="16" uuid="89ddaf1b-9754-4907-a67d-4625d58000c5"/>
+					<box leftPadding="2"/>
+					<textElement>
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{FLAG1}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="1" y="0" width="553" height="1" uuid="71c04d43-d6c9-4b96-be03-4490ef5d21d6"/>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="1" height="18" uuid="1a398893-d4f1-4412-941a-4e0b7ee67294"/>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="554" y="0" width="1" height="21" uuid="396fe71c-e527-409d-8a79-57b2adfe66ab"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="25">
+				<textField pattern="###0.00;(-###0.00)">
+					<reportElement x="471" y="9" width="66" height="15" uuid="6beb1a0c-0936-426b-be9e-76d4aa6ab423"/>
+					<textElement textAlignment="Right">
+						<font fontName="Arial" size="8" isBold="true" isUnderline="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{sum_dr_cr}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="1" height="24" uuid="9982c266-0b8e-4128-b034-0ae25497921f"/>
+				</line>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="554" y="0" width="1" height="25" uuid="b69d5f64-635c-4544-ba96-19c27b149edc"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<detail>
+		<band height="27" splitType="Stretch">
+			<textField>
+				<reportElement x="5" y="0" width="53" height="18" uuid="1296a1a2-0a41-4a34-9137-66f653c8ebfc"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{GNRL_LED_GL_CD}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" x="554" y="-3" width="1" height="30" uuid="5ddb45ea-8b81-4559-9130-6cf0f098f631"/>
+			</line>
+			<textField pattern="###0.00;(###0.00)">
+				<reportElement x="471" y="2" width="67" height="18" uuid="3f6f02f4-2971-498a-b592-5018134984f1"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="8" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AMOUNT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="197" y="1" width="68" height="18" uuid="e5216036-7858-42f9-ba43-abaf8a9b3813"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUB_CODE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="58" y="2" width="139" height="18" uuid="a9fbf33e-176f-427a-9d49-38a4736c2080"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{GL_DESC}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="265" y="0" width="187" height="18" uuid="abf357cd-ecbf-41a6-b44b-07b76fd37346"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NAME1}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="-3" width="1" height="30" uuid="c2c57695-93d5-416f-8795-f03878856206"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="11"/>
+	</pageFooter>
+</jasperReport>

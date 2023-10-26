@@ -1,0 +1,1285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="r_salary_slip_officer" language="groovy" pageWidth="595" pageHeight="500" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isFloatColumnFooter="true" uuid="32d4fa31-7cb8-46d8-9e67-3bc876b92488">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 6">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 6_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 6_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 6_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 7">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<subDataset name="DEDUCTIONS" uuid="c53f003a-0638-46f6-9b47-e0c4b39298c3">
+		<parameter name="p_emp_no" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_unit" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_month" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_year" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+ AMOUNT
+,SHORT_DESC DESCRIPTION
+FROM terms.emp_sal_master ESM,terms.sal_hd_mast SHM
+WHERE ESM.EMPERNDED_EMP_NO=$P{p_emp_no}
+AND ESM.UNIT_CD=$P{p_unit}
+AND SHM.CODE=ESM.EMPERNDED_HEAD_CODE
+AND ESM.EMPERNDED_HEAD_TYPE='D'
+AND ESM.UNIT_CD=SHM.UNIT_CD
+AND TO_CHAR(PAYMENT_FOR_MONTH,'MON')=$P{p_month}
+AND TO_CHAR(PAYMENT_FOR_MONTH,'YYYY')=$P{p_year}]]>
+		</queryString>
+		<field name="AMOUNT" class="java.math.BigDecimal"/>
+		<field name="DESCRIPTION" class="java.lang.String"/>
+		<variable name="E_Total" class="java.math.BigDecimal" calculation="Sum">
+			<variableExpression><![CDATA[$F{AMOUNT}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="EARNINGS" uuid="81de7d67-c4b7-425f-95a8-a21628e71dac">
+		<parameter name="p_unit" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_emp_no" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_month" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_year" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+ AMOUNT
+,SHORT_DESC DESCRIPTION
+FROM terms.emp_sal_master ESM,terms.sal_hd_mast SHM
+WHERE ESM.EMPERNDED_EMP_NO=$P{p_emp_no}
+AND ESM.UNIT_CD=$P{p_unit}
+AND SHM.CODE=ESM.EMPERNDED_HEAD_CODE
+AND ESM.UNIT_CD=SHM.UNIT_CD
+AND ESM.EMPERNDED_HEAD_TYPE='E'
+AND TO_CHAR(PAYMENT_FOR_MONTH,'MON')=$P{p_month}
+AND TO_CHAR(PAYMENT_FOR_MONTH,'YYYY')=$P{p_year}]]>
+		</queryString>
+		<field name="AMOUNT" class="java.math.BigDecimal"/>
+		<field name="DESCRIPTION" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="EMP_ATTEND" uuid="37f947f0-f670-49d4-b101-68df02361195">
+		<parameter name="p_unit" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_mon" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_year" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_emp" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[with data as(SELECT ATTEND_LEAVE_TYPE,NO_OF_DAYS FROM terms.ATTEND_MASTER WHERE UNIT_CODE=$P{p_unit}
+AND MONTH=$P{p_mon}
+AND YEAR=$P{p_year}
+AND EMP_NO LIKE NVL($P{p_emp},'%'))
+select * from data
+pivot(
+MAX(ATTEND_LEAVE_TYPE||': '||case when NO_OF_DAYS||'    '>0 and NO_OF_DAYS||'    '<1 then '0'||to_char(NO_OF_DAYS||'    ')
+else to_char(NO_OF_DAYS||'    ')
+end) for ATTEND_LEAVE_TYPE in ('FO','EL','CL','OD','CO','HO','SL','AB','LW','PR','WO')
+)]]>
+		</queryString>
+		<field name="&apos;FO&apos;" class="java.lang.String"/>
+		<field name="&apos;EL&apos;" class="java.lang.String"/>
+		<field name="&apos;CL&apos;" class="java.lang.String"/>
+		<field name="&apos;OD&apos;" class="java.lang.String"/>
+		<field name="&apos;CO&apos;" class="java.lang.String"/>
+		<field name="&apos;HO&apos;" class="java.lang.String"/>
+		<field name="&apos;SL&apos;" class="java.lang.String"/>
+		<field name="&apos;AB&apos;" class="java.lang.String"/>
+		<field name="&apos;LW&apos;" class="java.lang.String"/>
+		<field name="&apos;PR&apos;" class="java.lang.String"/>
+		<field name="&apos;WO&apos;" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="gross" uuid="ed61d090-044d-40d5-86e8-41626bf7c471">
+		<parameter name="p_year" class="java.lang.Integer">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_month" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_unit" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_emp_no" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+ AMOUNT
+,SHORT_DESC
+FROM terms.emp_sal_master ESM,terms.sal_hd_mast SHM
+WHERE ESM.EMPERNDED_EMP_NO=$P{p_emp_no}
+AND SHM.CODE IN ('001','003','118','018')
+AND ESM.UNIT_CD=$P{p_unit}
+AND SHM.CODE=ESM.EMPERNDED_HEAD_CODE
+AND ESM.UNIT_CD=SHM.UNIT_CD
+AND ESM.EMPERNDED_HEAD_TYPE='E'
+AND TO_CHAR(PAYMENT_FOR_MONTH,'MON')=$P{p_month}
+AND TO_CHAR(PAYMENT_FOR_MONTH,'YYYY')=$P{p_year}]]>
+		</queryString>
+		<field name="AMOUNT" class="java.math.BigDecimal"/>
+		<field name="SHORT_DESC" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset1" uuid="a901ddd3-d9bd-4b0d-a472-65a3f5df5f74"/>
+	<subDataset name="dataset2" uuid="a07757a1-093c-4e2f-ac4e-cb95ee42bb2e"/>
+	<parameter name="p_unit" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_month" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_year" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_emp_cd" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_level" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT DISTINCT
+ESM.EMPERNDED_EMP_NO
+,ESM.PF_SALARY
+,ESM.ESI_SALARY
+,ESM.EMPERNDED_HEAD_TYPE
+,ESM.EMPERNDED_HEAD_CODE
+,ESM.AMOUNT
+,ESM.EMP_DESIG_CD
+,ESM.EMP_CATG
+,ESM.UNIT_CD
+,(SELECT NAME from terms. DEPARTMENT WHERE CODE=ESM.EMP_DEPT_CD AND UNIT_CODE=ESM.UNIT_CD )DEPARTMENT
+,NVL((SELECT SUM(NVL(AMOUNT,0)) from terms. emp_sal_master WHERE EMPERNDED_EMP_NO=ESM.EMPERNDED_EMP_NO AND UNIT_CD =ESM.UNIT_CD AND EMPERNDED_HEAD_CODE='001'),0) BASICS
+,ROUND(NVL((SELECT sum(NVL(AMOUNT,0)) from terms. emp_sal_master WHERE EMPERNDED_EMP_NO=ESM.EMPERNDED_EMP_NO AND UNIT_CD =ESM.UNIT_CD AND EMPERNDED_HEAD_TYPE='E' AND TO_CHAR(PAYMENT_FOR_MONTH,'MON')=$P{p_month}
+AND TO_CHAR(PAYMENT_FOR_MONTH,'YYYY')=$P{p_year} GROUP BY EMPERNDED_EMP_NO ),0)) TOTAL_EAR
+,ROUND(NVL((SELECT sum(NVL(AMOUNT,0)) from terms. emp_sal_master WHERE EMPERNDED_EMP_NO=ESM.EMPERNDED_EMP_NO AND UNIT_CD =ESM.UNIT_CD AND EMPERNDED_HEAD_TYPE='D' AND TO_CHAR(PAYMENT_FOR_MONTH,'MON')=$P{p_month}
+AND TO_CHAR(PAYMENT_FOR_MONTH,'YYYY')=$P{p_year} GROUP BY EMPERNDED_EMP_NO  ),0)) TOTAL_DED
+,(ROUND((NVL((SELECT sum(NVL(AMOUNT,0)) from terms. emp_sal_master WHERE EMPERNDED_EMP_NO=ESM.EMPERNDED_EMP_NO AND UNIT_CD =ESM.UNIT_CD AND EMPERNDED_HEAD_TYPE='E' AND TO_CHAR(PAYMENT_FOR_MONTH,'MON')=$P{p_month}
+AND TO_CHAR(PAYMENT_FOR_MONTH,'YYYY')=$P{p_year}  GROUP BY EMPERNDED_EMP_NO ),0)))-(ROUND(NVL((SELECT sum(NVL(AMOUNT,0)) from terms. emp_sal_master WHERE EMPERNDED_EMP_NO=ESM.EMPERNDED_EMP_NO AND UNIT_CD =ESM.UNIT_CD AND EMPERNDED_HEAD_TYPE='D' AND TO_CHAR(PAYMENT_FOR_MONTH,'MON')=$P{p_month}
+AND TO_CHAR(PAYMENT_FOR_MONTH,'YYYY')=$P{p_year} GROUP BY EMPERNDED_EMP_NO ),0)))) NET
+,INITCAP(TERMS.AMOUNT_TO_WORD((ROUND((NVL((SELECT sum(NVL(AMOUNT,0)) from terms. emp_sal_master WHERE EMPERNDED_EMP_NO=ESM.EMPERNDED_EMP_NO AND UNIT_CD =ESM.UNIT_CD AND EMPERNDED_HEAD_TYPE='E' AND TO_CHAR(PAYMENT_FOR_MONTH,'MON')=$P{p_month}
+AND TO_CHAR(PAYMENT_FOR_MONTH,'YYYY')=$P{p_year}  GROUP BY EMPERNDED_EMP_NO ),0)))-(ROUND(NVL((SELECT sum(NVL(AMOUNT,0)) from terms. emp_sal_master WHERE EMPERNDED_EMP_NO=ESM.EMPERNDED_EMP_NO AND UNIT_CD =ESM.UNIT_CD AND EMPERNDED_HEAD_TYPE='D' AND TO_CHAR(PAYMENT_FOR_MONTH,'MON')=$P{p_month}
+AND TO_CHAR(PAYMENT_FOR_MONTH,'YYYY')=$P{p_year} GROUP BY EMPERNDED_EMP_NO ),0)))),'INR')) NET_IN_WORD
+,(SELECT NAME from terms. UNIT WHERE CODE=ESM.UNIT_CD) U_NAME
+,(SELECT ADDRESS from terms. UNIT WHERE CODE=ESM.UNIT_CD) U_ADDRESS
+,(SELECT EMP_FIRST_NAME||' '||EMP_LAST_NAME from terms. EMP_MASTER WHERE EMP_NUMBER=ESM.EMPERNDED_EMP_NO) EMP_NAME
+,(SELECT DESCRIPTION from terms. sal_hd_mast WHERE CODE=ESM.EMPERNDED_HEAD_CODE AND UNIT_CD=ESM.UNIT_CD ) ERN_DEDCN_DESC
+,(SELECT DESCRIPTION from terms. DESIGNATION WHERE CODE=ESM.EMP_DESIG_CD AND UNIT_CD=ESM.UNIT_CD ) DESINATION_DESC
+,(SELECT PF_NUMBER from terms. EMP_MASTER WHERE EMP_NUMBER=ESM.EMPERNDED_EMP_NO AND UNIT_CD=ESM.UNIT_CD) PF_CODE
+,(SELECT ESI_NUMBER from terms. EMP_MASTER WHERE EMP_NUMBER=ESM.EMPERNDED_EMP_NO AND UNIT_CD=ESM.UNIT_CD)ESI_NUMBER
+,(SELECT BANK_ACC_NUMBER from terms. EMP_MASTER WHERE EMP_NUMBER=ESM.EMPERNDED_EMP_NO AND UNIT_CD=ESM.UNIT_CD)BANK_ACC_NUMBER
+,(SELECT DISTINCT UAN_NO from terms. EMP_MASTER WHERE EMP_NUMBER=ESM.EMPERNDED_EMP_NO AND UNIT_CD=ESM.UNIT_CD )UAN_NO
+,(SELECT PAN_NO FROM terms.Emp_master_hd emh WHERE EMP_NUMBER=ESM.EMPERNDED_EMP_NO AND UNIT=ESM.UNIT_CD)PAN_NO
+,(SELECT ADHAAR_NO FROM terms.Emp_master_hd emh WHERE EMP_NUMBER=ESM.EMPERNDED_EMP_NO AND UNIT=ESM.UNIT_CD)ADHAAR_NO
+,(SELECT JOIN_DATE FROM terms.Emp_master_hd emh WHERE EMP_NUMBER=ESM.EMPERNDED_EMP_NO AND UNIT=ESM.UNIT_CD)JOIN_DATE
+,(SELECT FATHER_NAME FROM terms.Emp_master_hd emh WHERE EMP_NUMBER=ESM.EMPERNDED_EMP_NO AND UNIT=ESM.UNIT_CD)FATHER_NAME
+,(SELECT WORK_DAYS from terms. WORKING_DAYS WHERE UNIT_CD=ESM.UNIT_CD AND MONTH=$P{p_month} AND YEAR=$P{p_year}) NO_WORKING
+,(SELECT NO_OF_DAYS from terms. ATTEND_MASTER WHERE UNIT_CD=ESM.UNIT_CD AND MONTH=$P{p_month} AND EMP_NO=ESM.EMPERNDED_EMP_NO AND ATTEND_LEAVE_TYPE='AB'AND YEAR=$P{p_year}) ABS_DAYS
+,TERMS.EARNINGS (ESM.EMPERNDED_EMP_NO,ESM.UNIT_CD,ESM.EMPERNDED_HEAD_CODE) EAR
+,TERMS.DEDUCTIONS (ESM.EMPERNDED_EMP_NO,ESM.UNIT_CD,ESM.EMPERNDED_HEAD_CODE) DED
+,to_char(ESM.PAYMENT_FOR_MONTH,'MON-YYYY')as payment_for_mon
+
+
+,(SELECT NVL((select SUM(AMOUNT) AS AMOUNT
+FROM TERMS.EMP_EARN_DEDN_HISTORY
+WHERE EMP_NO=ESM.EMPERNDED_EMP_NO
+AND HEAD_CODE IN ('001','003','118','018','016','912')
+and TO_CHAR(TRANS_DATE,'MON')=$P{p_month}
+AND TO_CHAR(TRANS_DATE,'YYYY')=$P{p_year}
+AND UNIT_CD=$P{p_unit})
++(SELECT COUNT(*) FROM DUAL WHERE 1=2),0)as AMOUNT FROM DUAL )GROSS_TOTAL
+
+,(SELECT NVL((select NVL(AMOUNT,0) AS AMOUNT
+FROM TERMS.EMP_EARN_DEDN_HISTORY
+WHERE EMP_NO=ESM.EMPERNDED_EMP_NO
+AND HEAD_CODE='001'
+and TO_CHAR(TRANS_DATE,'MON')=$P{p_month}
+AND TO_CHAR(TRANS_DATE,'YYYY')=$P{p_year}
+AND UNIT_CD=$P{p_unit})
++(SELECT COUNT(*) FROM DUAL WHERE 1=2),0)as AMOUNT FROM DUAL)basic1
+
+,(SELECT NVL((select NVL(AMOUNT,0) AS AMOUNT
+FROM TERMS.EMP_EARN_DEDN_HISTORY
+WHERE EMP_NO=ESM.EMPERNDED_EMP_NO
+AND HEAD_CODE='003'
+and TO_CHAR(TRANS_DATE,'MON')=$P{p_month}
+AND TO_CHAR(TRANS_DATE,'YYYY')=$P{p_year}
+AND UNIT_CD=$P{p_unit})
++
+(SELECT COUNT(*) FROM DUAL WHERE 1=2),0)as AMOUNT from dual)HRA
+
+,(SELECT NVL((select NVL(AMOUNT,0) AS AMOUNT
+FROM TERMS.EMP_EARN_DEDN_HISTORY
+WHERE EMP_NO=ESM.EMPERNDED_EMP_NO
+AND HEAD_CODE='018'
+and TO_CHAR(TRANS_DATE,'MON')=$P{p_month}
+AND TO_CHAR(TRANS_DATE,'YYYY')=$P{p_year}
+AND UNIT_CD=$P{p_unit})
++(SELECT COUNT(*) FROM DUAL WHERE 1=2),0)as AMOUNT from dual)Other_allow
+
+,(SELECT NVL((select NVL(AMOUNT,0) AS AMOUNT
+FROM TERMS.EMP_EARN_DEDN_HISTORY
+WHERE EMP_NO=ESM.EMPERNDED_EMP_NO
+AND HEAD_CODE='118'
+and TO_CHAR(TRANS_DATE,'MON')=$P{p_month}
+AND TO_CHAR(TRANS_DATE,'YYYY')=$P{p_year}
+AND UNIT_CD=$P{p_unit})
++(SELECT COUNT(*) FROM DUAL WHERE 1=2),0)as AMOUNT from dual)CONVEYANCE
+
+,(SELECT NVL((select NVL(AMOUNT,0) AS AMOUNT
+FROM TERMS.EMP_EARN_DEDN_HISTORY
+WHERE EMP_NO=ESM.EMPERNDED_EMP_NO
+AND HEAD_CODE='016'
+and TO_CHAR(TRANS_DATE,'MON')=$P{p_month}
+AND TO_CHAR(TRANS_DATE,'YYYY')=$P{p_year}
+AND UNIT_CD=$P{p_unit})
++(SELECT COUNT(*) FROM DUAL WHERE 1=2),0)as AMOUNT from dual)CCA
+
+,(SELECT  NVL((select NVL(AMOUNT,0) AS AMOUNT
+FROM TERMS.EMP_EARN_DEDN_HISTORY
+WHERE EMP_NO=ESM.EMPERNDED_EMP_NO
+AND HEAD_CODE='912'
+and TO_CHAR(TRANS_DATE,'MON')=$P{p_month}
+AND TO_CHAR(TRANS_DATE,'YYYY')=$P{p_year}
+AND UNIT_CD=$P{p_unit})
++(SELECT COUNT(*) FROM DUAL WHERE 1=2),0)as AMOUNT from dual)medical_alow
+
+
+
+,(select LOGO_PATH from terms.unit where code=ESM.UNIT_CD)logo
+
+,(select TOTAL_PAID_DAYS from terms.adv_att
+WHERE emp_no=ESM.EMPERNDED_EMP_NO
+and MON=$P{p_month}
+AND YEAR=$P{p_year}
+AND UNIT_CD=$P{p_unit})total_payble_days
+
+,(select nvl(sum(AMOUNT),0) from TERMS.ARREAR_DETAIL
+WHERE EMP_NO=ESM.EMPERNDED_EMP_NO
+AND SALHD_MAST_TYPE='E'
+and SAL_MONTH=$P{p_month}
+AND SAL_YEAR=$P{p_year}
+AND UNIT_CODE=$P{p_unit})Earning_arrear
+
+,(select nvl(sum(AMOUNT),0) from TERMS.ARREAR_DETAIL
+WHERE EMP_NO=ESM.EMPERNDED_EMP_NO
+AND SAL_HD_CODE='007'
+and SAL_MONTH=$P{p_month}
+AND SAL_YEAR=$P{p_year}
+AND UNIT_CODE=$P{p_unit})Deduction_arrear
+
+from terms. emp_sal_master ESM
+WHERE ESM.UNIT_CD=$P{p_unit}
+AND TO_CHAR(ESM.PAYMENT_FOR_MONTH,'MON')=$P{p_month}
+AND TO_CHAR(ESM.PAYMENT_FOR_MONTH,'YYYY')=$P{p_year}
+AND ESM.EMPERNDED_EMP_NO LIKE NVL($P{p_emp_cd},'%')
+AND EMP_LVL LIKE NVL($P{p_level},'%')
+ORDER BY EMP_Name]]>
+	</queryString>
+	<field name="EMPERNDED_EMP_NO" class="java.lang.String"/>
+	<field name="PF_SALARY" class="java.math.BigDecimal"/>
+	<field name="ESI_SALARY" class="java.math.BigDecimal"/>
+	<field name="EMPERNDED_HEAD_TYPE" class="java.lang.String"/>
+	<field name="EMPERNDED_HEAD_CODE" class="java.lang.String"/>
+	<field name="AMOUNT" class="java.math.BigDecimal"/>
+	<field name="EMP_DESIG_CD" class="java.lang.String"/>
+	<field name="EMP_CATG" class="java.lang.String"/>
+	<field name="UNIT_CD" class="java.lang.String"/>
+	<field name="DEPARTMENT" class="java.lang.String"/>
+	<field name="BASICS" class="java.math.BigDecimal"/>
+	<field name="TOTAL_EAR" class="java.math.BigDecimal"/>
+	<field name="TOTAL_DED" class="java.math.BigDecimal"/>
+	<field name="NET" class="java.math.BigDecimal"/>
+	<field name="NET_IN_WORD" class="java.lang.String"/>
+	<field name="U_NAME" class="java.lang.String"/>
+	<field name="U_ADDRESS" class="java.lang.String"/>
+	<field name="EMP_NAME" class="java.lang.String"/>
+	<field name="ERN_DEDCN_DESC" class="java.lang.String"/>
+	<field name="DESINATION_DESC" class="java.lang.String"/>
+	<field name="PF_CODE" class="java.lang.String"/>
+	<field name="ESI_NUMBER" class="java.lang.String"/>
+	<field name="BANK_ACC_NUMBER" class="java.lang.String"/>
+	<field name="UAN_NO" class="java.lang.String"/>
+	<field name="PAN_NO" class="java.lang.String"/>
+	<field name="ADHAAR_NO" class="java.lang.String"/>
+	<field name="JOIN_DATE" class="java.sql.Timestamp"/>
+	<field name="FATHER_NAME" class="java.lang.String"/>
+	<field name="NO_WORKING" class="java.math.BigDecimal"/>
+	<field name="ABS_DAYS" class="java.math.BigDecimal"/>
+	<field name="EAR" class="java.math.BigDecimal"/>
+	<field name="DED" class="java.math.BigDecimal"/>
+	<field name="PAYMENT_FOR_MON" class="java.lang.String"/>
+	<field name="GROSS_TOTAL" class="java.math.BigDecimal"/>
+	<field name="BASIC1" class="java.math.BigDecimal"/>
+	<field name="HRA" class="java.math.BigDecimal"/>
+	<field name="OTHER_ALLOW" class="java.math.BigDecimal"/>
+	<field name="CONVEYANCE" class="java.math.BigDecimal"/>
+	<field name="CCA" class="java.math.BigDecimal"/>
+	<field name="MEDICAL_ALOW" class="java.math.BigDecimal"/>
+	<field name="LOGO" class="java.lang.String"/>
+	<field name="TOTAL_PAYBLE_DAYS" class="java.math.BigDecimal"/>
+	<field name="EARNING_ARREAR" class="java.math.BigDecimal"/>
+	<field name="DEDUCTION_ARREAR" class="java.math.BigDecimal"/>
+	<group name="EMP_SAL">
+		<groupExpression><![CDATA[$F{EMPERNDED_EMP_NO}]]></groupExpression>
+		<groupHeader>
+			<band height="300">
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="164" width="340" height="15" uuid="8fd4c651-47d2-45b5-80f2-18b5e57732d7"/>
+					<box>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<componentElement>
+						<reportElement key="table 4" style="table 4" positionType="Float" x="1" y="0" width="178" height="15" uuid="ba9aebe3-1f70-4535-b77e-123c83eb1f0b"/>
+						<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+							<datasetRun subDataset="EARNINGS" uuid="2646a67b-eb70-400b-a746-612cbcbe6498">
+								<datasetParameter name="p_unit">
+									<datasetParameterExpression><![CDATA[$P{p_unit}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_emp_no">
+									<datasetParameterExpression><![CDATA[$F{EMPERNDED_EMP_NO}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_month">
+									<datasetParameterExpression><![CDATA[$P{p_month}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_year">
+									<datasetParameterExpression><![CDATA[$P{p_year}]]></datasetParameterExpression>
+								</datasetParameter>
+								<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+							</datasetRun>
+							<jr:column width="90" uuid="ded4598b-b161-4e3e-a970-0154d2c3b089">
+								<jr:columnHeader height="15" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="89" height="15" uuid="28d5edbe-f658-4c06-bf8d-056c71425753"/>
+										<box leftPadding="2"/>
+										<textElement verticalAlignment="Middle">
+											<font fontName="Arial" size="8" isBold="true" isUnderline="true"/>
+										</textElement>
+										<text><![CDATA[Earnings]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="table 4_TD" height="15" rowSpan="1">
+									<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+										<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="88" height="11" uuid="bc567bdd-516f-4736-9f14-f8c2763b59f5"/>
+										<box leftPadding="2"/>
+										<textElement verticalAlignment="Middle">
+											<font fontName="Arial" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{DESCRIPTION}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="90" uuid="b0faebc0-2b59-4131-8b25-dd8f62f05736">
+								<jr:columnHeader height="15" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="90" height="15" uuid="fc6f5c4d-6c62-4bc8-8727-9ed03d28e5c8"/>
+										<textElement verticalAlignment="Middle">
+											<font fontName="Arial" size="8" isBold="true" isUnderline="true"/>
+										</textElement>
+										<text><![CDATA[Amount]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="table 4_TD" height="15" rowSpan="1">
+									<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+										<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="11" uuid="14b8917d-d463-4b1b-a629-e13ab72daeb3"/>
+										<textElement verticalAlignment="Middle">
+											<font fontName="Arial" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{AMOUNT}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:table>
+					</componentElement>
+					<line>
+						<reportElement stretchType="RelativeToBandHeight" x="182" y="0" width="1" height="15" uuid="ca259280-de32-400c-8c6b-4d0cda453db8"/>
+					</line>
+					<componentElement>
+						<reportElement key="table 3" style="table 3" positionType="Float" isPrintRepeatedValues="false" x="184" y="0" width="154" height="15" uuid="e6a77cf9-820c-4b71-8a43-d828b2e78341"/>
+						<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+							<datasetRun subDataset="DEDUCTIONS" uuid="31bf62f1-ecad-413d-bf0a-7208908e8b34">
+								<datasetParameter name="p_emp_no">
+									<datasetParameterExpression><![CDATA[$F{EMPERNDED_EMP_NO}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_unit">
+									<datasetParameterExpression><![CDATA[$P{p_unit}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_month">
+									<datasetParameterExpression><![CDATA[$P{p_month}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_year">
+									<datasetParameterExpression><![CDATA[$P{p_year}]]></datasetParameterExpression>
+								</datasetParameter>
+								<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+							</datasetRun>
+							<jr:column width="90" uuid="95a49c47-c7e6-491d-8269-a42b9b82b39a">
+								<jr:columnHeader height="15" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="89" height="15" uuid="d8d31ddd-91b0-4c47-a100-e5458328d340"/>
+										<box leftPadding="2"/>
+										<textElement verticalAlignment="Middle">
+											<font fontName="Arial" size="8" isBold="true" isUnderline="true"/>
+										</textElement>
+										<text><![CDATA[Deductions]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="table 3_TD" height="15" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="88" height="11" uuid="5137b49c-ae98-4ba3-9ffd-81a26ab7f42b"/>
+										<box leftPadding="2"/>
+										<textElement verticalAlignment="Middle">
+											<font fontName="Arial" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{DESCRIPTION}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="90" uuid="eacca63c-adca-44fe-9a36-79f0e525d92e">
+								<jr:columnHeader height="15" rowSpan="1">
+									<staticText>
+										<reportElement x="0" y="0" width="90" height="15" uuid="867688a1-d172-4aa5-9b96-1fd3d2e2ee59"/>
+										<textElement verticalAlignment="Middle">
+											<font fontName="Arial" size="8" isBold="true" isUnderline="true"/>
+										</textElement>
+										<text><![CDATA[Amount]]></text>
+									</staticText>
+								</jr:columnHeader>
+								<jr:detailCell style="table 3_TD" height="15" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="90" height="11" uuid="4ab2c483-bb99-490b-af48-a26e02dbbc88"/>
+										<textElement verticalAlignment="Middle">
+											<font fontName="Arial" size="8"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{AMOUNT}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:table>
+					</componentElement>
+				</frame>
+				<frame>
+					<reportElement x="0" y="52" width="555" height="57" uuid="38cbfb52-ac2f-4f6d-8f74-079641eaca5d"/>
+					<box>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="14" width="51" height="14" uuid="18865bf2-098d-47c1-9d87-7fd964caef9d"/>
+						<box leftPadding="2"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[Designation :]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="42" width="46" height="14" uuid="a735b5c7-c1ca-44d4-a62c-2d280cae11ef"/>
+						<box leftPadding="2"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[P.F No:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="28" width="47" height="14" uuid="939e5740-d28f-4c7a-a7c5-a7b2d61e3046"/>
+						<box leftPadding="2"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[PAN :]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="0" width="47" height="15" uuid="6c124e67-e9c6-4fde-954c-69105f563efe"/>
+						<box leftPadding="2"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[Emp No:]]></text>
+					</staticText>
+					<textField isBlankWhenNull="true">
+						<reportElement x="52" y="42" width="107" height="14" uuid="789fa5b3-d3c0-4363-9728-36c7fbebeb6d"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{PF_CODE}]]></textFieldExpression>
+					</textField>
+					<textField isBlankWhenNull="true">
+						<reportElement x="51" y="0" width="117" height="14" uuid="f671d435-e9b4-4bd3-98f0-9f376b3ac9a3"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{EMPERNDED_EMP_NO}]]></textFieldExpression>
+					</textField>
+					<textField isBlankWhenNull="true">
+						<reportElement stretchType="RelativeToBandHeight" x="51" y="14" width="117" height="14" uuid="b2778bdf-c89e-4a1f-872a-41619606054c"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{DESINATION_DESC}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="176" y="0" width="47" height="14" uuid="3e2903e0-1781-4c77-b672-2a562e1cde28"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[Name :]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="177" y="28" width="47" height="14" uuid="9aac25ca-c6a1-4172-bf10-389014825346"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[Aadhar No:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="176" y="42" width="44" height="14" uuid="f4bd7fb7-4e05-4329-b8af-00ff018607f3"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[ESI NO.:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="176" y="14" width="50" height="14" uuid="5c66988e-41c6-4d71-b791-aa2e7c1aa5c2"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[Department:]]></text>
+					</staticText>
+					<textField isBlankWhenNull="true">
+						<reportElement x="225" y="14" width="141" height="14" uuid="d0850cb9-39fc-4734-bd93-3dd4261468d2"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{DEPARTMENT}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="226" y="28" width="140" height="14" uuid="38d5c5bc-7b71-40d1-82ad-a51148539b60"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{ADHAAR_NO}]]></textFieldExpression>
+					</textField>
+					<textField isBlankWhenNull="true">
+						<reportElement x="226" y="0" width="140" height="14" uuid="3889f3e1-5192-4a05-aeda-95acb39b03ab"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{EMP_NAME}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="226" y="41" width="140" height="14" uuid="bc6b9a0d-8751-40ee-b911-6aa240255006"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{ESI_NUMBER}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="419" y="13" width="135" height="14" uuid="0ffc9bff-03e8-450a-8070-f2909acbfb63"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{BANK_ACC_NUMBER}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="366" y="28" width="49" height="14" uuid="38a8c775-a4b4-46e2-b763-568668b383a6"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[UAN :]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="419" y="27" width="135" height="14" uuid="bb8c6890-7596-43ad-94a2-a3dc02b109a7"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{UAN_NO}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="366" y="14" width="49" height="14" uuid="3e0e37fb-6b8e-49fb-9683-ac474d9b3a6f"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[Bank A/C :]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="51" y="28" width="122" height="14" uuid="ff399a2d-21aa-466e-a432-5e71ddbd9ea6"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{PAN_NO}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="419" y="0" width="135" height="14" uuid="15ef44f1-ad52-4251-b9b3-f0269a73c3c4"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{FATHER_NAME}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+						<reportElement x="419" y="41" width="122" height="14" uuid="fab117e9-4d6f-4053-819a-9adf591d5f27"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{JOIN_DATE}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="86" y="0" width="469" height="15" uuid="acb1beea-480c-4f50-8985-71e3f8111ce5"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Serif" size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{U_NAME}]]></textFieldExpression>
+				</textField>
+				<textField pattern="MMM-yy">
+					<reportElement x="88" y="34" width="467" height="16" uuid="07526e53-83f2-4a62-86b7-1063938c5d24"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Payslip For The Month "+$F{PAYMENT_FOR_MON}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="86" y="15" width="469" height="15" uuid="3c8631b4-d5cd-4c77-84dc-a39876c49596"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Serif" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{U_ADDRESS}]]></textFieldExpression>
+				</textField>
+				<frame>
+					<reportElement positionType="FixRelativeToBottom" x="0" y="209" width="340" height="16" uuid="f5875335-24a5-4256-b2ab-9ae57d4fe00e"/>
+					<box>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textField isBlankWhenNull="true">
+						<reportElement x="273" y="0" width="57" height="16" uuid="d7b9a11a-1988-4c72-a814-d5fc2d780778"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[($F{TOTAL_EAR}+$F{EARNING_ARREAR})-($F{TOTAL_DED}+$F{DEDUCTION_ARREAR})]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="184" y="0" width="87" height="16" uuid="0932caf7-86b2-45a1-9e96-122474fa5e89"/>
+						<box leftPadding="2"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Arial" size="8" isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[Net  Pay:]]></text>
+					</staticText>
+				</frame>
+				<staticText>
+					<reportElement x="366" y="52" width="52" height="14" uuid="6e573aae-65af-47da-896d-30153c643091"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" size="8"/>
+					</textElement>
+					<text><![CDATA[Father Name :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="366" y="93" width="44" height="14" uuid="ab6f3c78-ef97-4ff6-a576-69c9806a3356"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" size="8"/>
+					</textElement>
+					<text><![CDATA[DOJ :]]></text>
+				</staticText>
+				<frame>
+					<reportElement x="0" y="109" width="555" height="40" uuid="8a2555fd-95e6-4c31-a2ef-83eb3b81bd21"/>
+					<box>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="14" width="45" height="13" uuid="e8f74fff-3bb6-4e55-aa47-5f652f70ab7a">
+							<printWhenExpression><![CDATA[$F{BASIC1} != 0]]></printWhenExpression>
+						</reportElement>
+						<box leftPadding="2"/>
+						<textElement>
+							<font fontName="Serif" size="9"/>
+						</textElement>
+						<text><![CDATA[Basic :]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="141" y="14" width="30" height="13" uuid="1b35222e-1d35-420d-8528-a3225c51a7d1">
+							<printWhenExpression><![CDATA[$F{HRA}!=0]]></printWhenExpression>
+						</reportElement>
+						<box leftPadding="2"/>
+						<textElement>
+							<font fontName="Serif" size="9"/>
+						</textElement>
+						<text><![CDATA[HRA :]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="324" y="14" width="67" height="13" uuid="ed1c27e9-2524-4568-92e1-d752a54a9afd">
+							<printWhenExpression><![CDATA[$F{OTHER_ALLOW}!= 0]]></printWhenExpression>
+						</reportElement>
+						<box leftPadding="0"/>
+						<textElement>
+							<font fontName="Serif" size="9"/>
+						</textElement>
+						<text><![CDATA[Other Allow:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="141" y="27" width="89" height="13" uuid="e0494bc4-7c4e-4915-9311-b53f430757f3">
+							<printWhenExpression><![CDATA[$F{CONVEYANCE}!=0]]></printWhenExpression>
+						</reportElement>
+						<box leftPadding="2"/>
+						<textElement>
+							<font fontName="Serif" size="9"/>
+						</textElement>
+						<text><![CDATA[Conveyence Allow :]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="212" y="0" width="126" height="14" uuid="742149a5-f45d-4e0e-9887-32e1e1ab9516"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Arial" size="9" isBold="true" isItalic="false" isUnderline="true"/>
+						</textElement>
+						<text><![CDATA[Gross salary/Wages Detail ]]></text>
+					</staticText>
+					<textField isBlankWhenNull="true">
+						<reportElement x="59" y="14" width="74" height="13" uuid="2e6bffb7-038e-4cea-9896-79c0ab8267c6">
+							<printWhenExpression><![CDATA[$F{BASIC1} != 0]]></printWhenExpression>
+						</reportElement>
+						<textElement>
+							<font fontName="Serif" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{BASIC1}]]></textFieldExpression>
+					</textField>
+					<textField isBlankWhenNull="true">
+						<reportElement x="230" y="14" width="65" height="13" uuid="8773015c-7bcd-47d4-bdde-d8c251f1d484">
+							<printWhenExpression><![CDATA[$F{HRA}!=0]]></printWhenExpression>
+						</reportElement>
+						<textElement>
+							<font fontName="Serif" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{HRA}]]></textFieldExpression>
+					</textField>
+					<textField isBlankWhenNull="true">
+						<reportElement x="391" y="14" width="79" height="13" uuid="407934da-4e16-4f1c-ba3f-a56fa6e6d8a0">
+							<printWhenExpression><![CDATA[$F{OTHER_ALLOW}!= 0]]></printWhenExpression>
+						</reportElement>
+						<textElement>
+							<font fontName="Serif" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{OTHER_ALLOW}]]></textFieldExpression>
+					</textField>
+					<textField isBlankWhenNull="true">
+						<reportElement x="230" y="27" width="63" height="13" uuid="c1faace4-e22c-4b22-8241-f39002162b6a">
+							<printWhenExpression><![CDATA[$F{CONVEYANCE}!=0]]></printWhenExpression>
+						</reportElement>
+						<textElement>
+							<font fontName="Serif" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{CONVEYANCE}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="0" y="27" width="34" height="13" uuid="a761f12a-b3c9-4de0-a8be-340e78f9a9b2">
+							<printWhenExpression><![CDATA[$F{CCA} !=0]]></printWhenExpression>
+						</reportElement>
+						<box leftPadding="2"/>
+						<textElement>
+							<font fontName="Serif" size="9"/>
+						</textElement>
+						<text><![CDATA[CCA :]]></text>
+					</staticText>
+					<textField isBlankWhenNull="true">
+						<reportElement x="59" y="27" width="74" height="13" uuid="97dcab8c-8e33-47ea-80fb-9f245b3e9d20">
+							<printWhenExpression><![CDATA[$F{CCA} !=0]]></printWhenExpression>
+						</reportElement>
+						<textElement>
+							<font fontName="Serif" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{CCA}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="324" y="27" width="68" height="13" uuid="dc08bf69-1177-4a6e-91ce-402b6ef0eecf">
+							<printWhenExpression><![CDATA[$F{MEDICAL_ALOW}!=0]]></printWhenExpression>
+						</reportElement>
+						<textElement>
+							<font fontName="Serif" size="9"/>
+						</textElement>
+						<text><![CDATA[Medical Allow :]]></text>
+					</staticText>
+					<textField isBlankWhenNull="true">
+						<reportElement x="391" y="27" width="100" height="13" uuid="31e1443e-41e0-426e-bb94-dc099b26b931">
+							<printWhenExpression><![CDATA[$F{MEDICAL_ALOW}!=0]]></printWhenExpression>
+						</reportElement>
+						<textElement>
+							<font fontName="Serif" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{MEDICAL_ALOW}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement x="0" y="149" width="555" height="15" uuid="9dcd878b-421b-4153-913a-4b91990ae179"/>
+					<box>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.0"/>
+					</box>
+					<staticText>
+						<reportElement x="0" y="0" width="137" height="15" uuid="15fb0eb6-2d20-4ca2-bced-422d9bce47bd"/>
+						<box leftPadding="2"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Arial" size="9" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Current Month Gross Total :]]></text>
+					</staticText>
+					<textField isBlankWhenNull="true">
+						<reportElement x="141" y="0" width="81" height="15" uuid="7297e743-b053-4baa-83be-4cce272321e6"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{GROSS_TOTAL}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement positionType="FixRelativeToBottom" x="0" y="179" width="340" height="30" uuid="ad65e28d-ace2-43a3-8397-7f555981e380"/>
+					<box>
+						<topPen lineWidth="0.0"/>
+						<leftPen lineWidth="0.0"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textField isBlankWhenNull="true">
+						<reportElement positionType="FixRelativeToBottom" x="89" y="15" width="91" height="15" uuid="2daba383-4cfc-45e3-a03f-423e92718d9a"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{TOTAL_EAR}+$F{EARNING_ARREAR}]]></textFieldExpression>
+					</textField>
+					<textField isBlankWhenNull="true">
+						<reportElement positionType="FixRelativeToBottom" x="272" y="15" width="68" height="15" uuid="62233711-c8bc-48cc-954e-9bc711c0159c"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{TOTAL_DED}+$F{DEDUCTION_ARREAR}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement positionType="FixRelativeToBottom" x="184" y="15" width="88" height="15" uuid="96ad52f8-5300-48c2-81b9-3d136f86bc25"/>
+						<box leftPadding="2"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Arial" size="8" isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[Total Deductions :]]></text>
+					</staticText>
+					<staticText>
+						<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="81" height="15" uuid="8b69efff-0340-46a1-880d-6289dd587b05"/>
+						<box leftPadding="2"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Arial" size="8" isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[Total Earnings :]]></text>
+					</staticText>
+					<line>
+						<reportElement stretchType="RelativeToBandHeight" x="182" y="0" width="1" height="30" uuid="84d68647-f5f6-4bbf-99f0-e38e2ea8d5f5"/>
+					</line>
+					<staticText>
+						<reportElement x="0" y="0" width="81" height="15" uuid="ba15fa91-b314-42ba-8376-7bedc0007668">
+							<printWhenExpression><![CDATA[$F{EARNING_ARREAR}!=0]]></printWhenExpression>
+						</reportElement>
+						<box leftPadding="2"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<text><![CDATA[Arrear :]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="184" y="0" width="88" height="15" uuid="95857a32-4de1-45bb-8e36-c088635f12b7">
+							<printWhenExpression><![CDATA[$F{DEDUCTION_ARREAR}!=0]]></printWhenExpression>
+						</reportElement>
+						<box leftPadding="2"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<text><![CDATA[E.S.I on Arrear :]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="89" y="0" width="91" height="15" uuid="8c8bc5cc-a478-42ad-9d3c-47497144523e">
+							<printWhenExpression><![CDATA[$F{EARNING_ARREAR}!=0]]></printWhenExpression>
+						</reportElement>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{EARNING_ARREAR}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="272" y="0" width="68" height="15" uuid="46914b97-3eee-4991-96f9-81d5106e6761">
+							<printWhenExpression><![CDATA[$F{DEDUCTION_ARREAR}!=0]]></printWhenExpression>
+						</reportElement>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{DEDUCTION_ARREAR}]]></textFieldExpression>
+					</textField>
+					<line>
+						<reportElement x="0" y="15" width="340" height="1" uuid="ff196739-9367-47ce-83ce-714342babd76"/>
+					</line>
+				</frame>
+				<staticText>
+					<reportElement x="340" y="165" width="212" height="14" uuid="bf6ec8e0-0f58-46bc-92eb-c8ecc7c5ce45"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="9" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Provisional Income Tax Summary (2021-22)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="345" y="181" width="114" height="14" uuid="33335cd5-60c6-4cd3-bc1b-760f65d67888"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" size="8"/>
+					</textElement>
+					<text><![CDATA[Gross Pay                           ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="345" y="207" width="114" height="14" uuid="286f18c6-2ccf-42be-9d14-d1ada5711f8a"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" size="8"/>
+					</textElement>
+					<text><![CDATA[Deductions                          ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="345" y="194" width="114" height="14" uuid="1e813cba-6f5a-4430-88df-8a1c03a7107d"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" size="8"/>
+					</textElement>
+					<text><![CDATA[Taxable HRA                       ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="345" y="247" width="114" height="14" uuid="dc56e96c-358b-4dcd-8bdc-f2f66b43e362"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" size="8"/>
+					</textElement>
+					<text><![CDATA[Taxable Income                   ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="345" y="221" width="114" height="14" uuid="ea8511cd-6373-44e1-8e64-b8c67950f972"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" size="8"/>
+					</textElement>
+					<text><![CDATA[Standard Deduction             ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="345" y="234" width="114" height="14" uuid="2d285497-7615-455f-b090-c0a5dd032aab"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" size="8"/>
+					</textElement>
+					<text><![CDATA[Deductions(Chapter VI-A)   ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="345" y="261" width="114" height="14" uuid="3c003045-eb34-4e88-82a5-5af3b4a26a91"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" size="8"/>
+					</textElement>
+					<text><![CDATA[Toatal Tax Due                    ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="345" y="286" width="114" height="14" uuid="d7e47629-5eed-487e-8d66-4b6ae06ee86e"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" size="8"/>
+					</textElement>
+					<text><![CDATA[Balance Tax Payble             ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="345" y="273" width="114" height="14" uuid="25030d5c-e213-448e-9f0d-42d5077119b7"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Serif" size="8"/>
+					</textElement>
+					<text><![CDATA[Total Tax Paid                      ]]></text>
+				</staticText>
+				<image onErrorType="Blank">
+					<reportElement x="2" y="1" width="84" height="50" uuid="488b5d71-95f6-4fe8-b008-617676a54cf3"/>
+					<imageExpression><![CDATA[$F{LOGO}]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="2" y="247" width="87" height="15" uuid="5d418117-6fee-4746-8dd5-22d94312cb2a"/>
+					<box leftPadding="2"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true" isItalic="false"/>
+					</textElement>
+					<text><![CDATA[Total Payable Days :]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="88" y="247" width="27" height="15" uuid="06a17c7f-c258-4937-b66f-155bcb122600"/>
+					<textElement verticalAlignment="Middle" markup="html">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{TOTAL_PAYBLE_DAYS}]]></textFieldExpression>
+				</textField>
+				<componentElement>
+					<reportElement key="table 6" style="table 6_TD" positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="1" y="231" width="337" height="16" uuid="a6cfc93e-d4e5-498a-b895-00129385c060">
+						<property name="net.sf.jasperreports.export.pdf.tag.tr" value="start"/>
+					</reportElement>
+					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<datasetRun subDataset="EMP_ATTEND" uuid="663d016d-ebfb-4252-bc85-17026232faca">
+							<datasetParameter name="p_unit">
+								<datasetParameterExpression><![CDATA[$P{p_unit}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="p_year">
+								<datasetParameterExpression><![CDATA[$P{p_year}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="p_mon">
+								<datasetParameterExpression><![CDATA[$P{p_month}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="p_emp">
+								<datasetParameterExpression><![CDATA[$F{EMPERNDED_EMP_NO}]]></datasetParameterExpression>
+							</datasetParameter>
+							<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						</datasetRun>
+						<jr:column width="339" uuid="1842f6ed-a5cb-49de-95ae-0c3b4b312f53">
+							<jr:detailCell style="Crosstab Data Text" height="15" rowSpan="1">
+								<textField isStretchWithOverflow="true" isBlankWhenNull="false">
+									<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToTallestObject" x="0" y="0" width="337" height="15" isRemoveLineWhenBlank="true" uuid="810145cc-0bd8-4072-bf19-634fcd26f9aa"/>
+									<box leftPadding="2" rightPadding="3"/>
+									<textElement verticalAlignment="Middle" markup="none">
+										<font fontName="Arial" size="8" isBold="false" isItalic="false"/>
+									</textElement>
+									<textFieldExpression><![CDATA[($F{'CL'} != null ? $F{'CL'} : "")
++($F{'EL'} != null ? $F{'EL'} : "")
++($F{'SL'} != null ? $F{'SL'} : "")
++($F{'LW'} != null ? $F{'LW'}: "")
++($F{'FO'} != null ? $F{'FO'} : "")
++($F{'OD'} != null ? $F{'OD'} : "")
++($F{'CO'} != null ? $F{'CO'} : "")
++($F{'WO'} != null ? $F{'WO'} : "")
++($F{'AB'} != null ? $F{'AB'} : "")
++($F{'PR'} != null ? $F{'PR'} : "")
++($F{'HO'} != null ? $F{'HO'} : "")]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:table>
+				</componentElement>
+				<frame>
+					<reportElement x="340" y="165" width="215" height="135" uuid="e3c11034-c479-4f0d-8b9d-13f65f542a8b"/>
+					<box>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+				</frame>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band height="460" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="460" uuid="7a472380-0fd6-4a27-bedc-4f51d4d53957"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+			</frame>
+		</band>
+	</background>
+	<pageFooter>
+		<band height="20">
+			<staticText>
+				<reportElement positionType="FixRelativeToBottom" stretchType="RelativeToBandHeight" x="0" y="0" width="338" height="20" uuid="3355b509-d07e-48e7-865c-36db85eada89"/>
+				<box leftPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Note: This is an electronically generated statement hence does not require any signature.]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

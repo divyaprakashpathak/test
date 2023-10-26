@@ -1,0 +1,1468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="r_salary_slip_officer" language="groovy" pageWidth="756" pageHeight="500" whenNoDataType="AllSectionsNoDetail" columnWidth="716" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isFloatColumnFooter="true" uuid="32d4fa31-7cb8-46d8-9e67-3bc876b92488">
+	<property name="ireport.zoom" value="1.0000000000000404"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 6">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 6_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 6_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 6_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 7">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<style name="table 8">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 9">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 9_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 9_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 9_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 10">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 10_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 10_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 10_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 11">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 11_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 11_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 11_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<subDataset name="DEDUCTIONS" uuid="c53f003a-0638-46f6-9b47-e0c4b39298c3">
+		<parameter name="p_emp_no" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_unit" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_month" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_year" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[with EMP_SAL as (
+SELECT
+    EMPERNDED_EMP_NO
+    ,AMOUNT
+    ,UNIT_CD
+    ,EMPERNDED_HEAD_CODE
+    ,DECODE(LENGTH(EMPERNDED_HEAD_CODE),2,('0'||EMPERNDED_HEAD_CODE),1,('00'||EMPERNDED_HEAD_CODE),EMPERNDED_HEAD_CODE) HEAD_CODE
+    ,EMPERNDED_HEAD_TYPE
+    ,PAYMENT_FOR_MONTH
+FROM
+    TERMS.EMP_SAL_MASTER
+),
+
+SAL_HD AS(
+SELECT
+    CODE
+    ,DECODE(LENGTH(CODE),2,('0'||CODE),1,('00'||CODE),CODE) HEAD_CODE
+    ,SHORT_DESC
+    ,UNIT_CD
+FROM TERMS.SAL_HD_MAST
+)
+
+
+SELECT DISTINCT
+    round(es.AMOUNT,0)AMOUNT
+    ,sh.short_desc DESCRIPTION,sh.head_code
+ FROM EMP_SAL ES,SAL_HD SH
+WHERE es.unit_cd                	=       	sh.unit_cd
+  AND es.head_code              	=       	sh.head_code
+  AND es.empernded_head_type    	=       	'D'
+  AND es.empernded_emp_no       	=       	$P{p_emp_no}
+  AND es.unit_cd                	=       	$P{p_unit}
+  AND TO_CHAR(PAYMENT_FOR_MONTH,'MON') 	= 	$P{p_month}
+  AND TO_CHAR(PAYMENT_FOR_MONTH,'YYYY')	=	$P{p_year}
+ORDER BY sh.head_code]]>
+		</queryString>
+		<field name="AMOUNT" class="java.math.BigDecimal"/>
+		<field name="DESCRIPTION" class="java.lang.String"/>
+		<field name="HEAD_CODE" class="java.lang.String"/>
+		<variable name="E_Total" class="java.math.BigDecimal" calculation="Sum">
+			<variableExpression><![CDATA[$F{AMOUNT}]]></variableExpression>
+		</variable>
+	</subDataset>
+	<subDataset name="EARNINGS" uuid="81de7d67-c4b7-425f-95a8-a21628e71dac">
+		<parameter name="p_unit" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_emp_no" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_month" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_year" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[with EMP_SAL as (
+SELECT
+    EMPERNDED_EMP_NO
+    ,AMOUNT
+    ,UNIT_CD
+    ,EMPERNDED_HEAD_CODE
+    ,DECODE(LENGTH(EMPERNDED_HEAD_CODE),2,('0'||EMPERNDED_HEAD_CODE),1,('00'||EMPERNDED_HEAD_CODE),EMPERNDED_HEAD_CODE) HEAD_CODE
+    ,EMPERNDED_HEAD_TYPE
+    ,PAYMENT_FOR_MONTH
+FROM
+    TERMS.EMP_SAL_MASTER
+),
+
+SAL_HD AS(
+SELECT
+    CODE
+    ,DECODE(LENGTH(CODE),2,('0'||CODE),1,('00'||CODE),CODE) HEAD_CODE
+    ,DESCRIPTION
+    ,UNIT_CD
+FROM TERMS.SAL_HD_MAST
+)
+
+
+SELECT DISTINCT
+    es.AMOUNT
+    ,initcap(sh.DESCRIPTION)DESCRIPTION,sh.head_code
+ FROM EMP_SAL ES,SAL_HD SH
+WHERE es.unit_cd                	=       	sh.unit_cd
+  AND es.head_code              	=       	sh.head_code
+  AND es.head_code  in ('001','003','118','912','619')
+  AND es.empernded_head_type    	=       	'E'
+  AND es.empernded_emp_no       	=       	$P{p_emp_no}
+  AND es.unit_cd                	=       	$P{p_unit}
+  AND TO_CHAR(PAYMENT_FOR_MONTH,'MON') 	= 	$P{p_month}
+  AND TO_CHAR(PAYMENT_FOR_MONTH,'YYYY')	=	$P{p_year}
+
+ORDER BY sh.head_code]]>
+		</queryString>
+		<field name="AMOUNT" class="java.math.BigDecimal"/>
+		<field name="DESCRIPTION" class="java.lang.String"/>
+		<field name="HEAD_CODE" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="EMP_ATTEND" uuid="37f947f0-f670-49d4-b101-68df02361195">
+		<parameter name="p_unit" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_mon" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_year" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_emp" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[with data as(SELECT ATTEND_LEAVE_TYPE,NO_OF_DAYS FROM terms.ATTEND_MASTER WHERE UNIT_CODE=$P{p_unit}
+AND MONTH=$P{p_mon}
+AND YEAR=$P{p_year}
+AND EMP_NO = $P{p_emp})
+select * from data
+/*pivot(
+MAX(ATTEND_LEAVE_TYPE||': '||case when NO_OF_DAYS||'    '>0 and NO_OF_DAYS||'    '<1 then '0'||to_char(NO_OF_DAYS||'    ')
+else to_char(NO_OF_DAYS||'    ')
+end) for ATTEND_LEAVE_TYPE in ('FO','EL','CL','OD','CO','HO','SL','AB','LW','PR','WO')
+)*/]]>
+		</queryString>
+		<field name="ATTEND_LEAVE_TYPE" class="java.lang.String"/>
+		<field name="NO_OF_DAYS" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="GROSS" uuid="ed61d090-044d-40d5-86e8-41626bf7c471">
+		<parameter name="p_year" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_month" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_unit" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_emp_no" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[with EMP_SAL as (
+SELECT
+    EMP_NO EMPERNDED_EMP_NO
+    ,AMOUNT
+    ,UNIT_CD
+    ,HEAD_CODE EMPERNDED_HEAD_CODE
+    ,DECODE(LENGTH(HEAD_CODE),2,('0'||HEAD_CODE),1,('00'||HEAD_CODE),HEAD_CODE) HEAD_CODE
+    ,HEAD_TYPE EMPERNDED_HEAD_TYPE
+    ,TRANS_DATE PAYMENT_FOR_MONTH
+FROM
+    TERMS.EMP_EARN_DEDN_HISTORY
+),
+
+SAL_HD AS(
+SELECT
+    CODE
+    ,DECODE(LENGTH(CODE),2,('0'||CODE),1,('00'||CODE),CODE) HEAD_CODE
+    ,DESCRIPTION
+    ,UNIT_CD
+FROM TERMS.SAL_HD_MAST
+)
+
+
+SELECT DISTINCT
+    es.AMOUNT
+    ,initcap(sh.DESCRIPTION)DESCRIPTION,sh.head_code
+ FROM EMP_SAL ES,SAL_HD SH
+WHERE es.unit_cd                	=       	sh.unit_cd
+  AND es.head_code              	=       	sh.head_code
+  AND es.head_code  in ('001','003','118','912','619')
+  AND es.empernded_head_type    	=       	'E'
+  AND es.empernded_emp_no       	LIKE      	$P{p_emp_no}||'%'
+  AND es.unit_cd                	=       	$P{p_unit}
+  AND TO_CHAR(PAYMENT_FOR_MONTH,'MON') 	= 	$P{p_month}
+  AND TO_CHAR(PAYMENT_FOR_MONTH,'YYYY')	=	$P{p_year}
+
+ORDER BY sh.head_code]]>
+		</queryString>
+		<field name="AMOUNT" class="java.math.BigDecimal"/>
+		<field name="DESCRIPTION" class="java.lang.String"/>
+		<field name="HEAD_CODE" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="EARNINGS 2" uuid="188c82df-78c7-4ef5-a556-2145e8d616ca">
+		<parameter name="p_emp_no" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_unit" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_month" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="p_year" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[with EMP_SAL as (
+SELECT
+    EMPERNDED_EMP_NO
+    ,AMOUNT
+    ,UNIT_CD
+    ,EMPERNDED_HEAD_CODE
+    ,DECODE(LENGTH(EMPERNDED_HEAD_CODE),2,('0'||EMPERNDED_HEAD_CODE),1,('00'||EMPERNDED_HEAD_CODE),EMPERNDED_HEAD_CODE) HEAD_CODE
+    ,EMPERNDED_HEAD_TYPE
+    ,PAYMENT_FOR_MONTH
+FROM
+    TERMS.EMP_SAL_MASTER
+),
+
+SAL_HD AS(
+SELECT
+    CODE
+    ,DECODE(LENGTH(CODE),2,('0'||CODE),1,('00'||CODE),CODE) HEAD_CODE
+    ,DESCRIPTION
+    ,UNIT_CD
+FROM TERMS.SAL_HD_MAST
+)
+
+
+SELECT DISTINCT
+    es.AMOUNT
+    ,initcap(sh.DESCRIPTION)DESCRIPTION,sh.head_code
+ FROM EMP_SAL ES,SAL_HD SH
+WHERE es.unit_cd                	=       	sh.unit_cd
+  AND es.head_code              	=       	sh.head_code
+  AND es.head_code not in ('001','003','118','912','619')
+  AND es.empernded_head_type    	=       	'E'
+  AND es.empernded_emp_no       	=       	$P{p_emp_no}
+  AND es.unit_cd                	=       	$P{p_unit}
+  AND TO_CHAR(PAYMENT_FOR_MONTH,'MON') 	= 	$P{p_month}
+  AND TO_CHAR(PAYMENT_FOR_MONTH,'YYYY')	=	$P{p_year}
+
+ORDER BY sh.head_code]]>
+		</queryString>
+		<field name="AMOUNT" class="java.math.BigDecimal"/>
+		<field name="DESCRIPTION" class="java.lang.String"/>
+		<field name="HEAD_CODE" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="p_unit" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_month" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_year" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_emp_cd" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_level" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_div" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_card" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select      Distinct
+            a.empernded_emp_no,
+            a.pf_salary,
+            a.esi_salary,
+            a.empernded_head_type,
+            a.empernded_head_code,
+            a.amount,
+            a.emp_desig_cd,
+            a.emp_catg,
+            a.unit_cd,
+            trim(to_char(a.payment_for_month,'MON')) MON,
+            trim(to_char(a.payment_for_month,'YYYY')) YR,
+            trim(to_char(a.payment_for_month,'Month'))||' - '||trim(to_char(a.payment_for_month,'YYYY')) payment_for_month,
+            trim(b.emp_first_name)||' '||trim(b.emp_last_name)emp_name,
+            b.father_name,
+            b.card_no,
+            b.division_description,
+            b.pf_number pf_code,
+            b.esi_number,
+            b.bank_acc_number,
+            b.uan_no,
+            b.pan_no,
+            b.adhaar_no,
+            b.join_date,
+            (select bm.name from terms.hrm_bank_master bm where bm.code = b.bankmast_code)bank_name,
+            (select bm.ifsc_cd from terms.hrm_bank_master bm where bm.code = b.bankmast_code)ifsc,
+            (select description from terms.hrm_location_master lm where lm.code = b.area_mast_code and lm.unit_cd=b.unit)location,
+            (select name from terms.department dt where dt.code = a.emp_dept_cd and dt.unit_code = a.unit_cd)department,
+            nvl((select sum(nvl(amount,0))from terms.emp_sal_master em where em.empernded_emp_no = a.empernded_emp_no and em.unit_cd = a.unit_cd and em.empernded_head_code='001'),0)basic,
+            round(nvl((select sum(nvl(amount,0))from terms.emp_sal_master em where em.empernded_emp_no = a.empernded_emp_no and em.unit_cd = a.unit_cd and em.empernded_head_type='E' and to_char(em.payment_for_month,'MON')=to_char(a.payment_for_month,'MON') and to_char(em.payment_for_month,'YYYY')=to_char(a.payment_for_month,'YYYY')),0))total_ear,
+            round(nvl((select sum(nvl(amount,0))from terms.emp_sal_master em where em.empernded_emp_no = a.empernded_emp_no and em.unit_cd = a.unit_cd and em.empernded_head_type='D' and to_char(em.payment_for_month,'MON')=to_char(a.payment_for_month,'MON') and to_char(em.payment_for_month,'YYYY')=to_char(a.payment_for_month,'YYYY')),0))total_ded,
+            round(nvl((select sum(nvl(decode(em.empernded_head_type,'E',em.amount),0))-sum(nvl(decode(em.empernded_head_type,'D',em.amount),0))from terms.emp_sal_master em where em.empernded_emp_no = a.empernded_emp_no and em.unit_cd = a.unit_cd),0))net,
+            initcap(terms.amount_to_word(round(nvl((select sum(nvl(decode(em.empernded_head_type,'E',em.amount),0))-sum(nvl(decode(em.empernded_head_type,'D',em.amount),0))from terms.emp_sal_master em where em.empernded_emp_no = a.empernded_emp_no and em.unit_cd = a.unit_cd),0)),'INR'))net_in_word,
+            u.name,
+            case
+                when nvl(Instr(U.ADDRESS, 'Licence'),0)>0
+                then substr(Substr(U.ADDRESS, 1, Instr(U.ADDRESS, 'Licence')-2),1,length(Substr(U.ADDRESS, 1, Instr(U.ADDRESS, 'Licence')-2))-1)
+                else U.ADDRESS
+            end address,
+            u.logo_path logo,
+            (select description from terms.sal_hd_mast sm where sm.code = a.empernded_head_code and sm.unit_cd = a.unit_cd)ern_dedcn_desc,
+            (select description from terms.designation dg where dg.code = a.emp_desig_cd and dg.unit_cd = a.unit_cd)designation_desc,
+            nvl((select wd.work_days from terms.working_days wd where wd.unit_cd = a.unit_cd and wd.month = to_char(a.payment_for_month,'MON') and wd.year = to_char(a.payment_for_month,'YYYY')),0)no_working,
+            nvl((select am.no_of_days from terms.attend_master am where am.emp_no = a.empernded_emp_no and am.unit_code = a.unit_cd and am.month = to_char(a.payment_for_month,'MON') and am.year = to_char(a.payment_for_month,'YYYY') and am.attend_leave_type='AB'),0)abs_days,
+            sum(nvl(decode(empernded_head_type,'E',a.amount),0))over(partition by a.empernded_emp_no,a.empernded_head_code)ear,
+            sum(nvl(decode(empernded_head_type,'D',a.amount),0))over(partition by a.empernded_emp_no,a.empernded_head_code)ded,
+            nvl((select sum(eh.amount) from terms.emp_earn_dedn_history eh where eh.emp_no = a.empernded_emp_no and to_char(a.payment_for_month,'MON-YYYY') = to_char(eh.trans_date,'MON-YYYY') and head_code in ('001','003','118','018','016','912','619')),0) gross_total,
+            nvl((select sum(eh.amount) from terms.emp_earn_dedn_history eh where eh.emp_no = a.empernded_emp_no and to_char(a.payment_for_month,'MON-YYYY') = to_char(eh.trans_date,'MON-YYYY') and head_code in ('001')),0)basic1,
+            nvl((select sum(eh.amount) from terms.emp_earn_dedn_history eh where eh.emp_no = a.empernded_emp_no and to_char(a.payment_for_month,'MON-YYYY') = to_char(eh.trans_date,'MON-YYYY') and head_code in ('003')),0)HRA,
+            nvl((select sum(eh.amount) from terms.emp_earn_dedn_history eh where eh.emp_no = a.empernded_emp_no and to_char(a.payment_for_month,'MON-YYYY') = to_char(eh.trans_date,'MON-YYYY') and head_code in ('018')),0)other_allow,
+            nvl((select sum(eh.amount) from terms.emp_earn_dedn_history eh where eh.emp_no = a.empernded_emp_no and to_char(a.payment_for_month,'MON-YYYY') = to_char(eh.trans_date,'MON-YYYY') and head_code in ('118')),0)conveyance,
+            nvl((select sum(eh.amount) from terms.emp_earn_dedn_history eh where eh.emp_no = a.empernded_emp_no and to_char(a.payment_for_month,'MON-YYYY') = to_char(eh.trans_date,'MON-YYYY') and head_code in ('016')),0)cca,
+            nvl((select sum(eh.amount) from terms.emp_earn_dedn_history eh where eh.emp_no = a.empernded_emp_no and to_char(a.payment_for_month,'MON-YYYY') = to_char(eh.trans_date,'MON-YYYY') and head_code in ('912')),0)medical_alow,
+            nvl((select sum(eh.amount) from terms.emp_earn_dedn_history eh where eh.emp_no = a.empernded_emp_no and to_char(a.payment_for_month,'MON-YYYY') = to_char(eh.trans_date,'MON-YYYY') and head_code in ('619')),0)spcl,
+
+            (select at.total_paid_days from terms.adv_att at where at.emp_no = a.empernded_emp_no and at.unit_cd = a.unit_cd and at.mon||'-'||at.year = to_char(a.payment_for_month,'MON-YYYY'))total_payble_days,
+            nvl((select sum(ad.amount) from terms.arrear_detail ad where ad.emp_no = a.empernded_emp_no and ad.salhd_mast_type = 'E' and ad.sal_month||'-'||ad.sal_year = to_char(a.payment_for_month,'MON-YYYY')),0)Earning_arrear,
+            nvl((select sum(ad.amount) from terms.arrear_detail ad where ad.emp_no = a.empernded_emp_no and ad.sal_hd_code = '007' and ad.sal_month||'-'||ad.sal_year = to_char(a.payment_for_month,'MON-YYYY')),0)deduction_arrear
+
+from        terms.emp_sal_master a
+left join   terms.emp_master_hd b   on a.empernded_emp_no = b.emp_number
+                                    and a.unit_cd = b.unit
+left join   terms.unit u            on a.unit_cd = u.code
+
+where       a.unit_cd = $P{p_unit}
+and         a.empernded_emp_no like $P{p_emp_cd}||'%'
+and         to_char(a.payment_for_month,'MON')=$P{p_month}
+and         to_char(a.payment_for_month,'YYYY')=$P{p_year}
+and         b.division_code like $P{p_div}||'%'
+and         b.card_no like $P{p_card}||'%'
+
+order by    a.empernded_emp_no]]>
+	</queryString>
+	<field name="EMPERNDED_EMP_NO" class="java.lang.String"/>
+	<field name="PF_SALARY" class="java.math.BigDecimal"/>
+	<field name="ESI_SALARY" class="java.math.BigDecimal"/>
+	<field name="EMPERNDED_HEAD_TYPE" class="java.lang.String"/>
+	<field name="EMPERNDED_HEAD_CODE" class="java.lang.String"/>
+	<field name="AMOUNT" class="java.math.BigDecimal"/>
+	<field name="EMP_DESIG_CD" class="java.lang.String"/>
+	<field name="EMP_CATG" class="java.lang.String"/>
+	<field name="UNIT_CD" class="java.lang.String"/>
+	<field name="MON" class="java.lang.String"/>
+	<field name="YR" class="java.lang.String"/>
+	<field name="PAYMENT_FOR_MONTH" class="java.lang.String"/>
+	<field name="EMP_NAME" class="java.lang.String"/>
+	<field name="FATHER_NAME" class="java.lang.String"/>
+	<field name="CARD_NO" class="java.lang.String"/>
+	<field name="DIVISION_DESCRIPTION" class="java.lang.String"/>
+	<field name="PF_CODE" class="java.lang.String"/>
+	<field name="ESI_NUMBER" class="java.lang.String"/>
+	<field name="BANK_ACC_NUMBER" class="java.lang.String"/>
+	<field name="UAN_NO" class="java.lang.String"/>
+	<field name="PAN_NO" class="java.lang.String"/>
+	<field name="ADHAAR_NO" class="java.lang.String"/>
+	<field name="JOIN_DATE" class="java.sql.Timestamp"/>
+	<field name="BANK_NAME" class="java.lang.String"/>
+	<field name="IFSC" class="java.lang.String"/>
+	<field name="LOCATION" class="java.lang.String"/>
+	<field name="DEPARTMENT" class="java.lang.String"/>
+	<field name="BASIC" class="java.math.BigDecimal"/>
+	<field name="TOTAL_EAR" class="java.math.BigDecimal"/>
+	<field name="TOTAL_DED" class="java.math.BigDecimal"/>
+	<field name="NET" class="java.math.BigDecimal"/>
+	<field name="NET_IN_WORD" class="java.lang.String"/>
+	<field name="NAME" class="java.lang.String"/>
+	<field name="ADDRESS" class="java.lang.String"/>
+	<field name="LOGO" class="java.lang.String"/>
+	<field name="ERN_DEDCN_DESC" class="java.lang.String"/>
+	<field name="DESIGNATION_DESC" class="java.lang.String"/>
+	<field name="NO_WORKING" class="java.math.BigDecimal"/>
+	<field name="ABS_DAYS" class="java.math.BigDecimal"/>
+	<field name="EAR" class="java.math.BigDecimal"/>
+	<field name="DED" class="java.math.BigDecimal"/>
+	<field name="GROSS_TOTAL" class="java.math.BigDecimal"/>
+	<field name="BASIC1" class="java.math.BigDecimal"/>
+	<field name="HRA" class="java.math.BigDecimal"/>
+	<field name="OTHER_ALLOW" class="java.math.BigDecimal"/>
+	<field name="CONVEYANCE" class="java.math.BigDecimal"/>
+	<field name="CCA" class="java.math.BigDecimal"/>
+	<field name="MEDICAL_ALOW" class="java.math.BigDecimal"/>
+	<field name="SPCL" class="java.math.BigDecimal"/>
+	<field name="TOTAL_PAYBLE_DAYS" class="java.math.BigDecimal"/>
+	<field name="EARNING_ARREAR" class="java.math.BigDecimal"/>
+	<field name="DEDUCTION_ARREAR" class="java.math.BigDecimal"/>
+	<group name="EMP_SAL" isStartNewPage="true" keepTogether="true">
+		<groupExpression><![CDATA[$F{EMPERNDED_EMP_NO}]]></groupExpression>
+		<groupHeader>
+			<band height="272">
+				<frame>
+					<reportElement x="0" y="68" width="717" height="80" uuid="38cbfb52-ac2f-4f6d-8f74-079641eaca5d"/>
+					<box>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<staticText>
+						<reportElement x="1" y="1" width="53" height="15" uuid="64b0d3c9-0fd6-4ad4-8672-2792785c9fa4"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+							<paragraph leftIndent="1"/>
+						</textElement>
+						<text><![CDATA[Card No]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="54" y="1" width="2" height="15" uuid="5afd3fad-a0f5-4d48-bab3-bc8057ce1dbd"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="57" y="1" width="130" height="15" uuid="f671d435-e9b4-4bd3-98f0-9f376b3ac9a3"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{CARD_NO}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="1" y="50" width="53" height="15" uuid="ab6f3c78-ef97-4ff6-a576-69c9806a3356"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+							<paragraph leftIndent="1"/>
+						</textElement>
+						<text><![CDATA[DOJ]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="1" y="65" width="53" height="15" uuid="18865bf2-098d-47c1-9d87-7fd964caef9d"/>
+						<box leftPadding="2"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[Designation]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement stretchType="RelativeToBandHeight" x="57" y="65" width="130" height="15" uuid="b2778bdf-c89e-4a1f-872a-41619606054c"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{DESIGNATION_DESC}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="1" y="17" width="53" height="15" uuid="3e2903e0-1781-4c77-b672-2a562e1cde28"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+							<paragraph leftIndent="1"/>
+						</textElement>
+						<text><![CDATA[Name]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="57" y="17" width="130" height="15" uuid="3889f3e1-5192-4a05-aeda-95acb39b03ab"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{EMP_NAME}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="57" y="34" width="130" height="15" uuid="15ef44f1-ad52-4251-b9b3-f0269a73c3c4"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{FATHER_NAME}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy" isBlankWhenNull="true">
+						<reportElement x="57" y="50" width="130" height="15" uuid="fab117e9-4d6f-4053-819a-9adf591d5f27"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{JOIN_DATE}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="1" y="34" width="53" height="15" uuid="6e573aae-65af-47da-896d-30153c643091"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+							<paragraph leftIndent="1"/>
+						</textElement>
+						<text><![CDATA[Father Name]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="54" y="17" width="2" height="15" uuid="8eab0c5f-cd6a-44b2-9e75-718384d01a0f"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="54" y="34" width="2" height="15" uuid="94510f10-a970-437b-9214-eccd1927cd4c"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="54" y="50" width="2" height="15" uuid="b213e033-ce73-48fe-8a43-999defa94b55"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="54" y="65" width="2" height="15" uuid="68174335-ca43-403f-98a6-3da36684fcf0"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="304" y="50" width="2" height="15" uuid="52632563-4f0d-45d8-b9a4-6b2878b98773"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="304" y="17" width="2" height="15" uuid="de428a22-af20-4032-a91a-00ec562ab4a4"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="251" y="65" width="53" height="15" uuid="4cb46ccc-24f6-4473-ad08-5eab1291a64a"/>
+						<box leftPadding="2"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[UAN No.]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="251" y="17" width="53" height="15" uuid="3ca3029b-3faf-4ea2-80e8-bf3336fb112f"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+							<paragraph leftIndent="1"/>
+						</textElement>
+						<text><![CDATA[Location]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="304" y="33" width="2" height="15" uuid="e8722abd-ec23-416b-a3c2-ce012e678b29"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+						<reportElement x="307" y="50" width="130" height="15" uuid="9c04a3bb-836f-4a85-a1ad-832a9c9bb57d"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{PF_CODE}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="307" y="2" width="130" height="15" uuid="6266b431-8473-4e99-9923-c12f965539dd"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{DEPARTMENT}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="251" y="33" width="53" height="15" uuid="a6a7be47-99c5-4776-ae64-97a1ae9ce8e4"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+							<paragraph leftIndent="1"/>
+						</textElement>
+						<text><![CDATA[Division]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement stretchType="RelativeToBandHeight" x="307" y="65" width="130" height="15" uuid="00f538f2-ca7e-4fe5-af63-e6be781bb609"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{UAN_NO}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="304" y="2" width="2" height="15" uuid="1ac467d9-7a7f-4297-b823-7dc7d3765318"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="307" y="17" width="130" height="15" uuid="81974d98-fb6f-463d-b3df-f69cc07aa4f5"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{LOCATION}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="304" y="65" width="2" height="15" uuid="8cd7fe32-b310-4ece-90c9-78465d09ced5"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="251" y="2" width="53" height="15" uuid="4563741c-d152-45eb-a7db-08a1661b3a5b"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+							<paragraph leftIndent="1"/>
+						</textElement>
+						<text><![CDATA[Department]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="307" y="33" width="130" height="15" uuid="cc635973-1fec-42b5-84e2-d98f5a59a6fd"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{DIVISION_DESCRIPTION}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="251" y="50" width="53" height="15" uuid="8b1c4a4d-fff8-427e-b579-63c75b7bec96"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+							<paragraph leftIndent="1"/>
+						</textElement>
+						<text><![CDATA[PF No.]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="552" y="51" width="2" height="15" uuid="ba5131ac-fdd4-4525-bcc6-ad42e46deb8f"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="552" y="18" width="2" height="15" uuid="263a9299-6dd4-4612-8ee5-ad176f427ba0"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="499" y="18" width="53" height="15" uuid="1a2c490b-f58c-4aaf-b0ab-a88333e71b6a"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[Bank Name]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="552" y="34" width="2" height="15" uuid="6bd2ad04-a304-47fa-86e0-ae2b70552c4f"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+						<reportElement x="555" y="51" width="130" height="15" uuid="9eab5258-5463-45e4-8ee9-307bdb8d48b6"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{IFSC}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="555" y="2" width="130" height="15" uuid="c82e93b2-3633-42fa-b743-5bbce9924d11"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{ESI_NUMBER}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="499" y="34" width="53" height="15" uuid="918dd6d2-4f3c-4de9-9e25-d6d00a69fe1e"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[Bank A/C No.]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="552" y="1" width="2" height="15" uuid="aaa5aa45-60e6-431e-9a00-35d5eb641c40"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="555" y="18" width="130" height="15" uuid="2eb81633-465e-4482-81e1-4f30a49a2f37"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{BANK_NAME}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="499" y="1" width="53" height="15" uuid="0c18db3a-82d7-463c-a7b5-7b72901567e3"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[ESIC No.]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="555" y="34" width="130" height="15" uuid="dac33151-b9ab-4a7b-9493-95a750515b1d"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{BANK_ACC_NUMBER}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="499" y="51" width="53" height="15" uuid="89f19591-b55d-4d95-82fb-fd3495e43ddb"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="8"/>
+						</textElement>
+						<text><![CDATA[IFSC]]></text>
+					</staticText>
+				</frame>
+				<textField>
+					<reportElement x="552" y="150" width="165" height="30" uuid="46d49568-5162-44e1-a8fe-50c26e901411"/>
+					<box>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Serif" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Provisional Income Tax Summary"+"\n"+"(2021-22)"]]></textFieldExpression>
+				</textField>
+				<frame>
+					<reportElement positionType="Float" x="0" y="148" width="552" height="124" uuid="3286746b-590d-46da-b665-30c6ad4491c5"/>
+					<box>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textField>
+						<reportElement x="120" y="2" width="131" height="30" uuid="add59740-46a1-4a67-bfd2-caced6b1212c"/>
+						<box>
+							<bottomPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Serif" size="9" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA["Gross Salary"+"\n"+"Wages Detail"]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="251" y="2" width="151" height="30" uuid="bf45017b-d8be-4bf2-b47b-c765afbcec38"/>
+						<box>
+							<bottomPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Serif" size="9" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA["Earnings"]]></textFieldExpression>
+					</textField>
+					<componentElement>
+						<reportElement key="table 4" style="table 4" positionType="Float" x="251" y="34" width="150" height="16" uuid="ba9aebe3-1f70-4535-b77e-123c83eb1f0b"/>
+						<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+							<datasetRun subDataset="EARNINGS" uuid="f4048fb8-1a84-404e-8f33-8d7213a74593">
+								<datasetParameter name="p_unit">
+									<datasetParameterExpression><![CDATA[$P{p_unit}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_emp_no">
+									<datasetParameterExpression><![CDATA[$F{EMPERNDED_EMP_NO}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_month">
+									<datasetParameterExpression><![CDATA[$P{p_month}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_year">
+									<datasetParameterExpression><![CDATA[$P{p_year}]]></datasetParameterExpression>
+								</datasetParameter>
+								<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+							</datasetRun>
+							<jr:column width="100" uuid="ded4598b-b161-4e3e-a970-0154d2c3b089">
+								<jr:detailCell style="table 4_TD" height="16" rowSpan="1">
+									<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+										<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="100" height="15" uuid="bc567bdd-516f-4736-9f14-f8c2763b59f5"/>
+										<box leftPadding="2"/>
+										<textElement verticalAlignment="Top">
+											<font fontName="Arial" size="9"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{DESCRIPTION}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="45" uuid="b0faebc0-2b59-4131-8b25-dd8f62f05736">
+								<jr:detailCell style="table 4_TD" height="16" rowSpan="1">
+									<textField isStretchWithOverflow="true" pattern="###0" isBlankWhenNull="true">
+										<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="45" height="15" uuid="14b8917d-d463-4b1b-a629-e13ab72daeb3"/>
+										<textElement textAlignment="Right" verticalAlignment="Top">
+											<font fontName="Arial" size="9"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{AMOUNT}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:table>
+					</componentElement>
+					<componentElement>
+						<reportElement key="table 4" style="table 4" positionType="Float" x="251" y="50" width="150" height="16" uuid="b991efc5-0093-415b-b442-11f8a946c699"/>
+						<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+							<datasetRun subDataset="EARNINGS 2" uuid="5106e868-7d28-4bd9-9043-fed7c0fdd034">
+								<datasetParameter name="p_unit">
+									<datasetParameterExpression><![CDATA[$P{p_unit}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_emp_no">
+									<datasetParameterExpression><![CDATA[$F{EMPERNDED_EMP_NO}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_month">
+									<datasetParameterExpression><![CDATA[$P{p_month}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_year">
+									<datasetParameterExpression><![CDATA[$P{p_year}]]></datasetParameterExpression>
+								</datasetParameter>
+								<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+							</datasetRun>
+							<jr:column width="100" uuid="00264b49-eaee-4ccf-864e-399e6ea8add2">
+								<jr:detailCell style="table 4_TD" height="16" rowSpan="1">
+									<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+										<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="100" height="15" uuid="a623e49f-099d-48d0-a5fb-e84164828711"/>
+										<box leftPadding="2"/>
+										<textElement verticalAlignment="Top">
+											<font fontName="Arial" size="9"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{DESCRIPTION}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="45" uuid="90f4418f-3830-4f28-88d2-ebdc8e9828a2">
+								<jr:detailCell style="table 4_TD" height="16" rowSpan="1">
+									<textField isStretchWithOverflow="true" pattern="###0" isBlankWhenNull="true">
+										<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="45" height="15" uuid="5c63cbc2-cd1d-4a8b-a180-1f3d7668cb64"/>
+										<textElement textAlignment="Right" verticalAlignment="Top">
+											<font fontName="Arial" size="9"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{AMOUNT}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:table>
+					</componentElement>
+					<textField>
+						<reportElement x="402" y="2" width="150" height="30" uuid="6ea40838-5253-427a-bb75-6421e6bcd30f"/>
+						<box>
+							<bottomPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Serif" size="9" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA["Deductions"]]></textFieldExpression>
+					</textField>
+					<componentElement>
+						<reportElement key="table 3" style="table 3" positionType="Float" x="403" y="34" width="148" height="16" uuid="e6a77cf9-820c-4b71-8a43-d828b2e78341"/>
+						<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+							<datasetRun subDataset="DEDUCTIONS" uuid="31bf62f1-ecad-413d-bf0a-7208908e8b34">
+								<datasetParameter name="p_emp_no">
+									<datasetParameterExpression><![CDATA[$F{EMPERNDED_EMP_NO}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_unit">
+									<datasetParameterExpression><![CDATA[$P{p_unit}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_month">
+									<datasetParameterExpression><![CDATA[$P{p_month}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_year">
+									<datasetParameterExpression><![CDATA[$P{p_year}]]></datasetParameterExpression>
+								</datasetParameter>
+								<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+							</datasetRun>
+							<jr:column width="100" uuid="95a49c47-c7e6-491d-8269-a42b9b82b39a">
+								<jr:detailCell style="table 3_TD" height="16" rowSpan="1">
+									<textField isBlankWhenNull="true">
+										<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="100" height="15" uuid="5137b49c-ae98-4ba3-9ffd-81a26ab7f42b"/>
+										<box leftPadding="2"/>
+										<textElement verticalAlignment="Top">
+											<font fontName="Arial" size="9"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{DESCRIPTION}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="45" uuid="eacca63c-adca-44fe-9a36-79f0e525d92e">
+								<jr:detailCell style="table 3_TD" height="16" rowSpan="1">
+									<textField pattern="###0" isBlankWhenNull="true">
+										<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="45" height="15" uuid="4ab2c483-bb99-490b-af48-a26e02dbbc88"/>
+										<textElement textAlignment="Right" verticalAlignment="Top">
+											<font fontName="Arial" size="9"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{AMOUNT}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:table>
+					</componentElement>
+					<line>
+						<reportElement stretchType="RelativeToBandHeight" x="402" y="0" width="1" height="124" uuid="a27ad638-d9ee-42c4-ab89-ac3c96442cdd"/>
+					</line>
+					<line>
+						<reportElement stretchType="RelativeToBandHeight" x="251" y="0" width="1" height="124" uuid="a4ecbe92-d958-4c06-89cb-c58305c5fe4f"/>
+					</line>
+					<line>
+						<reportElement stretchType="RelativeToBandHeight" x="120" y="0" width="1" height="124" uuid="5c397605-3cc1-4702-ab77-741aabcc7ff1"/>
+					</line>
+					<textField>
+						<reportElement x="0" y="2" width="120" height="30" uuid="6ca2c5e1-7f6f-4fd4-9483-a4df1c953579"/>
+						<box>
+							<bottomPen lineWidth="1.0"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Serif" size="9" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA["Attendence Detail"]]></textFieldExpression>
+					</textField>
+					<componentElement>
+						<reportElement key="table 6" style="table 6_TD" positionType="Float" x="2" y="34" width="117" height="16" uuid="a6cfc93e-d4e5-498a-b895-00129385c060">
+							<property name="net.sf.jasperreports.export.pdf.tag.tr" value="start"/>
+						</reportElement>
+						<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+							<datasetRun subDataset="EMP_ATTEND" uuid="25b8e2e2-c3c2-4107-8ff9-142f8f4b71eb">
+								<datasetParameter name="p_unit">
+									<datasetParameterExpression><![CDATA[$P{p_unit}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_year">
+									<datasetParameterExpression><![CDATA[$P{p_year}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_mon">
+									<datasetParameterExpression><![CDATA[$P{p_month}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_emp">
+									<datasetParameterExpression><![CDATA[$F{EMPERNDED_EMP_NO}]]></datasetParameterExpression>
+								</datasetParameter>
+								<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+							</datasetRun>
+							<jr:column width="60" uuid="1842f6ed-a5cb-49de-95ae-0c3b4b312f53">
+								<jr:detailCell style="Crosstab Data Text" height="16" rowSpan="1">
+									<textField>
+										<reportElement x="0" y="0" width="60" height="15" uuid="5e32ef07-8b51-4585-9441-c7d8485e91df"/>
+										<textElement>
+											<font fontName="Serif" size="9"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{ATTEND_LEAVE_TYPE}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="50" uuid="744a6aa3-edf8-4c5c-b344-ffc0506b2058">
+								<jr:detailCell height="16" rowSpan="1">
+									<textField>
+										<reportElement x="0" y="0" width="50" height="15" uuid="ad4efed7-69c4-4e20-b482-8c34e6a3e381"/>
+										<textElement textAlignment="Right">
+											<font fontName="Serif" size="9"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{NO_OF_DAYS}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:table>
+					</componentElement>
+					<componentElement>
+						<reportElement key="table 11" style="table 11" x="122" y="34" width="130" height="16" uuid="c4299d27-6f08-4e6e-9f05-0158766d89e1"/>
+						<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+							<datasetRun subDataset="GROSS" uuid="fe315e7b-729c-473a-8199-f6cfee9a2368">
+								<datasetParameter name="p_year">
+									<datasetParameterExpression><![CDATA[$P{p_year}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_month">
+									<datasetParameterExpression><![CDATA[$P{p_month}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_unit">
+									<datasetParameterExpression><![CDATA[$P{p_unit}]]></datasetParameterExpression>
+								</datasetParameter>
+								<datasetParameter name="p_emp_no">
+									<datasetParameterExpression><![CDATA[$F{EMPERNDED_EMP_NO}]]></datasetParameterExpression>
+								</datasetParameter>
+								<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+							</datasetRun>
+							<jr:column width="80" uuid="3131f325-7f8f-40e3-8bc4-7606cc752ce5">
+								<jr:detailCell style="table 11_TD" height="15" rowSpan="1">
+									<textField>
+										<reportElement x="0" y="0" width="80" height="15" uuid="425bd1b6-51b3-4a55-8176-3d590185a544"/>
+										<textElement>
+											<font fontName="Serif"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{DESCRIPTION}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+							<jr:column width="45" uuid="78135edd-ecab-406a-aee5-d77988414bbf">
+								<jr:detailCell style="table 11_TD" height="15" rowSpan="1">
+									<textField>
+										<reportElement x="0" y="0" width="45" height="15" uuid="40a7de63-0e7a-489a-ab0f-170f90d9ca31"/>
+										<textElement textAlignment="Right">
+											<font fontName="Serif"/>
+										</textElement>
+										<textFieldExpression><![CDATA[$F{AMOUNT}]]></textFieldExpression>
+									</textField>
+								</jr:detailCell>
+							</jr:column>
+						</jr:table>
+					</componentElement>
+				</frame>
+				<frame>
+					<reportElement x="0" y="0" width="717" height="52" uuid="4958709f-8d41-4254-a6bc-f3caa3364ef9"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="2" y="18" width="714" height="15" uuid="3c8631b4-d5cd-4c77-84dc-a39876c49596"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Serif" size="9"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{ADDRESS}]]></textFieldExpression>
+					</textField>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="2" y="0" width="714" height="15" uuid="acb1beea-480c-4f50-8985-71e3f8111ce5"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Serif" size="10" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{NAME}]]></textFieldExpression>
+					</textField>
+					<image onErrorType="Blank">
+						<reportElement x="0" y="1" width="88" height="50" uuid="488b5d71-95f6-4fe8-b008-617676a54cf3"/>
+						<imageExpression><![CDATA[$F{LOGO}]]></imageExpression>
+					</image>
+				</frame>
+				<line>
+					<reportElement stretchType="RelativeToBandHeight" x="717" y="147" width="1" height="125" uuid="075a7d41-c57e-4196-af07-f40380e42d32"/>
+				</line>
+				<textField pattern="MMM-yy">
+					<reportElement x="0" y="52" width="717" height="16" uuid="07526e53-83f2-4a62-86b7-1063938c5d24"/>
+					<box>
+						<leftPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Serif" size="11" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Payslip For The Month "+$F{PAYMENT_FOR_MONTH}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="70">
+				<frame>
+					<reportElement x="0" y="0" width="552" height="26" uuid="634c6cec-4160-4166-8d44-7dae3a3e005a"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<staticText>
+						<reportElement x="120" y="0" width="69" height="26" uuid="15fb0eb6-2d20-4ca2-bced-422d9bce47bd"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+							<leftPen lineWidth="1.0"/>
+						</box>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="9" isBold="true"/>
+							<paragraph leftIndent="1"/>
+						</textElement>
+						<text><![CDATA[Monthly Gross :]]></text>
+					</staticText>
+					<textField isBlankWhenNull="true">
+						<reportElement x="190" y="0" width="61" height="26" uuid="7297e743-b053-4baa-83be-4cce272321e6"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+						</box>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="Serif" size="9" isBold="true"/>
+							<paragraph rightIndent="2"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{GROSS_TOTAL}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement positionType="FixRelativeToBottom" x="251" y="0" width="79" height="26" uuid="8b69efff-0340-46a1-880d-6289dd587b05"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+							<leftPen lineWidth="1.0"/>
+						</box>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="9" isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[Total Earnings :]]></text>
+					</staticText>
+					<textField pattern="###0" isBlankWhenNull="true">
+						<reportElement positionType="FixRelativeToBottom" x="330" y="0" width="72" height="26" uuid="2daba383-4cfc-45e3-a03f-423e92718d9a"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+						</box>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="Serif" size="9" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{TOTAL_EAR}+$F{EARNING_ARREAR}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement positionType="FixRelativeToBottom" x="403" y="0" width="85" height="26" uuid="96ad52f8-5300-48c2-81b9-3d136f86bc25"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+							<leftPen lineWidth="1.0"/>
+						</box>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="9" isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[Total Deductions :]]></text>
+					</staticText>
+					<textField pattern="###0" isBlankWhenNull="true">
+						<reportElement positionType="FixRelativeToBottom" x="486" y="0" width="66" height="26" uuid="62233711-c8bc-48cc-954e-9bc711c0159c"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+						</box>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="Serif" size="9" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{TOTAL_DED}+$F{DEDUCTION_ARREAR}]]></textFieldExpression>
+					</textField>
+					<textField isBlankWhenNull="true">
+						<reportElement x="88" y="0" width="33" height="26" uuid="ac7d6482-58c7-4b74-a948-9089f0c20e83"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+						</box>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="Serif" size="9" isBold="true"/>
+							<paragraph rightIndent="2"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{TOTAL_PAYBLE_DAYS}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="0" y="0" width="88" height="26" uuid="15782f6b-05f8-49ea-baeb-ac8b7a5e6455"/>
+						<box>
+							<topPen lineWidth="0.0"/>
+							<leftPen lineWidth="1.0"/>
+						</box>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Serif" size="9" isBold="true"/>
+							<paragraph leftIndent="1"/>
+						</textElement>
+						<text><![CDATA[Payable Days :]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement positionType="FixRelativeToBottom" x="0" y="26" width="552" height="24" uuid="f5875335-24a5-4256-b2ab-9ae57d4fe00e"/>
+					<box>
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="0.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textField pattern="###0" isBlankWhenNull="true">
+						<reportElement x="487" y="0" width="64" height="24" uuid="d7b9a11a-1988-4c72-a814-d5fc2d780778"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="Serif" size="9" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[($F{TOTAL_EAR}+$F{EARNING_ARREAR})-($F{TOTAL_DED}+$F{DEDUCTION_ARREAR})]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="401" y="0" width="84" height="24" uuid="0932caf7-86b2-45a1-9e96-122474fa5e89"/>
+						<box leftPadding="2"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="Serif" size="9" isBold="true" isItalic="false"/>
+						</textElement>
+						<text><![CDATA[Net  Pay:]]></text>
+					</staticText>
+				</frame>
+				<staticText>
+					<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="0" y="50" width="717" height="20" uuid="3355b509-d07e-48e7-865c-36db85eada89"/>
+					<box leftPadding="2">
+						<topPen lineWidth="1.0"/>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<text><![CDATA[Note: This is an electronically generated statement hence does not require any signature.]]></text>
+				</staticText>
+				<frame>
+					<reportElement x="552" y="0" width="165" height="50" uuid="a1fdfa2c-c029-4a0f-af81-0a3a4e82f3ff"/>
+					<box>
+						<rightPen lineWidth="1.0"/>
+					</box>
+				</frame>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band height="383" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="717" height="383" uuid="7a472380-0fd6-4a27-bedc-4f51d4d53957"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+			</frame>
+		</band>
+	</background>
+</jasperReport>
